@@ -84,9 +84,32 @@ Eu como funcionário da UFMG gostaria de alterar dados no meu cadastro para atua
 **Critérios de Aceitação:**
  * Alterar o saldo
  * Bloquear cartão
- 
 
+# Guia de Estilo
+**1. Formatação Básica** 
+* Indentação: Use tab
+* Limite de linha: 80-100 caracteres
+* Chaves: Estilo 1TBS (One True Brace Style)
+Ex: 
 
+if (condicao) {
+    // código
+} else {
+    // código
+}
 
+**2. Nomenclatura** 
+* Classes: PascalCase (MinhaClasse)
+* Funções/métodos: camelCase (minhaFuncao())
+* Variáveis: camelCase (minhaVariavel)
+* Constantes: UPPER_CASE (MINHA_CONSTANTE)
+* Membros de classe: prefixo m_ (m_meuMembro)
 
+**3. Documentação**
 
+Considere Doxygen para documentação formal:
+
+/// \brief Função que faz algo importante
+/// \param valor Entrada para processamento
+/// \return Resultado do processamento
+int processar(int valor);
