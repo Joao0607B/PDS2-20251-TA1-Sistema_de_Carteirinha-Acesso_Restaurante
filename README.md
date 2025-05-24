@@ -92,11 +92,13 @@ Eu como funcionário da UFMG gostaria de alterar dados no meu cadastro para atua
 * Chaves: Estilo 1TBS (One True Brace Style)
 Ex: 
 
+```c++
 if (condicao) {
     // código
 } else {
     // código
 }
+```
 
 **2. Nomenclatura** 
 * Classes: PascalCase (MinhaClasse)
@@ -108,8 +110,9 @@ if (condicao) {
 **3. Documentação**
 
 Considere Doxygen para documentação formal:
-
+```c++
 /// \brief Função que faz algo importante
 /// \param valor Entrada para processamento
 /// \return Resultado do processamento
 int processar(int valor);
+```
