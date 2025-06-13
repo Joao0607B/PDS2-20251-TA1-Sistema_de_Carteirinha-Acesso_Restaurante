@@ -1,3 +1,5 @@
+//aqui seria o funcionário ou cliente? 
+
 #ifndef FUNCIONÁRIO_HPP
 #define FUNCIONÁRIO_HPP
 
