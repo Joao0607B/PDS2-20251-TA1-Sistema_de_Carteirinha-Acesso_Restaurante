@@ -6,18 +6,21 @@ using namespace std;
 
 class Pessoa{
     private:
-    string nome;
-    int cpf;
+    string _nome;
+    int _cpf;
 
     public:
-    Pessoa(string _nome, int _cpf);
+    Pessoa(string nome, int cpf);
 
-    void setNome(string _nome);
-    void setCpf(int _cpf);
+    void setNome(string nome);
+    void setCpf(int cpf);
 
     string getNome();
     int getCpf();
 
     virtual void printInfo();
+    virtual void criaCadastro(string nome, int cpf);
+    // adicionei o método criar cadastro que poderá ser subscrito pelas outras subclasses, por exemplo, a classe aluno poderá receber o parâmetro matrícula
+
 };
 #endif
