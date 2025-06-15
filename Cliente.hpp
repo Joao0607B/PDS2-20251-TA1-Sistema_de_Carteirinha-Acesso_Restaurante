@@ -7,21 +7,22 @@ using namespace std;
 
 class Cliente: public Pessoa{
     private:
-        float m_saldo;
-        string m_ultimoAcesso;
-        bool isBloqueado = true;
+        float _saldo;
+        string _ultimoAcesso;
+        bool isBloqueado = false;
+        int nivelFUMP;
 
     public:
-        Cliente(string nome, int cpf): Pessoa(nome, cpf), m_saldo(0){};
+        Cliente(string nome, int cpf): Pessoa(nome, cpf), _saldo(0){};
         float getSaldo();
         string getUltimoAcesso();
-        float setSaldo();
         void bloquearCartao();
-        void printInfo();
+        void printInfo() override; //Herança de pessoa
 
     private:
-        float setSaldo();
-        void transferirCredito();
+        float setSaldo(float valor);
+        void transferirCredito(float valor);
+        string setUltimoAcesso();
 };
 
 #endif
