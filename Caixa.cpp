@@ -8,24 +8,24 @@ map<string, map<int, int>> Caixa::refeicoesClientes;
 string bancoDeDados = "banco_de_dados";
 Caixa::Caixa(string nome, string usuario, string senha): Funcionario(nome), _usuario(usuario), _senha(senha){};
 
-void Caixa::setNome(string nome){this->_nome = nome;}
+//void Caixa::setNome(string nome){this->_nome = nome;} já tem em pessoa
 void Caixa::setUsuario(string usuario){this->_usuario = usuario;}
 void Caixa::setSenha(string senha){this->_senha = senha;}
 void Caixa::setRU(string RU){this->_RU = RU;}
 void Caixa::setCaixa(int caixa){this->_caixa = caixa;}
 
-string Caixa::getNome(){return this -> _nome;}
+//string Caixa::getNome(){return this -> _nome;} já tem em pessoa
 string Caixa::getUsuario(){return this -> _usuario;}
 string Caixa::getSenha(){return this-> _senha;}
 string Caixa::getRU(){return this-> _RU;}
 int Caixa::getCaixa(){return this-> _caixa;}
 
-void Caixa::criarCadastro(string nome, int cpf, string usuario, string senha){
+void Caixa::criarCadastro(string nome, int cpf, string usuario, string senha){//estou subscrevendo o método Pessoa/Funcinário
     Funcionario::criaCadastro(nome, cpf);
     setUsuario(usuario);
     setSenha(senha);
 }
-void Caixa:: printInfo(){
+void Caixa:: printInfo(){//estou reutilizando de Funcionário/Pessoa
     Funcionario::printInfo();
 }
 bool Caixa::fazerLogin(string& usuarioDigitado, string& senhaDigitada){
@@ -49,7 +49,7 @@ float Caixa::acessarValor(Cliente cliente){
         preco = 1;
     }
     else if(nivel == 4){
-        preco == 2;
+        preco = 2;
     }
     else{
         preco = 5.60;
@@ -77,6 +77,7 @@ bool Caixa::acessoCliente(Cliente cliente, float& valorPago, const string& tipoR
     return true;
 }
 void Caixa::resetarEntradas() { 
+    string data = getDataAtual();
     for (auto it = refeicoesClientes.begin(); it != refeicoesClientes.end(); ) {
         if (it->first.find(data) == 0) {
             it = refeicoesClientes.erase(it);
@@ -87,8 +88,8 @@ void Caixa::resetarEntradas() {
     armazenarRefeicoesporDia();//para usar depois de cada refeição
 }
 void Caixa::selecionarRU(string RU, int caixa){
-    setRU(string RU);
-    setCaixa(int caixa);
+    setRU(RU);
+    setCaixa(caixa);
 }
 string Caixa::getDataAtual() const {//para pegar a data para colocar no banco de dados
     time_t t = time(nullptr);
@@ -98,7 +99,7 @@ string Caixa::getDataAtual() const {//para pegar a data para colocar no banco de
     return std::string(buf);
 }
 void Caixa::armazenarRefeicoesporDia() const {
-    ofstream arquivo(bancoDeDados);
+    ofstream arquivo(bancoDeDados, ios::app);
     if (!arquivo.is_open()) {
         cerr << "Erro ao abrir o arquivo de banco de dados.\n";
         return;
@@ -161,7 +162,7 @@ void Caixa::armazenarRefeicoesServidasNivel(const string& bancoDeDados) const{
         }
     }
 
-    ofstream arquivo(nomeArquivo, ios::app);
+    ofstream arquivo(bancoDeDados, ios::app);
     if (!arquivo.is_open()) {
         cerr << "Erro ao abrir o arquivo: " << nomeArquivo << "\n";
         return;
