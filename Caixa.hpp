@@ -36,7 +36,7 @@ class Caixa: public Funcionario{
     void setCaixa(int caixa);
 
     string getSenha();
-    int getUsuario();
+    string getUsuario();
     string getRU();
     int getCaixa();
 
@@ -56,5 +56,7 @@ class Caixa: public Funcionario{
     void armazenarSaldoTotalMes(const string& bancoDeDados) const;
     //sujestão: na classe do Adm fump poderia ter um metodo que limpa esse banco de dados no final de algum periodo
 }
+
+#endif
 
 #endif
