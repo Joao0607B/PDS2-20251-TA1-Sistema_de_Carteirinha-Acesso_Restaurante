@@ -8,13 +8,11 @@ map<string, map<int, int>> Caixa::refeicoesClientes;
 string bancoDeDados = "banco_de_dados";
 Caixa::Caixa(string nome, int cpf, string usuario, string senha): Funcionario(nome), Funcionario(cpf), _usuario(usuario), _senha(senha){};
 
-//void Caixa::setNome(string nome){this->_nome = nome;} já tem em pessoa
 void Caixa::setUsuario(string usuario){this->_usuario = usuario;}
 void Caixa::setSenha(string senha){this->_senha = senha;}
 void Caixa::setRU(string RU){this->_RU = RU;}
 void Caixa::setCaixa(int caixa){this->_caixa = caixa;}
 
-//string Caixa::getNome(){return this -> _nome;} já tem em pessoa
 string Caixa::getUsuario(){return this -> _usuario;}
 string Caixa::getSenha(){return this-> _senha;}
 string Caixa::getRU(){return this-> _RU;}
@@ -27,6 +25,7 @@ void Caixa::criarCadastro(string nome, int cpf, string usuario, string senha){//
 }
 void Caixa:: printInfo(){//estou reutilizando de Funcionário/Pessoa
     Funcionario::printInfo();
+    cout<<"Usuário: "<<getUsuario()<<endl;
 }
 bool Caixa::fazerLogin(string& usuarioDigitado, string& senhaDigitada){
     return(usuarioDigitado == getUsuario() && senhaDigitada == getSenha());
