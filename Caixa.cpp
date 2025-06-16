@@ -6,7 +6,7 @@
 static float preco;
 map<string, map<int, int>> Caixa::refeicoesClientes;
 string bancoDeDados = "banco_de_dados";
-Caixa::Caixa(string nome, string usuario, string senha): Funcionario(nome), _usuario(usuario), _senha(senha){};
+Caixa::Caixa(string nome, int cpf, string usuario, string senha): Funcionario(nome), Funcionario(cpf), _usuario(usuario), _senha(senha){};
 
 //void Caixa::setNome(string nome){this->_nome = nome;} já tem em pessoa
 void Caixa::setUsuario(string usuario){this->_usuario = usuario;}
@@ -113,10 +113,11 @@ void Caixa::armazenarRefeicoesporDia() const {
     int total = par.second.size();          // quantos clientes únicos comeram nessa refeição
     totalPorDia[data] += total;             // soma almoço e janta no mesmo dia
     }
+    arquivo << "=== Total de refeições por dia ===\n";
     for (const auto& dia : totalPorDia) {
         arquivo << dia.first << ":total=" << dia.second << "\n";
     }
-
+    arquivo << "==================================\n\n";
     arquivo.close();
 }
 void Caixa::armazenarRefeicoesServidasMes(const string& bancoDeDados) const {
@@ -164,7 +165,7 @@ void Caixa::armazenarRefeicoesServidasNivel(const string& bancoDeDados) const{
 
     ofstream arquivo(bancoDeDados, ios::app);
     if (!arquivo.is_open()) {
-        cerr << "Erro ao abrir o arquivo: " << nomeArquivo << "\n";
+        cerr << "Erro ao abrir o arquivo: " << bancoDeDados << "\n";
         return;
     }
 
