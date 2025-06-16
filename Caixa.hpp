@@ -22,7 +22,7 @@ class Caixa: public Funcionario{
     int _caixa;
 
     public:
-    Caixa(string nome, string cpf string senha, string usuario);
+    Caixa(string nome, int cpf, string senha, string usuario);
 
     static float preco;
     string bancoDeDados; 
