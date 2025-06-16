@@ -7,10 +7,10 @@
 #include "Pessoa.hpp"
 #include "Funcionario.hpp"
 #include "Cliente.hpp"
-//#include "Professor.hpp"
-//#include "Aluno.hpp"
-//#include "AdmFump.hpp"
-//#include "Visitante.hpp"
+#include "Professor.hpp"
+#include "Aluno.hpp"
+#include "AdmFump.hpp"
+#include "Visitante.hpp"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ class Caixa: public Funcionario{
     int _caixa;
 
     public:
-    Caixa(string nome, string senha, string usuario);
+    Caixa(string nome, string cpf string senha, string usuario);
 
     static float preco;
     string bancoDeDados; 
@@ -56,7 +56,4 @@ class Caixa: public Funcionario{
     void armazenarSaldoTotalMes(const string& bancoDeDados) const;
     //sujestão: na classe do Adm fump poderia ter um metodo que limpa esse banco de dados no final de algum periodo
 }
-
-#endif
-
 #endif
