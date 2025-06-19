@@ -55,6 +55,6 @@ class Caixa: public Funcionario{
     void armazenarSaldoTotalDia(const string& bancoDeDados) const;
     void armazenarSaldoTotalMes(const string& bancoDeDados) const;
     //sujestão: na classe do Adm fump poderia ter um metodo que limpa esse banco de dados no final de algum periodo
-    void ~Caixa();
+    ~Caixa();
 }
 #endif
