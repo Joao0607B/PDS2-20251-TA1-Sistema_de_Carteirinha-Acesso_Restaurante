@@ -6,7 +6,6 @@
 #include "Funcionario.hpp"
 #include "Aluno.hpp"
 
-/// \brief Representa o administrador FUMP que gerencia dados do RU
 class AdmFump : public Funcionario {
 public:
 	AdmFump(const std::string& nome, const std::string& cpf,
