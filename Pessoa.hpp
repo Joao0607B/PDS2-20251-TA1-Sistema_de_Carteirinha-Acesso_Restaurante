@@ -21,6 +21,6 @@ class Pessoa{
     virtual void printInfo();
     virtual void criaCadastro(string nome, int cpf);
     // adicionei o método criar cadastro que poderá ser subscrito pelas outras subclasses, por exemplo, a classe aluno poderá receber o parâmetro matrícula
-
+    void ~Pessoa();
 };
 #endif
