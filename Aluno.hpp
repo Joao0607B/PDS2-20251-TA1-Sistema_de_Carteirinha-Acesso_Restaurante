@@ -5,7 +5,6 @@
 #include <string>
 #include "Cliente.hpp"
 
-/// \brief Representa um aluno da UFMG com benefícios FUMP
 class Aluno : public Cliente {
 public:
 	Aluno(const std::string& nome, const std::string& cpf, double saldo, int nivelFump);
