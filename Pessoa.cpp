@@ -1,14 +1,14 @@
 #include "Pessoa.hpp"
 
-Pessoa::Pessoa(string nome, int cpf): _nome(nome), _cpf(cpf){};
+Pessoa::Pessoa(string nome, string cpf): _nome(nome), _cpf(cpf){};
 
 void Pessoa::setNome(string nome){this->_nome = nome;}
-void Pessoa::setCpf(int cpf){this->_cpf = cpf;}
+void Pessoa::setCpf(string cpf){this->_cpf = cpf;}
 
 string Pessoa::getNome(){return this -> _nome;}
-int Pessoa::getCpf(){return this-> _cpf;}
+string Pessoa::getCpf(){return this-> _cpf;}
 
-void Pessoa::criaCadastro(string nome, int cpf) {
+void Pessoa::criaCadastro(string nome, string cpf) {
     setNome(nome);
     setCpf(cpf);
     cout<<"Cadastro no nome de" <<getNome()<< "realizado com sucesso"<<endl;
