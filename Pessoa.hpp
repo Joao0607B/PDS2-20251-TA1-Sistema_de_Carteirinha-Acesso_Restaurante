@@ -20,9 +20,9 @@ class Pessoa{
     string getNome();//Aqui temos o Get para permitir acessar o argumento privado _nome.
     string getCpf();//Aqui temos o Get para permitir acessar o argumento privado _cpf.
 
-    virtual void printInfo();
+    virtual void printInfo();//O método printInfo() virtual que poderá ser alterado nas subclasse. Sua função na classe Pessoa é printar as informações pessoais do usuário, que nessa classe é o nome e o cpf.
     virtual void criaCadastro(string nome, string cpf);
-    // adicionei o método criar cadastro que poderá ser subscrito pelas outras subclasses, por exemplo, a classe aluno poderá receber o parâmetro matrícula
+    //O método criarCadastro(...) é também virtual, logo poderá ser subscrito pelas subclasses. Esse método recebe dois atributos(nome e cpf) e é responsável por exemplo, a classe aluno poderá receber o parâmetro matrícula
     ~Pessoa();
 };
 #endif
