@@ -1,45 +1,31 @@
-//aqui seria o funcionário ou cliente? 
-
-#ifndef FUNCIONÁRIO_HPP
-#define FUNCIONÁRIO_HPP
-
-#include <iostream>
-#include <string>
-#include "Pessoa.hpp" //classe pai
+#ifndef FUNCIONARIO_H
+#define FUNCIONARIO_H
+#include "Pessoa.hpp" 
 #include "Cliente.hpp"
-#include "AdmFump.hpp"
-#include "Caixa.hpp"
-#include "Aluno.hpp"
-#include "Professor.hpp"
-#include "Visitante.hpp"
-
 
 class Funcionario: public Pessoa{
-
+    //Funcionario é uma subclasse de Pessoa, mas também é a superclasse de Caixa.
     private:
-        std::string _nome;
-        std::string _departamento;
-        std::float _saldo;
-        // std:: string _ultimoAcesso;
+    //Funcionario possui dois atributos privados, são eles _usuario e _senha.
+    string _usuario;
+    std::string _senha;  
 
     public:
-        Funcionario(std::string nome, std::departamento departamento, std::float saldo);
+    Funcionario(string nome, string cpf, string usuario, string senha);//Construtor de Funcionario que recebe dois atributos herdados de Pessoa(nome e cpf) e acrescenta dois argumentos proprios(usuario e senha).
+    
+    bool _logado = false;//Atributo _logado é public e é responsável somente por indicar se o usuário está logado ou não no sistema.
 
-        std::string virtual getNome();
-        std::string virtual getDepartamento();
-        std::float virtual getSaldo();
+    string getUsuario();//Aqui temos o Get para permitir acessar o argumento privado _usuario.
+    string getSenha();//Aqui temos o Get para permitir acessar o argumento privado _senha.
 
-        void virtual setNome(std::string nome);
-        void virtual setDepartamento(std::string departamento);
-        void virtual setSaldo(std::float saldo);
-
-        void virtual printInfo(); //printa nome, departamento e saldo
-
-        //transferirsaldo() outra função talvez
-        //BloquearCartao() outra função talvez
-
-
-        //Alterar departamento, chama setDepartamento
-        //Alterar saldo, chama setSaldo
-}
+    void setUsuario(string usuario);//Aqui temos o Set para permitir modificar o argumento privado _usuario.
+    void setSenha(string senha);//Aqui temos o Set para permitir modificar o argumento privado _senha.
+    
+    void printInfo() override;//Esse método faz a subscrita do método printInfo() da classe Pessoa agora permitindo printar também o usuário do objeto.
+    bool fazerLogin(const string& usuarioDigitado, const string& senhaDigitada);//O método fazerLogin é um bool que recebe os parametros usuarioDigitado e senhaDigitada e compara com GetUsuario() e GetSenha() e retorna mensagens de erro e false se não forem iguais e retorna true se forem iguais.
+    void fazerLogout();//A função logOut é resposável por conferir se um usuário está logado no sistema por meio de _logado, e se estiver logado realiza o logOut e se não estiver logado exibe uma mensagem de erro.
+    void trocarSenha(string& novaSenha, string& confirmarSenha);//O método trocarSenha recebe o parâmetro novaSenha que será a senha que o usuário gostaria de definir como nova Senha de acesso e o parâmetro confirmarSenha que será comparada com a senha atual para que seja possivel redefinir a senha.
+    void liberarRefeicao(*Cliente cliente);
+    ~Funcionario();//O destrutor que será chamado todo final de função, ou final do programa, ou quando o delete for chamado e é responsável por limpar os objetos criados.
+};
 #endif 
