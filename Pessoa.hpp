@@ -21,8 +21,6 @@ class Pessoa{
     string getCpf();//Aqui temos o Get para permitir acessar o argumento privado _cpf.
 
     virtual void printInfo();//O método printInfo() virtual que poderá ser alterado nas subclasse. Sua função na classe Pessoa é printar as informações pessoais do usuário, que nessa classe é o nome e o cpf.
-    virtual void criaCadastro(string nome, string cpf);
-    //O método criarCadastro(...) é também virtual, logo poderá ser subscrito pelas subclasses. Esse método recebe dois atributos(nome e cpf) e é responsável por cadastrar os usuários no sistema. Como é um método virtual a classe Aluno, por exemplo, poderá receber o parâmetro matrícula para realização do cadastro.
     ~Pessoa();//O destrutor que será chamado todo final de função, ou final do programa, ou quando o delete for chamado e é responsável por limpar os objetos criados.
 };
 #endif
