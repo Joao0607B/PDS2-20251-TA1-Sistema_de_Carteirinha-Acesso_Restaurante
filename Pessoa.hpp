@@ -6,7 +6,7 @@ using namespace std;
 
 class Pessoa{
 //Pessoa é a superclasse geral,logo se apresenta no topo do diagrama de herança de classes.
-    private
+    private:
 //Pessoa possui dois argumentos/atributos privados(_nome e _cpf)
     string _nome; 
     string _cpf;
