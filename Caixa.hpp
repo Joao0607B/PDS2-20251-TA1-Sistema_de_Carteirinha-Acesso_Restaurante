@@ -1,60 +1,21 @@
 #ifndef CAIXA_H
 #define CAIXA_H
-
-#include <map>
-#include <vector>
-#include <set>
-#include "Pessoa.hpp"
 #include "Funcionario.hpp"
-#include "Cliente.hpp"
-#include "Professor.hpp"
-#include "Aluno.hpp"
-#include "AdmFump.hpp"
-#include "Visitante.hpp"
 
-using namespace std;
-
-class Caixa: public Funcionario{
+class Caixa:public Funcionario{
+    //Caixa é uma subclasse de Funcionario.
     private:
-    string _senha;
-    string _usuario;
-    string _RU; 
+    //Caixa possui dois atributos privados, são eles _caixa e _restaurante.
     int _caixa;
+    string _restaurante;
 
     public:
-    Caixa(string nome, int cpf, string senha, string usuario);
+    Caixa(string nome, string cpf, string usuario, string senha, string restaurante, int caixa);//Construtor de Funcionario que recebe dois atributos herdados de Funcionario(nome,cpf, usuario e senha) e acrescenta dois argumentos proprios(restaurante e caixa).
+    int getCaixa();//Aqui temos o Get para permitir acessar o argumento privado _caixa.
+    string getRestaurante();//Aqui temos o Get para permitir acessar o argumento privado _restaurante.
 
-    static float preco;
-    string bancoDeDados; 
-    static map<string, map<int, int>> refeicoesClientes;
-    string getDataAtual() const;
-    // fazer login e trocar senha seria metodos da classe pai funcionário 
+    void setCaixa(int caixa);//Aqui temos o Set para permitir modificar o argumento privado _caixa.
+    void setRestaurante(string restaurante);//Aqui temos o Set para permitir modificar o argumento privado _restaurante.
+};
 
-    void setSenha(string senha);
-    void setUsuario(string usuario);
-    void setRU(string RU);
-    void setCaixa(int caixa);
-
-    string getSenha();
-    string getUsuario();
-    string getRU();
-    int getCaixa();
-
-    void criarCadastro(string nome, int cpf, string usuario, string senha) override; // estou fazendo a subscrita do metodo de criar cadastro em Pessoa, que precisa estar em funcionário tmb
-    void printInfo() override;
-    bool fazerLogin(string& usuarioDigitado, string& senhaDigitada); //override;//precisa estar em Funcionário tmb para fazer o override
-    void trocarSenha(string& novaSenha); //override;//precisa estar em funcionário tmb para fazer o override
-    float acessarValor(Cliente cliente);
-    bool acessoCliente(Cliente cliente, float& valorPago, const string& tipoRefeicao);
-    static void resetarEntradas();//para simular um novo dia, pois só pode entrar uma vez por refeição
-    void selecionarRU(string RU, int caixa);//para quando a caixa for fazer entrada no sistema selescionar qual RU e caixa ela está    void armazenarSaldoTotalMes();
-    void armazenarRefeicoesporDia() const;
-    void armazenarRefeicoesServidasMes(const string& bancoDeDados) const; //decidi fazer isso pq por aqui acho que seria o local mais sensato de fazer esse registro no banco de dados
-    void armazenarRefeicoesServidasNivel(const string& bancoDeDados) const;
-    //void armazenarRefeicoesServidasRU();
-    void armazenarSaldoTotalDia(const string& bancoDeDados) const;
-    void armazenarSaldoTotalMes(const string& bancoDeDados) const;
-    //sujestão: na classe do Adm fump poderia ter um metodo que limpa esse banco de dados no final de algum periodo
-    ~Caixa();
-}
 #endif
