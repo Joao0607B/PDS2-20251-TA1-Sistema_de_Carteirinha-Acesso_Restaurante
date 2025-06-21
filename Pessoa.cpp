@@ -8,7 +8,7 @@ void Pessoa::setCpf(string cpf){this->_cpf = cpf;}
 string Pessoa::getNome(){return this -> _nome;}
 string Pessoa::getCpf(){return this-> _cpf;}
 void Pessoa::printInfo(){
-    cout<<"Informações: <<endl;
+    cout<<"Informações: "<<endl;
     cout<<"Nome: "<<getNome()<<endl;
     cout<<"CPF: "<<getCpf()<<endl;
 }
