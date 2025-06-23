@@ -42,9 +42,9 @@ class Data{
                 _ano = a;
             } else {
                 std::cout << "Data inserida inválida. Data armazenada: 05/10/2001." << std::endl;
-                _dia = 1;
-                _mes = 1;
-                _ano = 2000;
+                _dia = 05;
+                _mes = 10;
+                _ano = 2001;
             }
         }
 
