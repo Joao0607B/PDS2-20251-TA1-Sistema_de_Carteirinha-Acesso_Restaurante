@@ -25,7 +25,7 @@ class Funcionario: public Pessoa{
     bool fazerLogin(const string& usuarioDigitado, const string& senhaDigitada);//O método fazerLogin é um bool que recebe os parametros usuarioDigitado e senhaDigitada e compara com GetUsuario() e GetSenha() e retorna mensagens de erro e false se não forem iguais e retorna true se forem iguais.
     void fazerLogout();//A função logOut é resposável por conferir se um usuário está logado no sistema por meio de _logado, e se estiver logado realiza o logOut e se não estiver logado exibe uma mensagem de erro.
     void trocarSenha(string& novaSenha, string& confirmarSenha);//O método trocarSenha recebe o parâmetro novaSenha que será a senha que o usuário gostaria de definir como nova Senha de acesso e o parâmetro confirmarSenha que será comparada com a senha atual para que seja possivel redefinir a senha.
-    void liberarRefeicao(*Cliente cliente);
+    void liberarRefeicao(*Cliente cliente);//Verifica o ultimo acesso e o saldo do cliente para liberar a refeição, como também atualiza o ultimo acesso e desconta o valor da refeição do saldo atual.
     ~Funcionario();//O destrutor que será chamado todo final de função, ou final do programa, ou quando o delete for chamado e é responsável por limpar os objetos criados.
 };
 #endif 
