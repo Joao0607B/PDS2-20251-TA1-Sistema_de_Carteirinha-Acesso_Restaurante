@@ -13,3 +13,6 @@ void Pessoa::printInfo(){
     cout<<"CPF: "<<getCpf()<<endl;
 }
 
+Pessoa::~Pessoa(){
+     cout << "Destruindo objeto Pessoa: " <<endl;
+}
