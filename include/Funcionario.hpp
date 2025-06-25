@@ -28,4 +28,22 @@ class Funcionario: public Pessoa{
     void liberarRefeicao(*Cliente cliente);//Verifica o ultimo acesso e o saldo do cliente para liberar a refeição, como também atualiza o ultimo acesso e desconta o valor da refeição do saldo atual.
     ~Funcionario();//O destrutor que será chamado todo final de função, ou final do programa, ou quando o delete for chamado e é responsável por limpar os objetos criados.
 };
+class ExcecaoSaldoInsuficiente : public std::exception {//Classe personalizada de tratamento de exceção para tratar saldo insuficiente.
+public:
+    virtual const char* what() const throw() {
+        return "Erro: Saldo insuficiente.";
+    }//Cliente::getValorRefeicaoAtual() não pode ter tratamento de exceção
+};
+class ErroUsuarioNaoEncontrado : public std::exception {//Classe personalizada de tratamento de exceção para tratar usuário não encontrado.
+public:
+    const char* what() const throw() override {
+        return "Erro: Usuário digitado não encontrado.";
+    }
+};
+class ErroSenhaIncorreta : public std::exception {//Classe personalizada de tratamento de exceção para tratar senha incorreta na hora do login.
+public:
+    const char* what() const throw() override {
+        return "Erro: Senha incorreta.";
+    }
+};
 #endif 
