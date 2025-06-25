@@ -1,43 +1,28 @@
 #include "Aluno.hpp"
 #include <iostream>
-#include <cmath>
 
-Aluno::Aluno(const std::string& nome, double saldo, int nivelFump)
-	: Cliente(nome, saldo), m_nivelFump(nivelFump) {}
+Aluno::Aluno(const std::string& nome, const std::string& cpf,
+             int nivelFump, const std::string& curso)
+    : Cliente(nome, cpf), m_nivelFump(nivelFump), m_curso(curso) {}
 
 int Aluno::getNivelFump() const {
-	return m_nivelFump;
+    return m_nivelFump;
 }
 
-void Aluno::setNivelFump(int nivelFump) {
-	m_nivelFump = nivelFump;
+void Aluno::setNivelFump(int nivel) {
+    m_nivelFump = nivel;
 }
 
-int Aluno::calcularRefeicoesPossiveis(double precoRefeicao) const {
-	if (precoRefeicao <= 0.0) return 0;
-	return static_cast<int>(std::floor(getSaldo() / precoRefeicao));
+std::string Aluno::getCurso() const {
+    return m_curso;
 }
 
-void Aluno::adicionarCredito(double valor) {
-	if (valor > 0) {
-		double novoSaldo = getSaldo() + valor;
-		setSaldo(novoSaldo);
-	}
-}
-
-void Aluno::transferirCredito(Cliente& outro, double valor) {
-	if (valor > 0 && getSaldo() >= valor) {
-		setSaldo(getSaldo() - valor);
-		outro.setSaldo(outro.getSaldo() + valor);
-	}
-}
-
-void Aluno::bloquearCartao() {
-	m_bloqueado = true;
-}
-
-void Aluno::atualizarCadastro(int novoNivelFump, bool bloquear, double novoSaldo) {
-	m_nivelFump = novoNivelFump;
-	m_bloqueado = bloquear;
-	setSaldo(novoSaldo);
+void Aluno::printInfo() const {
+    std::cout << "Aluno:\n";
+    std::cout << "Nome: " << getNome() << "\n";
+    std::cout << "CPF: " << getCpf() << "\n";
+    std::cout << "Curso: " << m_curso << "\n";
+    std::cout << "Nivel FUMP: " << m_nivelFump << "\n";
+    std::cout << "Saldo: " << getSaldo() << "\n";
+    std::cout << (getBloqueado() ? "Cartão bloqueado\n" : "Cartão liberado\n");
 }
