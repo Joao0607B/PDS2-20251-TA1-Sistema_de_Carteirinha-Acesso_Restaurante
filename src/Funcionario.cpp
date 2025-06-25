@@ -13,17 +13,26 @@ void Funcionario::printInfo(){
     cout<<"Usuário: "<<getUsuario()<<endl;//Acrescenta a informação "Usuário" na função
 }
 bool Funcionario::fazerLogin(const string& usuarioDigitado, const string& senhaDigitada){
-    if (usuarioDigitado != getUsuario()) {//Se usuarioDigitado for diferente de getUsuario() exibe uma mensagem de erro e retorna false.
-        cout << "Erro: Usuário digitado não encontrado." <<endl;
+    try{
+        if (usuarioDigitado != getUsuario()) {//Se usuarioDigitado for diferente de getUsuario() lança a exceção ErroUsuarioNaoEncontrado().
+            throw ErroUsuarioNaoEncontrado();
+        }
+        
+        if (senhaDigitada != getSenha()) {//Se senhaDigitado for diferente de getSenha() lança a exceção ErroSenhaIncorreta()
+            throw ErroSenhaIncorreta();  
+        }
+        _logado = true;//define _logado como true se a senha e o usuário  digitadas estiverem corretas.
+        cout << "Login realizado com sucesso!" <<endl;
+        return true; //retorna true se a senha e o usuário  digitadas estiverem corretas.
+    }
+    catch (ErroUsuarioNaoEncontrado& e) {
+        std::cerr << e.what() << std::endl;
         return false;
     }
-    if (senhaDigitada != getSenha()) {//Se senhaDigitado for diferente de getSenha() exibe uma mensagem de erro e retorna false.
-        std::cout << "Erro: Senha incorreta." << std::endl;
+    catch (ErroSenhaIncorreta& e) {
+        std::cerr << e.what() << std::endl;
         return false;
     }
-    _logado = true;//define _logado como true se a senha e o usuário  digitadas estiverem corretas.
-    cout << "Login realizado com sucesso!" <<endl;
-    return true; //retorna true se a senha e o usuário  digitadas estiverem corretas.
 }
 void Funcionario::fazerLogout(){
     if(_logado){//verifica se alguém está logado no sistema
@@ -44,24 +53,48 @@ void Funcionario::trocarSenha(string& novaSenha, string& confirmarSenha){
     }
 }
 void Funcionario::liberarRefeicao(*Cliente cliente){
-    if(cliente->getBloqueado()){//Verifica por meio do método da Classe cliente (getBloqueado) que é um bool que retorna true se o cliente estiver bloqueado e não liberao acesso se estiver bloqueado.
+    try{
+        if(cliente->getBloqueado()){//Verifica por meio do método da Classe cliente (getBloqueado) que é um bool que retorna true se o cliente estiver bloqueado e não liberao acesso se estiver bloqueado.
         cout<<"Cliente Bloqueado!Acesso negado."<<endl;
         return;
-    }
-    //conferir como o ultimo acesso funciona com a Larissa
-    if(!cliente->getUltimoAcesso().empty()){//Essa função verifica se houve um ultimo acesso verificando se a string está vazia ou não, e se houve ultimo acesso, ou seja, a seja a string não está vazia, libera a Refeição
-        cout<<"Cliente já realizou a refeição desse turno"<<endl;
-    }
-    float valorRefeicao = cliente->getValorRefeicaoAtual();//cria um atributo local(float) que recebe o valor da refeição de cada cliente.
+        }
+        Data hoje;//Crio um objeto da classe data para determinar a data de hoje.
+        hoje.definirDataAtual();//Chama a função de Data que determina a data atual.
 
-    if (cliente->getSaldo() < valorRefeicao) {//Verifica se o saldo  atual do clinte é suficiente para realizar a refeição e se não for não libera o acesso.
-        cout << "Saldo insuficiente. Refeição não permitida." << endl;
-        return;
-    }
-    cliente->setSaldo(cliente->getSaldo() - valorRefeicao);//Aqui estamos atualizando o saldo, ou seja descontando do saldo o valor da refeição que está sendo liberada.
-    cliente->registrarAcesso();//Toda vez que a entrada do cliente for liberada, essa entrada será registrada para uma próxima verificação de acesso.
+        if (GerenciamentoDoSistema::refeicao == 'a') {//nessa função eu verifico se o cliente já almocou hoje
+            if (cliente->getUltimoAlmoco().compararData(hoje)) {//Para verificar se ele já almoçou eu chamo a função que retorna o ultimo almoço dele e depois chamo a função que compara as datas e comparo a data do ultimo almoco com a data de hoje.
+                std::cout << "Refeição já realizada no turno de almoço." << std::endl;
+                return;
+            } else {
+                cliente->setUltimoAlmoco(hoje);//se o cliente não tiver almoçado ainda a função atualiza a data do ultimo almoço com a data de hoje.
+                std::cout << "Almoço liberado com sucesso!" << std::endl;
+            }
+        }
+        else if(GerenciamentoDoSistema::refeicao == 'j'){
+            // Verifica se o cliente já jantou hoje
+            if (cliente->getUltimaJanta().compararData(hoje)) {//Para verificar se ele já jantou eu chamo a função que retorna o ultimo almoço dele e depois chamo a função que compara as datas e comparo a data da ultima janta com a data de hoje.
+            std::cout << "Refeição já realizada no turno de janta." << std::endl;
+            return;
+            } else {
+            // Libera janta e atualiza data
+                cliente->setUltimaJanta(hoje);//se o cliente não tiver almoçado ainda a função atualiza a data do ultimo almoço com a data de hoje.
+                std::cout << "Janta liberada com sucesso!" << std::endl;
+            }   
+        } else {
+            std::cout << "Tipo de refeição inválido." << std::endl;
+        }
+        float valorRefeicao = cliente->getValorRefeicaoAtual();//cria um atributo local(float) que recebe o valor da refeição de cada cliente.
+        float saldoAtual = cliente->getSaldo();//cria um atributo local(float) que recebe o valor do saldo de cada cliente.
 
-    cout << "Refeição liberada" << endl;
+        if (saldoAtual < valorRefeicao) {//Verifica se o saldo  atual do clinte é suficiente para realizar a refeição e se não for lança uma exceção.
+        throw ExcecaoSaldoInsuficiente();
+        }
+        cliente->setSaldo(saldoAtual - valorRefeicao);//Aqui estamos atualizando o saldo, ou seja descontando do saldo o valor da refeição que está sendo liberada.
+        cout << "Refeição liberada" << endl;
+    }
+    catch (ExcecaoSaldoInsuficiente& e) {//fazendo o tratamento da exceção localmente
+        std::cerr << e.what() << std::endl;
+    }
 }
 Funcionario::~Funcionario(){
      cout << "Destruindo objeto Funcionario: " <<endl;
