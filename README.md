@@ -5,12 +5,12 @@ Larissa Roncali Faria,
 João Pedro Braga da Silva,  
 Matheus Magalhães Caldeira Brant.  
 
-## Introdução
+# Introdução
 Todo inicio de semestre é observável o crescimento das filas para o acesso dos restaurantes universitários, principalmente as filas referentes ao pagamento com cartões de débito. As longas filas podem intencificar a correria do dia a dia e acrescentar um estresse a mais em um momento que deveria ser para desacelerar. Logo, nosso projeto visa o desenvolvimento de um sistema que complementa a funcionabilidade das carteirinhas universitárias e que tem o objetivo de desenvolver a automatização e organização do processo de pagamento das refeições nos restaurantes.
 
-//imagem de uma fila(lembrar de adicionar as referencias)
+![image](https://github.com/user-attachments/assets/1988bac3-97a8-46bf-a10a-ae21a7804d34)
 
-## Visão Geral
+# Visão Geral
 ## Visão Geral da Aquitetura
 Nosso sistema é orientado a objetos e organizado em três responsabilidades principais e suas respectivas classes:
 
@@ -22,7 +22,7 @@ Nosso sistema é orientado a objetos e organizado em três responsabilidades pri
 
 *Cliente (herda de Pessoa):* representa quem consome as refeições (alunos e professores). Possui saldo, estado de bloqueio e histórico de acessos/refeições.
 
-*Aluno (herda de Cliente):* possui informações adicionais como curso e nível Fump.
+*Aluno (herda de Cliente):* possui informações adicionais como curso e nível Fump(o nível da fump é responsável ´pr influ~enciar o valor da refeição).
 
 *Professor (herda de Cliente):* possui o atributo adicional “departamento”.
 
@@ -44,7 +44,7 @@ Nosso sistema é orientado a objetos e organizado em três responsabilidades pri
 - Controla adição de crédito para clientes.
 
 - Arquiva os dados (clientes e funcionários) nos arquivos .txt.
-- 
+  
 **3. Resposnsabilidade de armazenamento e disponibilidade dos dados (Arquivos)**
 Usa três arquivos de texto simples para armazenar os dados:
 
@@ -55,39 +55,39 @@ Usa três arquivos de texto simples para armazenar os dados:
 - Transacoes.txt
 
 Estes arquivos são lidos e atualizados pelo sistema via métodos da classe Gerenciamento.
+Abaixo está anexado o diagrama de classes com as responsabilidades resumidas:
+
+![Diagrama de Classes](https://github.com/user-attachments/assets/6765f222-0fb3-481a-8bbc-8f579394cea8)
+
 ## Visão Geral do Fluxo de Funcionamento do Programa
 
+ **1. Cadastro de Usuários**
+Um funcionário autorizado usa cadastrarFuncionario() ou cadastrarCliente() para incluir novos usuários no sistema.
+Clientes podem ser Aluno ou Professor, definidos conforme os dados fornecidos.
 
-//Detalhamento disponível no link da documentação via Doxygen
+ **2. Login e Autenticação**
+Funcionários devem fazer login usando fazerLogin(usuario, senha) para acessar as funcionalidades administrativas.
+Após autenticação, podem realizar ações como liberar refeições, adicionar créditos e processar as refeições realizadas, que automaticamente registram o acesso. Após ações ele pode deslogar do sistema.
 
-# Guia de Estilo
-**1. Formatação Básica** 
-* Indentação: Use tab
-* Limite de linha: 80-100 caracteres
-* Chaves: Estilo 1TBS (One True Brace Style)
-Ex: 
+**3. Processamento de Refeições**
+O funcionário, já autenticado, pode liberar as refeições(liberarRefeição(Cliente* cliente)) e processar a refeição no sistema. Para liberar a refeição o método verifica se o cliente não está bloqueado, valida se o cliente já realizou uma refeição no mesmo turno e verfica se o cliente possui saldo suficiente para realizar a refeição. Caso tudo esteja correto, desconta o valor da refeição do saldo, libera o acesso e registra o acesso naquele turno.
 
-```c++
-if (condicao) {
-    // código
-} else {
-    // código
-}
-```
+**4. Gerenciamento de Saldo**
+O método adicionar_credito() adiciona um valor ao saldo do cliente, utilizando o funcionário responsável.Também há suporte para transferência de saldo entre clientes (transferir()), depósitos (depositar()), bloqueio e desbloqueio.
 
-**2. Nomenclatura** 
-* Classes: PascalCase (MinhaClasse)
-* Funções/métodos: camelCase (minhaFuncao())
-* Variáveis: camelCase (minhaVariavel)
-* Constantes: UPPER_CASE (MINHA_CONSTANTE)
-* Membros de classe: prefixo m_ (m_meuMembro)
+**5. Controle de Acesso**
+Em cada cliente é registrado a data e tipo da última refeição (almoço ou jantar).Isso impede que um cliente repita refeições em um mesmo turno.
 
-**3. Documentação**
+**6. Persistência de Dados**
+Ao fim das operações, o sistema pode chamar salvarDados() para registrar clientes e funcionários nos arquivos .txt, como também registra as transações realizadas.
 
-Considere Doxygen para documentação formal:
-```c++
-/// \brief Função que faz algo importante
-/// \param valor Entrada para processamento
-/// \return Resultado do processamento
-int processar(int valor);
-```
+**Documentação do Código**
+Abaixo está disponível o link de acesso para a documentação do código, via Doxygen.
+
+//link da documentação via Doxygen
+# Principais dificuldades encontradas
+//
+
+# Extras implementados
+//
+
