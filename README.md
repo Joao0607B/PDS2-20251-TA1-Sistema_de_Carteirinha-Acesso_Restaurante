@@ -1,89 +1,64 @@
-# Sistema Carteirinha e Acesso Restaurante
-Membros:  
+# Sistema Carteirinha e Acesso Restaurante Universitário
+**Membros:**  
 Ana Laura Soares Mello,  
 Larissa Roncali Faria,   
-João Pedro Braga da Silva  
+João Pedro Braga da Silva,  
 Matheus Magalhães Caldeira Brant.  
 
-# User Stories 
+## Introdução
+Todo inicio de semestre é observável o crescimento das filas para o acesso dos restaurantes universitários, principalmente as filas referentes ao pagamento com cartões de débito. As longas filas podem intencificar a correria do dia a dia e acrescentar um estresse a mais em um momento que deveria ser para desacelerar. Logo, nosso projeto visa o desenvolvimento de um sistema que complementa a funcionabilidade das carteirinhas universitárias e que tem o objetivo de desenvolver a automatização e organização do processo de pagamento das refeições nos restaurantes.
 
-**1. Descrição**  
-Eu como aluno gostaria de ver o saldo do meu cartão para me planejar para a próxima recarga.  
+//imagem de uma fila(lembrar de adicionar as referencias)
 
-**Critérios de Aceitação:**
- * Visualizar saldo
- * Calcular quantas refeições são possíveis com esse saldo
-  
-**2. Descrição**  
-Eu como aluno gostaria de colocar crédito no meu cartão para poder almoçar/jantar.  
+## Visão Geral
+## Visão Geral da Aquitetura
+Nosso sistema é orientado a objetos e organizado em três responsabilidades principais e suas respectivas classes:
 
-**Critérios de Aceitação:**
- * Alterar o valor do saldo
- * Transferir crédito
+**1. Responsabilidade das entidades e dados do programa:**
 
-**3. Descrição**  
-Eu como aluno gostaria de alterar dados no meu cadastro para atualizar as informações.  
+*Pessoa (classe base):* contém os atributos e métodos comuns a todas as pessoas (nome e CPF).
 
-**Critérios de Aceitação:**
- * Alterar o saldo
- * Alterar o nível FUMP
- * Bloquear cartão
- * Anexar documentos
+*Funcionario (herda de Pessoa):* representa os usuários com permissões administrativas. Pode fazer login, trocar senha, deslogar e  principalemente é responsável por liberar as refeições para os clientes.
 
-**4. Descrição**  
-Eu como caixa do bandejão gostaria de gerenciar o acesso ao bandejão para que o cliente possa fazer sua refeição.  
+*Cliente (herda de Pessoa):* representa quem consome as refeições (alunos e professores). Possui saldo, estado de bloqueio e histórico de acessos/refeições.
 
-**Critérios de Aceitação:**
- * Acessar o valor a pagar
- * Liberar o acesso e registrar a entrada
- * Bloquear o acesso
- * Selecionar qual RU está sendo acessado
+*Aluno (herda de Cliente):* possui informações adicionais como curso e nível Fump.
 
-**5. Descrição**  
-Eu como caixa do bandejão gostaria de acessar como operador para restringir o acesso a certas informações.  
+*Professor (herda de Cliente):* possui o atributo adicional “departamento”.
 
-**Critérios de Aceitação:**
- * Fazer login
- * Trocar senha
+*Caixa (herda de Funcionario):* funcionários responsáveis pela gestão do restaurante e movimentações financeiras.
 
-**6. Descrição**  
-Eu como FUMP gostaria de acessar informações sobre o restaurante para gerenciar os custos.  
+**2. Responsabilidade do controle do sistema e armazenamento de dados**
+É composta principalmente pela classe Gerenciamento do Sistema, que organiza as funcionalidades centrais:
 
-**Critérios de Aceitação:**
- * Acessar saldo total
- * Acessar o número de clientes
- * Acessar o número de refeições servidas no dia por restaurante
- * Acessar o número de alunos por nível da FUMP
+- Armazena vetores de Cliente* e Funcionario*.
 
-**7. Descrição**  
-Eu como FUMP gostaria de acessar como administrador para restringir o acesso a certas informações.  
+- Controla o cadastro de clientes e funcionários.
 
-**Critérios de Aceitação:**
- * Fazer login
- * Trocar senha
- * Cadastrar novos clientes (aluno, visitante, funcionário)
+- Autentica funcionários com base em usuario e senha.
 
-**8. Descrição**  
-Eu como visitante gostaria de ver meu saldo para poder fazer a refeição.  
+- Permite busca de cliente por CPF.
 
-**Critérios de Aceitação:**
- * Acessar saldo
- * Transferir saldo
+- Processa refeições (valida se o cliente pode comer e registra acesso).
 
-**9. Descrição**  
-Eu como funcionário da UFMG gostaria de colocar crédito no meu cartão para poder almoçar/jantar.  
+- Controla adição de crédito para clientes.
 
-**Critérios de Aceitação:**
- * Alterar o valor do saldo
- * Alterar o departamento
- * Transferir crédito
+- Arquiva os dados (clientes e funcionários) nos arquivos .txt.
+- 
+**3. Resposnsabilidade de armazenamento e disponibilidade dos dados (Arquivos)**
+Usa três arquivos de texto simples para armazenar os dados:
 
-**10. Descrição**  
-Eu como funcionário da UFMG gostaria de alterar dados no meu cadastro para atualizar as informações.  
+- Clientes.txt
 
-**Critérios de Aceitação:**
- * Alterar o saldo
- * Bloquear cartão
+- Funcionarios.txt
+
+- Transacoes.txt
+
+Estes arquivos são lidos e atualizados pelo sistema via métodos da classe Gerenciamento.
+## Visão Geral do Fluxo de Funcionamento do Programa
+
+
+//Detalhamento disponível no link da documentação via Doxygen
 
 # Guia de Estilo
 **1. Formatação Básica** 
