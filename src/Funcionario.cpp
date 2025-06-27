@@ -62,7 +62,7 @@ void Funcionario::liberarRefeicao(*Cliente cliente){
         hoje.definirDataAtual();//Chama a função de Data que determina a data atual.
 
         if (GerenciamentoDoSistema::refeicao == 'a') {//nessa função eu verifico se o cliente já almocou hoje
-            if (cliente->getUltimoAlmoco().compararData(hoje)) {//Para verificar se ele já almoçou eu chamo a função que retorna o ultimo almoço dele e depois chamo a função que compara as datas e comparo a data do ultimo almoco com a data de hoje.
+            if (cliente->getUltimoAlmoco()==hoje) {//Para verificar se ele já almoçou eu chamo a função que retorna o ultimo almoço dele e depois chamo a função que compara as datas e comparo a data do ultimo almoco com a data de hoje.
                 std::cout << "Refeição já realizada no turno de almoço." << std::endl;
                 return;
             } else {
@@ -72,7 +72,7 @@ void Funcionario::liberarRefeicao(*Cliente cliente){
         }
         else if(GerenciamentoDoSistema::refeicao == 'j'){
             // Verifica se o cliente já jantou hoje
-            if (cliente->getUltimaJanta().compararData(hoje)) {//Para verificar se ele já jantou eu chamo a função que retorna o ultimo almoço dele e depois chamo a função que compara as datas e comparo a data da ultima janta com a data de hoje.
+            if (cliente->getUltimaJanta()==hoje) {//Para verificar se ele já jantou eu chamo a função que retorna o ultimo almoço dele e depois chamo a função que compara as datas e comparo a data da ultima janta com a data de hoje.
             std::cout << "Refeição já realizada no turno de janta." << std::endl;
             return;
             } else {
