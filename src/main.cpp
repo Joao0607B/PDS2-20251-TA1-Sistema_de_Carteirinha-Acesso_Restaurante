@@ -144,16 +144,22 @@ int main() {
         cout << "\n=== Cadastro de Caixa ===" << endl;
         cout << "Nome: ";
         cin.ignore(); // para evitar problemas com getline
-        getline(cin, nome_Funcionario);
+        getline(cin, nome_Caixa);
 
         cout << "CPF: ";
-        getline(cin, cpf_Funcionario);
+        getline(cin, cpf_Caixa);
 
         cout << "Usuario: ";
-        getline(cin, usuario_Funcionario);
+        getline(cin, usuario_Caixa);
 
         cout << "senha: ";
-        getline(cin, senha_Funcionario);
+        getline(cin, senha_Caixa);
+
+        cout << "restaurante: ";
+        getline(cin, restaurante_Caixa);
+
+        cout << "Caixa: ";
+        getline(cin, caixa_Caixa);
 
         // Cria dinamicamente um Caixa e adiciona à lista
         Caixa *caixa = new Caixa(nome_Caixa, cpf_Caixa, usuario_Caixa, senha_Caixa, restaurante_Caixa, caixa_Caixa);
@@ -168,7 +174,6 @@ int main() {
       // CADASTRAR Fump -------------------------------------------------------------------------------------------------
       // -----------------------------------------------------------------------------------------------------------------
       
-      AdmFump
       if (opcao_cadastro == 6) {
         string nome_admfump, cpf_admfump, usuario_admfump, senha_admfump;
 
@@ -186,7 +191,7 @@ int main() {
         cout << "senha: ";
         getline(cin, senha_admfump);
 
-        // Cria dinamicamente um Caixa e adiciona à lista
+        // Cria dinamicamente um admfump e adiciona à lista
         AdmFump *admFump = new AdmFump(nome_admfump, cpf_admfump, usuario_admfump, senha_admfump);
         listaAdmFump.push_back(admFump);
 
