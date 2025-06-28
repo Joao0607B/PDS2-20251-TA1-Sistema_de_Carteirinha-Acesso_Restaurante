@@ -29,6 +29,7 @@ Nosso sistema é orientado a objetos e organizado em três responsabilidades pri
 *Caixa (herda de Funcionario):* funcionários responsáveis pela gestão do restaurante e movimentações financeiras.
 
 **2. Responsabilidade do controle do sistema e armazenamento de dados**
+
 É composta principalmente pela classe Gerenciamento do Sistema, que organiza as funcionalidades centrais:
 
 - Armazena vetores de Cliente* e Funcionario*.
@@ -46,6 +47,7 @@ Nosso sistema é orientado a objetos e organizado em três responsabilidades pri
 - Arquiva os dados (clientes e funcionários) nos arquivos .txt.
   
 **3. Resposnsabilidade de armazenamento e disponibilidade dos dados (Arquivos)**
+
 Usa três arquivos de texto simples para armazenar os dados:
 
 - Clientes.txt
@@ -62,26 +64,33 @@ Abaixo está anexado o diagrama de classes com as responsabilidades resumidas:
 ## Visão Geral do Fluxo de Funcionamento do Programa
 
  **1. Cadastro de Usuários**
+ 
 Um funcionário autorizado usa cadastrarFuncionario() ou cadastrarCliente() para incluir novos usuários no sistema.
 Clientes podem ser Aluno ou Professor, definidos conforme os dados fornecidos.
 
  **2. Login e Autenticação**
+ 
 Funcionários devem fazer login usando fazerLogin(usuario, senha) para acessar as funcionalidades administrativas.
 Após autenticação, podem realizar ações como liberar refeições, adicionar créditos e processar as refeições realizadas, que automaticamente registram o acesso. Após ações ele pode deslogar do sistema.
 
 **3. Processamento de Refeições**
+
 O funcionário, já autenticado, pode liberar as refeições(liberarRefeição(Cliente* cliente)) e processar a refeição no sistema. Para liberar a refeição o método verifica se o cliente não está bloqueado, valida se o cliente já realizou uma refeição no mesmo turno e verfica se o cliente possui saldo suficiente para realizar a refeição. Caso tudo esteja correto, desconta o valor da refeição do saldo, libera o acesso e registra o acesso naquele turno.
 
 **4. Gerenciamento de Saldo**
+
 O método adicionar_credito() adiciona um valor ao saldo do cliente, utilizando o funcionário responsável.Também há suporte para transferência de saldo entre clientes (transferir()), depósitos (depositar()), bloqueio e desbloqueio.
 
 **5. Controle de Acesso**
+
 Em cada cliente é registrado a data e tipo da última refeição (almoço ou jantar).Isso impede que um cliente repita refeições em um mesmo turno.
 
-**6. Persistência de Dados**
+**6. Armazenamento de Dados**
+
 Ao fim das operações, o sistema pode chamar salvarDados() para registrar clientes e funcionários nos arquivos .txt, como também registra as transações realizadas.
 
 **Documentação do Código**
+
 Abaixo está disponível o link de acesso para a documentação do código, via Doxygen.
 
 //link da documentação via Doxygen
