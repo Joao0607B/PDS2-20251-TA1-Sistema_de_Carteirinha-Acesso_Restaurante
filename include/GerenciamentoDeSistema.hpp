@@ -10,6 +10,7 @@
 #include "Caixa.hpp"
 #include "Professor.hpp"
 #include "Aluno.hpp"
+#include "Data.hpp"
 #include "../data/Funcionarios.txt"
 #include "../data/Clientes.txt"
 #include "../data/Transações.txt"
@@ -23,9 +24,10 @@ private:
    
     Cliente* encontrarCliente(const string& cpf);
     Funcionario* encontrarFuncionario(const string& usuario);
+    void registrarTransacao(const string& tipo, Cliente* cliente, double valor, Funcionario* funcionario, Cliente* cliente_destino = nullptr);
 
 public:
-    static char _tipoRefeicao; //a = almoço, j = jantar
+    static char _tipoDeRefeicao; //a = almoço, j = jantar
     GerenciamentoDeSistema();//Carrega os dados dos arquivos ao iniciar o sistema.
     ~GerenciamentoDeSistema(); //Salva os dados nos arquivos e libera a memória alocada dinamicamente.
 
