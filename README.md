@@ -18,9 +18,9 @@ Nosso sistema é orientado a objetos e organizado em três responsabilidades pri
 
 *Pessoa (classe base):* contém os atributos e métodos comuns a todas as pessoas (nome e CPF).
 
-*Funcionario (herda de Pessoa):* representa os usuários com permissões administrativas. Pode fazer login, trocar senha, deslogar e  principalemente é responsável por liberar as refeições para os clientes.
+*Funcionario (herda de Pessoa):* representa os usuários com permissões administrativas. Pode fazer login, trocar senha, deslogar e  principalmente é responsável por liberar as refeições para os clientes.
 
-*Cliente (herda de Pessoa):* representa quem consome as refeições (alunos e professores). Possui saldo, estado de bloqueio e histórico de acessos/refeições.
+*Cliente (herda de Pessoa):* representa quem consome as refeições (alunos, professores e visitantes). Possui saldo, estado de bloqueio e histórico de acessos/refeições.
 
 *Aluno (herda de Cliente):* possui informações adicionais como curso e nível Fump(o nível da fump é responsável ´pr influ~enciar o valor da refeição).
 
@@ -79,15 +79,15 @@ O funcionário, já autenticado, pode liberar as refeições(liberarRefeição(C
 
 **4. Gerenciamento de Saldo**
 
-O método adicionar_credito() adiciona um valor ao saldo do cliente, utilizando o funcionário responsável.Também há suporte para transferência de saldo entre clientes (transferir()), depósitos (depositar()), bloqueio e desbloqueio.
+O método depositar() adiciona um valor ao saldo do cliente, utilizando o funcionário responsável.Também há suporte para transferência de saldo entre clientes (transferir()), depósitos (depositar()), bloqueio e desbloqueio.
 
 **5. Controle de Acesso**
 
-Em cada cliente é registrado a data e tipo da última refeição (almoço ou jantar).Isso impede que um cliente repita refeições em um mesmo turno.
+Em cada cliente é registrado a data e tipo da última refeição (almoço ou jantar). Isso impede que um cliente repita refeições em um mesmo turno.
 
 **6. Armazenamento de Dados**
 
-Ao fim das operações, o sistema pode chamar salvarDados() para registrar clientes e funcionários nos arquivos .txt, como também registra as transações realizadas.
+Ao fim das operações, o sistema pode chamar salvarDados() para registrar clientes e funcionários nos arquivos .txt.
 
 **Documentação do Código**
 
