@@ -32,8 +32,8 @@ ${OBJ_DIR}/Aluno.o: ${INCLUDE_DIR}/Cliente.hpp ${INCLUDE_DIR}/Aluno.hpp ${SRC_DI
 ${OBJ_DIR}/Professor.o: ${INCLUDE_DIR}/Cliente.hpp ${INCLUDE_DIR}/Professor.hpp ${SRC_DIR}/Professor.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE_DIR} -c ${SRC_DIR}/Professor.cpp -o ${OBJ_DIR}/Professor.o
 
-${OBJ_DIR}/GerenciamentoDoSistema.o: ${INCLUDE_DIR}/Funcionario.hpp ${INCLUDE_DIR}/Cliente.hpp ${INCLUDE_DIR}/GerenciamentoDoSistema.hpp ${SRC_DIR}/GerenciamentoDoSistema.cpp
-	${CC} ${CFLAGS} -I ${INCLUDE_DIR} -c ${SRC_DIR}/GerenciamentoDoSistema.cpp -o ${OBJ_DIR}/GerenciamentoDoSistema.o
+${OBJ_DIR}/GerenciamentoDeSistema.o: ${INCLUDE_DIR}/Funcionario.hpp ${INCLUDE_DIR}/Cliente.hpp ${INCLUDE_DIR}/GerenciamentoDeSistema.hpp ${SRC_DIR}/GerenciamentoDeSistema.cpp
+	${CC} ${CFLAGS} -I ${INCLUDE_DIR} -c ${SRC_DIR}/GerenciamentoDeSistema.cpp -o ${OBJ_DIR}/GerenciamentoDeSistema.o
 
 ${OBJ_DIR}/main.o: ${INCLUDE_DIR}/Pessoa.hpp ${INCLUDE_DIR}/Data.hpp ${INCLUDE_DIR}/Cliente.hpp ${INCLUDE_DIR}/Funcionario.hpp ${INCLUDE_DIR}/GerenciamentoDoSistema.hpp ${INCLUDE_DIR}/Caixa.hpp ${INCLUDE_DIR}/Aluno.hpp ${INCLUDE_DIR}/Professor.hpp ${SRC_DIR}/main.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE_DIR} -c ${SRC_DIR}/main.cpp -o ${OBJ_DIR}/main.o
