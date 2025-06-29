@@ -1,19 +1,29 @@
-#include "Professor.hpp"
+/**
+ * @file Professor.cpp
+ * @brief Implementação dos métodos da classe Professor.
+ * @see Professor.hpp
+ */
+
+#include "../include/Professor.hpp"
 #include <iostream>
 
 Professor::Professor(const std::string& nome, const std::string& cpf,
                      const std::string& departamento)
-    : Cliente(nome, cpf), m_departamento(departamento) {}
-
-std::string Professor::getDepartamento() const {
-    return m_departamento;
+    // Inicializa a classe base e o membro _departamento na lista de inicialização
+    : Cliente(nome, cpf), _departamento(departamento) {
+    // Define o valor da refeição específico para professores
+    this->setValorRefeicao(13.00);
 }
 
-void Professor::printInfo() const {
-    std::cout << "Professor:\n";
-    std::cout << "Nome: " << getNome() << "\n";
-    std::cout << "CPF: " << getCpf() << "\n";
-    std::cout << "Departamento: " << m_departamento << "\n";
-    std::cout << "Saldo: " << getSaldo() << "\n";
-    std::cout << (getBloqueado() ? "Cartão bloqueado\n" : "Cartão liberado\n");
+std::string Professor::getDepartamento() const {
+    return _departamento;
+}
+
+void Professor::printInfo() {
+    std::cout << "--- Informações do Professor ---" << std::endl;
+    // Reutiliza o método printInfo da classe base para imprimir dados comuns.
+    // Isso evita a duplicação de código e facilita a manutenção.
+    Cliente::printInfo();
+    std::cout << "  Departamento: " << this->getDepartamento() << std::endl;
+    std::cout << "------------------------------" << std::endl;
 }
