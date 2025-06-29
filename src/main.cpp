@@ -9,11 +9,8 @@
 using namespace std;
 
 int main() {
-  int opcao;
-  vector<Aluno *> listaAlunos;
-  vector<Professor *> listaProfessores;
-  vector<Funcionario *> listaFuncionarios;
-  vector<Caixa *> listaCaixa;
+  int opcao = 0;
+
 
   do {
     cout << "\n========================================" << endl;
@@ -62,8 +59,7 @@ int main() {
         cout << "Curso: ";
         getline(cin, curso_Aluno);
 
-        Aluno *aluno = new Aluno(nome_Aluno, cpf_Aluno, nivelFump_Aluno, curso_Aluno);
-        listaAlunos.push_back(aluno);
+        cadastrarCliente(nome_Aluno, cpf_Aluno, nivelFump_Aluno, curso_Aluno); // ATENÇÃO
         cout << "\n>> Aluno cadastrado com sucesso!\n";
       } else {
         cout << "\n>> Tipo de cadastro ainda não implementado.\n";
@@ -87,10 +83,7 @@ int main() {
         cout << "Departamento: ";
         getline(cin, departamento_Professor);
 
-        // Cria dinamicamente um professor e adiciona à lista
-        Professor *professor = new Professor(nome_Professor, cpf_Professor, departamento_Professor);
-        listaProfessores.push_back(professor);
-
+        cadastrarCliente(nome_Professor, cpf_Professor, departamento_Professor); // ATENÇÃO !!
         cout << "\n>> Professor cadastrado com sucesso!" << endl;
       } else {
         cout << "\n>> Tipo de cadastro ainda não implementado.\n";
@@ -124,11 +117,8 @@ int main() {
 
         cout << "senha: ";
         getline(cin, senha_Funcionario);
-
-        // Cria dinamicamente um Funcionario e adiciona à lista
-        Funcionario *funcionario = new Funcionario(nome_Funcionario, cpf_Funcionario, usuario_Funcionario, senha_Funcionario);
-        listaFuncionarios.push_back(funcionario);
-
+        
+        cadastrarFuncionario(nome_Funcionario, cpf_Funcionario, usuario_Funcionario, senha_Funcionario); // ATENÇÃO !!
         cout << "\n>> Funcionario cadastrado com sucesso!" << endl;
       } else {
         cout << "\n>> Tipo de cadastro ainda não implementado.\n";
@@ -161,10 +151,7 @@ int main() {
         cout << "Caixa: ";
         getline(cin, caixa_Caixa);
 
-        // Cria dinamicamente um Caixa e adiciona à lista
-        Caixa *caixa = new Caixa(nome_Caixa, cpf_Caixa, usuario_Caixa, senha_Caixa, restaurante_Caixa, caixa_Caixa);
-        listaCaixa.push_back(caixa);
-
+        cadastrarFuncionario(nome_Caixa, cpf_Caixa, usuario_Caixa, senha_Caixa, restaurante_Caixa, caixa_Caixa); // ATENÇÃO !!
         cout << "\n>> Caixa cadastrado com sucesso!" << endl;
       } else {
         cout << "\n>> Tipo de cadastro ainda não implementado.\n";
@@ -190,11 +177,8 @@ int main() {
 
         cout << "senha: ";
         getline(cin, senha_admfump);
-
-        // Cria dinamicamente um admfump e adiciona à lista
-        AdmFump *admFump = new AdmFump(nome_admfump, cpf_admfump, usuario_admfump, senha_admfump);
-        listaAdmFump.push_back(admFump);
-
+        
+        cadastrarFuncionario(nome_admfump, cpf_admfump, usuario_admfump, senha_admfump);
         cout << "\n>> AdmFump cadastrado com sucesso!" << endl;
       } else {
         cout << "\n>> Tipo de cadastro ainda não implementado.\n";
@@ -204,24 +188,133 @@ int main() {
       //                                              CADASTROS FINALIZADOS
       // -----------------------------------------------------------------------------------------------------------------
       // -----------------------------------------------------------------------------------------------------------------
+      break;
+
+    case 2: 
+      // -----------------------------------------------------------------------------------------------------------------
+      // -----------------------------------------------------------------------------------------------------------------
+      //                                              VERIFICAR ENTRADA NO RESTAURANTE
+      // -----------------------------------------------------------------------------------------------------------------
+      // -----------------------------------------------------------------------------------------------------------------
+      cout << "\n>> Verificando entrada no restaurante...\n";
+      string cpf_restaurante, usuario_restaurante, senha_restaurante;
+      char tipoRefeicao;
+
+      cout << "Digite seu CPF: ";
+      cin >> cpf_restaurante;
+      cout << "Digite o tipo de refeição (A para almoço, J para jantar): ";
+      cin >> tipoRefeicao;
+
+      cout << "Digite o usuario do funcionario: ";
+      cin >> usuario_restaurante;
+      cout << "Digite a senha do funcionario: ";
+      cin >> senha_restaurante;
+      
+      
+      Funcionario* funcionarioResponsavel_Entrada = buscarFuncionario(usuario_restaurante, senha_restaurante);
+      if (funcionarioResponsavel_Entrada != nullptr)
+          cout<<"Funcionario encontrado!"<<endl;
+      
+      processar_refeicao(cpf_restaurante, funcionarioResponsavel_Entrada, tipoRefeicao);
+      break;
+    
+    case 3:
+      // -----------------------------------------------------------------------------------------------------------------
+      // -----------------------------------------------------------------------------------------------------------------
+      //                                              ADICIONAR CREDITO
+      // -----------------------------------------------------------------------------------------------------------------
+      // -----------------------------------------------------------------------------------------------------------------
+      cout << "\n>>Adicionar credito \n";
+      string cpf_credito,usuario_credito, senha_credito;
+      float valor_credito;
+      
+      cout << "Digite seu CPF: ";
+      cin >> cpf_credito;
+      cout << "Digite o valor a ser adicionado: ";
+      cin >> valor_credito;
+    
+      cout << "Digite o usuario do funcionario: ";
+      cin >> usuario_credito;
+      cout << "Digite a senha do funcionario: ";
+      cin >> senha_credito;
+
+      Funcionario* funcionarioResponsavel_credito = buscarFuncionario(usuario_info, senha_info);
+      if (funcionarioResponsavel_credito != nullptr)
+          cout<<"Funcionario encontrado!"<<endl;
+      
+      adicionar_credito(cpf_credito, funcionarioResponsavel_credito, valor_credito);
+      cout<<"Credito adicionado com sucesso !"<<endl;
       
       break;
-    case 2:
-      cout << "\n>> Verificando entrada no restaurante...\n";
-      // chamar função de entrada aqui
-      break;
-    case 3:
-      cout << "\n>> Mostrando informações do usuário...\n";
-      // chamar função de informações aqui
-      break;
+      
     case 4:
+      // -----------------------------------------------------------------------------------------------------------------
+      // -----------------------------------------------------------------------------------------------------------------
+      //                                              MOSTRAR INFORMAÇÕES DO USUÁRIO
+      // -----------------------------------------------------------------------------------------------------------------
+      // -----------------------------------------------------------------------------------------------------------------
+      int opcao_info;
+      string cpf_info, usuario_info, senha_info;
+      
+      cout << "\n>> Mostrando informações do usuário...\n";
+      
+      cout << "\n>> Selecione o tipo de usuário para ver as informações:\n";
+      cout << " [1] Aluno\n";
+      cout << " [2] Professor\n";
+      cout << " [3] Visitante\n";
+      cout << " [4] Funcionário\n";
+      cout << " [5] Caixa\n";
+      cout << " [6] AdmFump\n";
+      cout << "----------------------------------------\n";
+      cout << "Opção: ";
+      cin >> opcao_info;
+
+      if ( opcao_info < 4){
+        
+      cout << "Digite seu CPF: ";
+      cin >> cpf_info;
+
+      Cliente* clienteEncontrado = buscarClientes(cpf_info);
+      if (clienteEncontrado != nullptr)
+          clienteEncontrado->printInfo();
+      }
+      else{
+        cout << "Digite seu usuario: ";
+        cin >> usuario_info;
+        cout << "Digite sua senha: ";
+        cin >> senha_info;
+
+        Funcionario* funcionarioEncontrado = buscarFuncionario(usuario_info, senha_info);
+        if (funcionarioEncontrado != nullptr)
+            funcionarioEncontrado->printInfo();
+      }
+      break;
+      
+    case 5:
+       // -----------------------------------------------------------------------------------------------------------------
+       // -----------------------------------------------------------------------------------------------------------------
+       //                                             SALVAR DADOS
+       // -----------------------------------------------------------------------------------------------------------------
+       // -----------------------------------------------------------------------------------------------------------------
+       cout << "\n>> Salvar Dados\n";
+       salvarDados();
+       break;
+      
+    case 6:
+      // -----------------------------------------------------------------------------------------------------------------
+      // -----------------------------------------------------------------------------------------------------------------
+      //                                              SAIR DO SISTEMA
+      // -----------------------------------------------------------------------------------------------------------------
+      // -----------------------------------------------------------------------------------------------------------------
+      opcao = 1;
       cout << "\n>> Saindo do sistema. Até logo!\n";
       break;
+
     default:
       cout << "\n>> Opção inválida. Tente novamente.\n";
     }
 
-  } while (opcao != 4);
+  } while (opcao != 1);
 
   return 0;
 }
