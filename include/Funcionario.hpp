@@ -1,49 +1,72 @@
-#ifndef FUNCIONARIO_H
-#define FUNCIONARIO_H
-#include "Pessoa.hpp" 
-#include "Cliente.hpp"
+/**
+ * @file Funcionario.cpp
+ * @brief Implementação dos métodos da classe Funcionario.
+ * @see Funcionario.hpp
+ */
 
-class Funcionario: public Pessoa{
-    //Funcionario é uma subclasse de Pessoa, mas também é a superclasse de Caixa.
-    private:
-    //Funcionario possui dois atributos privados, são eles _usuario e _senha.
-    string _usuario;
-    std::string _senha;  
+#include "../include/Funcionario.hpp"
+#include "../include/GerenciamentoDeSistema.hpp" // Necessário para _tipoDeRefeicao
+#include <iostream>
 
-    public:
-    Funcionario(string nome, string cpf, string usuario, string senha);//Construtor de Funcionario que recebe dois atributos herdados de Pessoa(nome e cpf) e acrescenta dois argumentos proprios(usuario e senha).
-    
-    bool _logado = false;//Atributo _logado é public e é responsável somente por indicar se o usuário está logado ou não no sistema.
+Funcionario::Funcionario(std::string nome, std::string cpf, std::string usuario, std::string senha)
+    : Pessoa(nome, cpf), _usuario(usuario), _senha(senha) {}
 
-    string getUsuario();//Aqui temos o Get para permitir acessar o argumento privado _usuario.
-    string getSenha();//Aqui temos o Get para permitir acessar o argumento privado _senha.
+void Funcionario::setUsuario(std::string usuario) { this->_usuario = usuario; }
+void Funcionario::setSenha(std::string senha) { this->_senha = senha; }
+std::string Funcionario::getUsuario() { return this->_usuario; }
+std::string Funcionario::getSenha() { return this->_senha; }
 
-    void setUsuario(string usuario);//Aqui temos o Set para permitir modificar o argumento privado _usuario.
-    void setSenha(string senha);//Aqui temos o Set para permitir modificar o argumento privado _senha.
-    
-    void printInfo() override;//Esse método faz a subscrita do método printInfo() da classe Pessoa agora permitindo printar também o usuário do objeto.
-    bool fazerLogin(const string& usuarioDigitado, const string& senhaDigitada);//O método fazerLogin é um bool que recebe os parametros usuarioDigitado e senhaDigitada e compara com GetUsuario() e GetSenha() e retorna mensagens de erro e false se não forem iguais e retorna true se forem iguais.
-    void fazerLogout();//A função logOut é resposável por conferir se um usuário está logado no sistema por meio de _logado, e se estiver logado realiza o logOut e se não estiver logado exibe uma mensagem de erro.
-    void trocarSenha(string& novaSenha, string& confirmarSenha);//O método trocarSenha recebe o parâmetro novaSenha que será a senha que o usuário gostaria de definir como nova Senha de acesso e o parâmetro confirmarSenha que será comparada com a senha atual para que seja possivel redefinir a senha.
-    void liberarRefeicao(*Cliente cliente);//Verifica o ultimo acesso e o saldo do cliente para liberar a refeição, como também atualiza o ultimo acesso e desconta o valor da refeição do saldo atual.
-    ~Funcionario();//O destrutor que será chamado todo final de função, ou final do programa, ou quando o delete for chamado e é responsável por limpar os objetos criados.
-};
-class ExcecaoSaldoInsuficiente : public std::exception {//Classe personalizada de tratamento de exceção para tratar saldo insuficiente.
-public:
-    virtual const char* what() const throw() {
-        return "Erro: Saldo insuficiente.";
-    }//Cliente::getValorRefeicaoAtual() não pode ter tratamento de exceção
-};
-class ErroUsuarioNaoEncontrado : public std::exception {//Classe personalizada de tratamento de exceção para tratar usuário não encontrado.
-public:
-    const char* what() const throw() override {
-        return "Erro: Usuário digitado não encontrado.";
+void Funcionario::printInfo() {
+    Pessoa::printInfo(); // Chama o método da classe base
+    std::cout << "  Usuário: " << this->getUsuario() << std::endl;
+}
+
+bool Funcionario::fazerLogin(const std::string& usuarioDigitado, const std::string& senhaDigitada) {
+    try {
+        if (usuarioDigitado != getUsuario()) {
+            throw ErroUsuarioNaoEncontrado();
+        }
+        if (senhaDigitada != getSenha()) {
+            throw ErroSenhaIncorreta();
+        }
+        _logado = true;
+        std::cout << "Login realizado com sucesso!" << std::endl;
+        return true;
+    } catch (const std::exception& e) {
+        // Captura todas as exceções derivadas de std::exception
+        std::cerr << e.what() << std::endl;
+        return false;
     }
-};
-class ErroSenhaIncorreta : public std::exception {//Classe personalizada de tratamento de exceção para tratar senha incorreta na hora do login.
-public:
-    const char* what() const throw() override {
-        return "Erro: Senha incorreta.";
+}
+
+void Funcionario::fazerLogout() {
+    _logado = false;
+    std::cout << "Logout realizado com sucesso!" << std::endl;
+}
+
+void Funcionario::trocarSenha(std::string& novaSenha, std::string& confirmarSenha) {
+    if (confirmarSenha == getSenha()) {
+        setSenha(novaSenha);
+        std::cout << "Senha atualizada com sucesso!" << std::endl;
+    } else {
+        std::cout << "Senha atual incorreta, não foi possível realizar a atualização!" << std::endl;
     }
-};
-#endif 
+}
+
+void Funcionario::liberarRefeicao(Cliente* cliente) {
+    try {
+        if (cliente->getSaldo() < cliente->getValorRefeicao()) {
+            throw ExcecaoSaldoInsuficiente(); 
+        }
+
+        // A lógica de verificação de data esta encapsulada dentro de cliente->registrarAcesso().
+        bool sucesso = cliente->registrarAcesso(GerenciamentoDeSistema::_tipoDeRefeicao);
+
+        if (sucesso) {
+            std::cout << "Refeição liberada com sucesso pelo funcionário." << std::endl;
+        }
+
+    } catch (const ExcecaoSaldoInsuficiente& e) {
+        std::cerr << e.what() << std::endl;
+    }
+}
