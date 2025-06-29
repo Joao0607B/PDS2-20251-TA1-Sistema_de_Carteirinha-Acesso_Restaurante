@@ -1,7 +1,11 @@
+/**
+ * @file Data.cpp
+ * @brief Implementação dos métodos da classe Data.
+ */
 #include "../include/Data.hpp"
 
-// Implementação de isAnoBissexto no .cpp
 bool Data::isAnoBissexto(int a) const {
+    // A fórmula padrão para verificação de ano bissexto
     return (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
 }
 
@@ -10,8 +14,11 @@ bool Data::validarData(int d, int m, int a) const {
     if (a < 1) return false;
     if (m < 1 || m > 12) return false;
 
+    // Vetor com o número de dias de cada mês.
     std::vector<int> diasNoMes = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    if (isAnoBissexto(a)) { // isAnoBissexto precisa ser Data::isAnoBissexto() ou a classe deve estar no escopo
+
+    // Ajusta o mês de fevereiro para anos bissextos.
+    if (isAnoBissexto(a)) { 
         diasNoMes[2] = 29;
     }
 
@@ -21,12 +28,12 @@ bool Data::validarData(int d, int m, int a) const {
     return true;
 }
 
-// Implementação do NOVO construtor padrão
+// Construtor padrão. Inicializa a data com a data atual do sistema. 
 Data::Data() {
     this->definirDataAtual();
 }
 
-// Construtor existente com valores específicos
+// Construtor com parâmetros. Se a data fornecida for inválida, o objeto é inicializado com a data atual.
 Data::Data(int d, int m, int a) {
     if (validarData(d, m, a)) {
         _dia = d;
@@ -37,8 +44,6 @@ Data::Data(int d, int m, int a) {
         this->definirDataAtual();
     }
 }
-
-// ... (restante do código Data.cpp permanece o mesmo) ...
 
 // Setters
 void Data::setDia(int d) {
@@ -78,7 +83,7 @@ int Data::getAno() const {
     return _ano;
 }
 
-// Método para formatar a data como string
+// Formata a data como uma string no formato "DD/MM/AAAA".
 std::string Data::toString() const {
     std::string s_dia = std::to_string(_dia);
     std::string s_mes = std::to_string(_mes);
@@ -94,7 +99,7 @@ std::string Data::toString() const {
     return s_dia + "/" + s_mes + "/" + s_ano;
 }
 
-// Método para definir a data para a data atual do sistema
+// Define a data do objeto para a data atual do sistema.
 void Data::definirDataAtual() {
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
     std::time_t now_c = std::chrono::system_clock::to_time_t(now);
