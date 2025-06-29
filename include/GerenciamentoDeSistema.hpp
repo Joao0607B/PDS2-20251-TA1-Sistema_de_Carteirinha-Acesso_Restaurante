@@ -25,7 +25,7 @@ private:
     Funcionario* encontrarFuncionario(const string& usuario);
 
 public:
-    static char _tipoDeRefeicao; //a = almoço, j = jantar
+    static char _tipoRefeicao; //a = almoço, j = jantar
     GerenciamentoDeSistema();//Carrega os dados dos arquivos ao iniciar o sistema.
     ~GerenciamentoDeSistema(); //Salva os dados nos arquivos e libera a memória alocada dinamicamente.
 
@@ -33,10 +33,11 @@ public:
     void cadastrarFuncionario(Funcionario* funcionario);
     void apagarCliente(string cpf_cliente);
     void apagarFuncionario(string cpf_funcionario);
+    bool verificarLogin(string cpf_funcionario);
 
     bool acessarSistema(string usuario, string senha);
-    void depositarCrédito(string cpf_cliente, float valor, string usuario_funcionario);
-    void processarRefeicao(string cpf_cliente, string usuario_funcionario);
+    void depositarCrédito(string cpf_cliente, float valor, string cpf_funcionario);
+    void processarRefeicao(string cpf_cliente, string cpf_funcionario);
 
     void salvarDados();
     void carregarDados();
