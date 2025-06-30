@@ -1,0 +1,85 @@
+{\bfseries{Membros\+:}} ~\newline
+ Ana Laura Soares Mello, ~\newline
+ Larissa Roncali Faria, ~\newline
+ João Pedro Braga da Silva, ~\newline
+ Matheus Magalhães Caldeira Brant. ~\newline
+\hypertarget{md_README_autotoc_md1}{}\doxysection{Introdução}\label{md_README_autotoc_md1}
+Todo inicio de semestre é observável o crescimento das filas para o acesso dos restaurantes universitários, principalmente as filas referentes ao pagamento com cartões de débito. As longas filas podem intencificar a correria do dia a dia e acrescentar um estresse a mais em um momento que deveria ser para desacelerar. Logo, nosso projeto visa o desenvolvimento de um sistema que complementa a funcionabilidade das carteirinhas universitárias e que tem o objetivo de desenvolver a automatização e organização do processo de pagamento das refeições nos restaurantes.
+
+\hypertarget{md_README_autotoc_md2}{}\doxysection{Visão Geral}\label{md_README_autotoc_md2}
+\hypertarget{md_README_autotoc_md3}{}\doxysubsection{Visão Geral da Aquitetura}\label{md_README_autotoc_md3}
+Nosso sistema é orientado a objetos e organizado em três responsabilidades principais e suas respectivas classes\+:
+
+{\bfseries{1. Responsabilidade das entidades e dados do programa\+:}}
+
+{\itshape \mbox{\hyperlink{classPessoa}{Pessoa}} (classe base)\+:} contém os atributos e métodos comuns a todas as pessoas (nome e CPF).
+
+{\itshape \mbox{\hyperlink{classFuncionario}{Funcionario}} (herda de \mbox{\hyperlink{classPessoa}{Pessoa}})\+:} representa os usuários com permissões administrativas. Pode fazer login, trocar senha, deslogar e principalmente é responsável por liberar as refeições para os clientes.
+
+{\itshape \mbox{\hyperlink{classCliente}{Cliente}} (herda de \mbox{\hyperlink{classPessoa}{Pessoa}})\+:} representa quem consome as refeições (alunos, professores e visitantes). Possui saldo, estado de bloqueio e histórico de acessos/refeições.
+
+{\itshape \mbox{\hyperlink{classAluno}{Aluno}} (herda de \mbox{\hyperlink{classCliente}{Cliente}})\+:} possui informações adicionais como curso e nível Fump(o nível da fump é responsável ´pr influ$\sim$enciar o valor da refeição).
+
+{\itshape \mbox{\hyperlink{classProfessor}{Professor}} (herda de \mbox{\hyperlink{classCliente}{Cliente}})\+:} possui o atributo adicional “departamento”.
+
+{\itshape \mbox{\hyperlink{classCaixa}{Caixa}} (herda de \mbox{\hyperlink{classFuncionario}{Funcionario}})\+:} funcionários responsáveis pela gestão do restaurante e movimentações financeiras.
+
+{\bfseries{2. Responsabilidade do controle do sistema e armazenamento de dados}}
+
+É composta principalmente pela classe Gerenciamento do Sistema, que organiza as funcionalidades centrais\+:
+
+
+\begin{DoxyItemize}
+\item Armazena vetores de Cliente$\ast$ e Funcionario$\ast$.
+\item Controla o cadastro de clientes e funcionários.
+\item Autentica funcionários com base em usuario e senha.
+\item Permite busca de cliente por CPF.
+\item Processa refeições (valida se o cliente pode comer e registra acesso).
+\item Controla adição de crédito para clientes.
+\item Arquiva os dados (clientes e funcionários) nos arquivos .txt.
+\end{DoxyItemize}
+
+{\bfseries{3. Resposnsabilidade de armazenamento e disponibilidade dos dados (Arquivos)}}
+
+Usa três arquivos de texto simples para armazenar os dados\+:
+
+
+\begin{DoxyItemize}
+\item Clientes.\+txt
+\item Funcionarios.\+txt
+\item Transacoes.\+txt
+\end{DoxyItemize}
+
+Estes arquivos são lidos e atualizados pelo sistema via métodos da classe Gerenciamento. Abaixo está anexado o diagrama de classes com as responsabilidades resumidas\+:
+
+\hypertarget{md_README_autotoc_md4}{}\doxysubsection{Visão Geral do Fluxo de Funcionamento do Programa}\label{md_README_autotoc_md4}
+{\bfseries{1. Cadastro de Usuários}}
+
+Um funcionário autorizado usa cadastrar\+Funcionario() ou cadastrar\+Cliente() para incluir novos usuários no sistema. Clientes podem ser \mbox{\hyperlink{classAluno}{Aluno}} ou \mbox{\hyperlink{classProfessor}{Professor}}, definidos conforme os dados fornecidos.
+
+{\bfseries{2. Login e Autenticação}}
+
+Funcionários devem fazer login usando fazer\+Login(usuario, senha) para acessar as funcionalidades administrativas. Após autenticação, podem realizar ações como liberar refeições, adicionar créditos e processar as refeições realizadas, que automaticamente registram o acesso. Após ações ele pode deslogar do sistema.
+
+{\bfseries{3. Processamento de Refeições}}
+
+O funcionário, já autenticado, pode liberar as refeições(liberar\+Refeição(\+Cliente$\ast$ cliente)) e processar a refeição no sistema. Para liberar a refeição o método verifica se o cliente não está bloqueado, valida se o cliente já realizou uma refeição no mesmo turno e verfica se o cliente possui saldo suficiente para realizar a refeição. Caso tudo esteja correto, desconta o valor da refeição do saldo, libera o acesso e registra o acesso naquele turno.
+
+{\bfseries{4. Gerenciamento de Saldo}}
+
+O método depositar() adiciona um valor ao saldo do cliente, utilizando o funcionário responsável.\+Também há suporte para transferência de saldo entre clientes (transferir()), depósitos (depositar()), bloqueio e desbloqueio.
+
+{\bfseries{5. Controle de Acesso}}
+
+Em cada cliente é registrado a data e tipo da última refeição (almoço ou jantar). Isso impede que um cliente repita refeições em um mesmo turno.
+
+{\bfseries{6. Armazenamento de Dados}}
+
+Ao fim das operações, o sistema pode chamar salvar\+Dados() para registrar clientes e funcionários nos arquivos .txt.
+
+{\bfseries{Documentação do Código}}
+
+Abaixo está disponível o link de acesso para a documentação do código, via Doxygen.
+
+\href{https://github.com/Joao0607B/PDS2-20251-TA1-Sistema_de_Carteirinha-Acesso_Restaurante/blob/main/docs/}{\texttt{ //link da documentação via Doxygen}} Faça download e abra o arquivo index.\+html\hypertarget{md_README_autotoc_md5}{}\doxysection{Principais dificuldades encontradas}\label{md_README_autotoc_md5}
+Uma das principais dificuldades encontradas no projeto foi a integração entre os códigos desenvolvidos por diferentes membros do grupo. Com o desenvolvimento acontecendo de forma simultânea, surgiram desafios relacionados à padronização dos nomes, métodos e estrutura das classes. Reforçar a comunicação entre os membros foi uma atitude que ajudou muito a vencer esse desafio e fazer com que as partes do cpodigo se unissem para um único objetivo. 

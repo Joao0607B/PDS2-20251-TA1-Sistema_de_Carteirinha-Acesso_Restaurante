@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bloquear_122',['bloquear',['../classCliente.html#abf229b4aac1444c6dd4da54e8ab28c9e',1,'Cliente']]]
+  ['bloquear_252',['bloquear',['../classCliente.html#abf229b4aac1444c6dd4da54e8ab28c9e',1,'Cliente']]]
 ];

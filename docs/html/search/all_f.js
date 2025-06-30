@@ -1,4 +1,13 @@
 var searchData=
 [
-  ['what_89',['what',['../classExcecaoSaldoInsuficiente.html#a622081d337cd70aaa7604a1fffb9906a',1,'ExcecaoSaldoInsuficiente::what()'],['../classErroUsuarioNaoEncontrado.html#a1560a09828b4146a290eb9ec4d45961a',1,'ErroUsuarioNaoEncontrado::what()'],['../classErroSenhaIncorreta.html#aa3faa7d9cc64a401e3036a2fb24d8d05',1,'ErroSenhaIncorreta::what()']]]
+  ['registraracesso_106',['registrarAcesso',['../classCliente.html#a5780d18d8d954f79802c5b1d3d43f163',1,'Cliente']]],
+  ['registrartransacao_107',['registrarTransacao',['../classGerenciamentoDeSistema.html#a7036fab0c8fd76a4e3cba365c2e2c186',1,'GerenciamentoDeSistema']]],
+  ['relationalcomparator_108',['RelationalComparator',['../structdoctest_1_1detail_1_1RelationalComparator.html',1,'doctest::detail']]],
+  ['remove_5fconst_109',['remove_const',['../structdoctest_1_1detail_1_1types_1_1remove__const.html',1,'doctest::detail::types']]],
+  ['remove_5fconst_3c_20const_20t_20_3e_110',['remove_const&lt; const T &gt;',['../structdoctest_1_1detail_1_1types_1_1remove__const_3_01const_01T_01_4.html',1,'doctest::detail::types']]],
+  ['remove_5freference_111',['remove_reference',['../structdoctest_1_1detail_1_1types_1_1remove__reference.html',1,'doctest::detail::types']]],
+  ['remove_5freference_3c_20t_20_26_20_3e_112',['remove_reference&lt; T &amp; &gt;',['../structdoctest_1_1detail_1_1types_1_1remove__reference_3_01T_01_6_01_4.html',1,'doctest::detail::types']]],
+  ['remove_5freference_3c_20t_20_26_26_20_3e_113',['remove_reference&lt; T &amp;&amp; &gt;',['../structdoctest_1_1detail_1_1types_1_1remove__reference_3_01T_01_6_6_01_4.html',1,'doctest::detail::types']]],
+  ['result_114',['Result',['../structdoctest_1_1detail_1_1Result.html',1,'doctest::detail']]],
+  ['resultbuilder_115',['ResultBuilder',['../structdoctest_1_1detail_1_1ResultBuilder.html',1,'doctest::detail']]]
 ];

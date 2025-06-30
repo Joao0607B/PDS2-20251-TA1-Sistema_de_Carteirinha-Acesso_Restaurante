@@ -1,12 +1,12 @@
 <map id="include/Cliente.hpp" name="include/Cliente.hpp">
-<area shape="rect" id="node1" title="Definição da classe Cliente, que herda de Pessoa e gerencia dados financeiros e de acesso do cliente." alt="" coords="235,5,382,32"/>
-<area shape="rect" id="node2" href="$Cliente_8cpp.html" title="Implementação dos métodos da classe Cliente." alt="" coords="5,80,124,107"/>
-<area shape="rect" id="node3" href="$Aluno_8hpp.html" title="Definição da classe Aluno, uma especialização da classe Cliente." alt="" coords="149,80,287,107"/>
-<area shape="rect" id="node5" href="$Funcionario_8hpp.html" title="Definição da classe Funcionario e suas exceções personalizadas." alt="" coords="311,80,487,107"/>
-<area shape="rect" id="node9" href="$Professor_8hpp.html" title="Definição da classe Professor, uma especialização da classe Cliente." alt="" coords="564,80,725,107"/>
-<area shape="rect" id="node4" href="$Aluno_8cpp.html" title="Implementação dos métodos da classe Aluno." alt="" coords="137,155,246,181"/>
-<area shape="rect" id="node6" href="$Funcionario_8cpp.html" title="Implementação dos métodos da classe Funcionario." alt="" coords="270,155,417,181"/>
-<area shape="rect" id="node7" href="$Caixa_8hpp.html" title="Definição da classe Caixa, uma especialização da classe Funcionario." alt="" coords="441,155,579,181"/>
-<area shape="rect" id="node8" href="$Caixa_8cpp.html" title="Implementação dos métodos da classe Caixa." alt="" coords="455,229,565,256"/>
-<area shape="rect" id="node10" href="$Professor_8cpp.html" title="Implementação dos métodos da classe Professor." alt="" coords="604,155,736,181"/>
+<area shape="rect" id="node1" title="Definição da classe Cliente, que herda de Pessoa e gerencia dados financeiros e de acesso do cliente." alt="" coords="341,5,488,32"/>
+<area shape="rect" id="node2" href="$Aluno_8hpp.html" title="Definição da classe Aluno, uma especialização da classe Cliente." alt="" coords="43,80,181,107"/>
+<area shape="rect" id="node4" href="$Funcionario_8hpp.html" title="Definição da classe Funcionario e suas exceções personalizadas." alt="" coords="231,80,407,107"/>
+<area shape="rect" id="node8" href="$Professor_8hpp.html" title="Definição da classe Professor, uma especialização da classe Cliente." alt="" coords="431,80,593,107"/>
+<area shape="rect" id="node10" href="$Cliente_8cpp.html" title="Implementação dos métodos da classe Cliente." alt="" coords="617,80,735,107"/>
+<area shape="rect" id="node3" href="$Aluno_8cpp.html" title="Implementação dos métodos da classe Aluno." alt="" coords="5,155,115,181"/>
+<area shape="rect" id="node5" href="$Caixa_8hpp.html" title="Definição da classe Caixa, uma especialização da classe Funcionario." alt="" coords="139,155,277,181"/>
+<area shape="rect" id="node7" href="$Funcionario_8cpp.html" title="Implementação dos métodos da classe Funcionario." alt="" coords="301,155,448,181"/>
+<area shape="rect" id="node6" href="$Caixa_8cpp.html" title="Implementação dos métodos da classe Caixa." alt="" coords="153,229,263,256"/>
+<area shape="rect" id="node9" href="$Professor_8cpp.html" title="Implementação dos métodos da classe Professor." alt="" coords="473,155,605,181"/>
 </map>

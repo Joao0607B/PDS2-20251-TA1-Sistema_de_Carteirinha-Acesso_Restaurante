@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['registraracesso_68',['registrarAcesso',['../classCliente.html#a5780d18d8d954f79802c5b1d3d43f163',1,'Cliente']]],
-  ['registrartransacao_69',['registrarTransacao',['../classGerenciamentoDeSistema.html#a7036fab0c8fd76a4e3cba365c2e2c186',1,'GerenciamentoDeSistema']]]
+  ['messagebuilder_93',['MessageBuilder',['../structdoctest_1_1detail_1_1MessageBuilder.html',1,'doctest::detail']]],
+  ['messagedata_94',['MessageData',['../structdoctest_1_1MessageData.html',1,'doctest']]]
 ];

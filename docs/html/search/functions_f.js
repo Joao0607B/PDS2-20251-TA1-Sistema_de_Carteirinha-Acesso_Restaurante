@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7egerenciamentodesistema_187',['~GerenciamentoDeSistema',['../classGerenciamentoDeSistema.html#aafb18d3f8d06d7f7657357715f183dca',1,'GerenciamentoDeSistema']]]
+  ['what_317',['what',['../classExcecaoSaldoInsuficiente.html#a622081d337cd70aaa7604a1fffb9906a',1,'ExcecaoSaldoInsuficiente::what()'],['../classErroUsuarioNaoEncontrado.html#a1560a09828b4146a290eb9ec4d45961a',1,'ErroUsuarioNaoEncontrado::what()'],['../classErroSenhaIncorreta.html#aa3faa7d9cc64a401e3036a2fb24d8d05',1,'ErroSenhaIncorreta::what()']]]
 ];
