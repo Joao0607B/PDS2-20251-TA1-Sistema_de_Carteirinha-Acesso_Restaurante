@@ -94,9 +94,10 @@ Ao fim das operações, o sistema pode chamar salvarDados() para registrar clien
 Abaixo está disponível o link de acesso para a documentação do código, via Doxygen.
 
 //link da documentação via Doxygen
-# Principais dificuldades encontradas
-//
 
-# Extras implementados
-//
+# Principais dificuldades encontradas
+
+Uma das principais dificuldades encontradas no projeto foi a integração entre os códigos desenvolvidos por diferentes membros do grupo. Com o desenvolvimento acontecendo de forma simultânea, surgiram desafios relacionados à padronização dos nomes, métodos e estrutura das classes. Reforçar a comunicação entre os membros foi uma atitude que ajudou muito a vencer esse desafio e fazer com que as partes do cpodigo se unissem para um único objetivo.
+
+
 
