@@ -93,7 +93,7 @@ Ao fim das operações, o sistema pode chamar salvarDados() para registrar clien
 
 Abaixo está disponível o link de acesso para a documentação do código, via Doxygen.
 
-//link da documentação via Doxygen
+[//link da documentação via Doxygen](https://github.com/Joao0607B/PDS2-20251-TA1-Sistema_de_Carteirinha-Acesso_Restaurante/blob/main/docs/html/index.html)
 
 # Principais dificuldades encontradas
 
