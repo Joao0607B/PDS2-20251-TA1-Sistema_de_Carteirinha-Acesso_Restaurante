@@ -5,9 +5,10 @@ OBJ_DIR = obj
 SRC_DIR = src
 INCLUDE_DIR = include
 BIN_DIR = bin
+DATA_DIR = data
 
 run: ${BIN_DIR}/${TARGET}
-	test -f Clientes.txt && test -f Funcionarios.txt && test -f Transacoes.txt && ./${BIN_DIR}/${TARGET}
+	test -f ${DATA_DIR}/Clientes.txt && test -f ${DATA_DIR}/Funcionarios.txt && test -f ${DATA_DIR}/Transações.txt && ./${BIN_DIR}/${TARGET}
 
 all: $(BIN_DIR)/$(TARGET) 
 
