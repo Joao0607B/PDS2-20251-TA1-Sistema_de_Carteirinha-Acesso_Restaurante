@@ -15,6 +15,14 @@ using namespace std;
 
 int main() {
   GerenciamentoDeSistema sistema;  // Instância do sistema
+  int opcao_cadastro, nivelFump_Aluno, caixa_Caixa;
+  string nome_Aluno, cpf_Aluno, curso_Aluno, nome_Professor, cpf_Professor, departamento_Professor, nome_visitante, cpf_visitante, 
+  nome_Funcionario, cpf_Funcionario, usuario_Funcionario, senha_Funcionario, nome_Caixa, cpf_Caixa, usuario_Caixa, senha_Caixa, restaurante_Caixa,
+  nome_admfump, cpf_admfump, usuario_admfump, senha_admfump,cpf_restaurante, usuario_restaurante, senha_restaurante,
+  cpf_credito,usuario_credito, senha_credito, cpf_info, usuario_info, senha_info;
+  char tipoRefeicao;
+  float valor_credito;
+
   int opcao = 0;
 
 
@@ -30,10 +38,11 @@ int main() {
     cout << "----------------------------------------" << endl;
     cout << "Opção: ";
     cin >> opcao;
+    system("cls");                                                                     // LIMPA A TELA
 
     switch (opcao) {
         case 1:
-            int opcao_cadastro;
+            //int opcao_cadastro;
             cout << "\n>> Selecione o tipo de usuário para cadastro:\n";
             cout << " [1] Aluno\n";
             cout << " [2] Professor\n";
@@ -44,14 +53,14 @@ int main() {
             cout << "----------------------------------------\n";
             cout << "Tipo: ";
             cin >> opcao_cadastro;
-
+            system("cls");                                                                     // LIMPA A TELA
             // ----------------------------------------------------------------------------------------------------------------
             // CADASTRAR ALUNO  -----------------------------------------------------------------------------------------------
             // ----------------------------------------------------------------------------------------------------------------
             
             if (opcao_cadastro == 1) {
-                string nome_Aluno, cpf_Aluno, curso_Aluno;
-                int nivelFump_Aluno;
+                //string nome_Aluno, cpf_Aluno, curso_Aluno;
+                //int nivelFump_Aluno;
 
                 cout << "\n=== Cadastro de Aluno ===" << endl;
                 cout << "Nome: ";
@@ -72,13 +81,13 @@ int main() {
             } else {
                 cout << "\n>> Tipo de cadastro ainda não implementado.\n";
             }
-            
+            system("cls");                                                                     // LIMPA A TELA
             // --------------------------------------------------------------------------------------------------------------------
             // CADASTRAR PROFESSOR  -----------------------------------------------------------------------------------------------
             // --------------------------------------------------------------------------------------------------------------------
             
             if (opcao_cadastro == 2) {
-                string nome_Professor, cpf_Professor, departamento_Professor;
+                //string nome_Professor, cpf_Professor, departamento_Professor;
 
                 cout << "\n=== Cadastro de Professor ===" << endl;
                 cout << "Nome: ";
@@ -96,15 +105,15 @@ int main() {
                 sistema.cadastrarCliente(cliente_Professor);                                  // ATENÇÃO !!
                 cout << "\n>> Professor cadastrado com sucesso!" << endl;
             } else {
-                cout << "\n>> Tipo de cadastro ainda não implementado.\n";
+                cout << "\n>> Tipo de cadastro ainda não implementado.\n";caixa_Caixa;
             }
-            
+            system("cls");                                                                     // LIMPA A TELA
             // -------------------------------------------------------------------------------------------------------------------
             // CADASTRAR VISITANTE -----------------------------------------------------------------------------------------------
             // -------------------------------------------------------------------------------------------------------------------
             
             if (opcao_cadastro == 3) {
-                string nome_visitante, cpf_visitante;
+                //string nome_visitante, cpf_visitante;
 
                 cout << "Nome: ";
                 cin.ignore(); // para evitar problemas com getline
@@ -120,7 +129,7 @@ int main() {
             } else {
                 cout << "\n>> Tipo de cadastro ainda não implementado.\n";
             }
-
+             system("cls");                                                                     // LIMPA A TELA
                 //Cliente(std::string nome, std::string cpf);
 
                 // ---------------------------------------------------------------------------------------------------------------------
@@ -128,7 +137,7 @@ int main() {
             // ---------------------------------------------------------------------------------------------------------------------
         
             if (opcao_cadastro == 4) {
-                string nome_Funcionario, cpf_Funcionario, usuario_Funcionario, senha_Funcionario;
+               // string nome_Funcionario, cpf_Funcionario, usuario_Funcionario, senha_Funcionario;
 
                 cout << "\n=== Cadastro de Funcionario ===" << endl;
                 cout << "Nome: ";
@@ -144,18 +153,21 @@ int main() {
                 cout << "senha: ";
                 getline(cin, senha_Funcionario);
                 
-                sistema.cadastrarFuncionario(nome_Funcionario, cpf_Funcionario, usuario_Funcionario, senha_Funcionario); // ATENÇÃO !!
+                Funcionario* _Funcionario = new Funcionario(nome_Funcionario, cpf_Funcionario,usuario_Funcionario, senha_Funcionario);
+
+                sistema.cadastrarFuncionario(_Funcionario); // ATENÇÃO !!
                 cout << "\n>> Funcionario cadastrado com sucesso!" << endl;
             } else {
                 cout << "\n>> Tipo de cadastro ainda não implementado.\n";
             }
-            
+            system("cls");                                                                     // LIMPA A TELA
             // ---------------------------------------------------------------------------------------------------------------
             // CADASTRAR CAIXA -----------------------------------------------------------------------------------------------
             // ---------------------------------------------------------------------------------------------------------------
             
             if (opcao_cadastro == 5) {
-                string nome_Caixa, cpf_Caixa, usuario_Caixa, senha_Caixa, restaurante_Caixa; int caixa_Caixa;
+                //string nome_Caixa, cpf_Caixa, usuario_Caixa, senha_Caixa, restaurante_Caixa;
+                //int caixa_Caixa;
 
                 cout << "\n=== Cadastro de Caixa ===" << endl;
                 cout << "Nome: ";
@@ -175,20 +187,24 @@ int main() {
                 getline(cin, restaurante_Caixa);
 
                 cout << "Caixa: ";
-                getline(cin, caixa_Caixa);
+                cin >> caixa_Caixa;
+                cin.ignore(); // limpa o '\n' deixado no buffer pelo cin
 
-                sistema.cadastrarFuncionario(nome_Caixa, cpf_Caixa, usuario_Caixa, senha_Caixa, restaurante_Caixa, caixa_Caixa); // ATENÇÃO !!
+
+                Funcionario* Funcionario_Caixa = new Caixa (nome_Caixa, cpf_Caixa,usuario_Caixa, senha_Caixa, restaurante_Caixa, caixa_Caixa );
+
+                sistema.cadastrarFuncionario(Funcionario_Caixa); // ATENÇÃO !!
                 cout << "\n>> Caixa cadastrado com sucesso!" << endl;
             } else {
                 cout << "\n>> Tipo de cadastro ainda não implementado.\n";
             }
-            
+            system("cls");                                                                     // LIMPA A TELA
             // -----------------------------------------------------------------------------------------------------------------
             // CADASTRAR Fump -------------------------------------------------------------------------------------------------
             // -----------------------------------------------------------------------------------------------------------------
             
             if (opcao_cadastro == 6) {
-                string nome_admfump, cpf_admfump, usuario_admfump, senha_admfump;
+                //string nome_admfump, cpf_admfump, usuario_admfump, senha_admfump;
 
                 cout << "\n=== Cadastro de AdmFump ===" << endl;
                 cout << "Nome: ";
@@ -204,11 +220,14 @@ int main() {
                 cout << "senha: ";
                 getline(cin, senha_admfump);
                 
-                sistema.cadastrarFuncionario(nome_admfump, cpf_admfump, usuario_admfump, senha_admfump);
+                Funcionario* Funcionario_Fump = new Funcionario (nome_admfump, cpf_admfump,usuario_admfump, senha_admfump);
+
+                sistema.cadastrarFuncionario(Funcionario_Fump);
                 cout << "\n>> AdmFump cadastrado com sucesso!" << endl;
             } else {
                 cout << "\n>> Tipo de cadastro ainda não implementado.\n";
             }
+            system("cls");                                                                     // LIMPA A TELA
             // -----------------------------------------------------------------------------------------------------------------
             // -----------------------------------------------------------------------------------------------------------------
             //                                              CADASTROS FINALIZADOS
@@ -224,8 +243,8 @@ int main() {
             // -----------------------------------------------------------------------------------------------------------------
             // -----------------------------------------------------------------------------------------------------------------
             cout << "\n>> Verificando entrada no restaurante...\n";
-            string cpf_restaurante, usuario_restaurante, senha_restaurante;
-            char tipoRefeicao;
+            //string cpf_restaurante, usuario_restaurante, senha_restaurante;
+            //char tipoRefeicao;
 
             cout << "Digite seu CPF: ";
             cin >> cpf_restaurante;
@@ -238,11 +257,12 @@ int main() {
             cin >> senha_restaurante;
             
             
-            Funcionario* funcionarioResponsavel_Entrada = sistema.buscarFuncionario(usuario_restaurante, senha_restaurante);
+            Funcionario* funcionarioResponsavel_Entrada = sistema.encontrarFuncionario(usuario_restaurante);
             if (funcionarioResponsavel_Entrada != nullptr)
                 cout<<"Funcionario encontrado!"<<endl;
             
-            sistema.processar_refeicao(cpf_restaurante, funcionarioResponsavel_Entrada, tipoRefeicao);
+            sistema.processarRefeicao(cpf_restaurante, funcionarioResponsavel_Entrada->getCpf());
+            system("cls");                                                                     // LIMPA A TELA
             break;
             
         case 3:
@@ -252,8 +272,8 @@ int main() {
             // -----------------------------------------------------------------------------------------------------------------
             // -----------------------------------------------------------------------------------------------------------------
             cout << "\n>>Adicionar credito \n";
-            string cpf_credito,usuario_credito, senha_credito;
-            float valor_credito;
+            //string cpf_credito,usuario_credito, senha_credito;
+            //float valor_credito;
             
             cout << "Digite seu CPF: ";
             cin >> cpf_credito;
@@ -265,12 +285,13 @@ int main() {
             cout << "Digite a senha do funcionario: ";
             cin >> senha_credito;
 
-            Funcionario* funcionarioResponsavel_credito = sistema.buscarFuncionario(usuario_info, senha_info);
+            Funcionario* funcionarioResponsavel_credito = sistema.encontrarFuncionario(usuario_info);
             if (funcionarioResponsavel_credito != nullptr)
                 cout<<"Funcionario encontrado!"<<endl;
-            
-            sistema.adicionar_credito(cpf_credito, funcionarioResponsavel_credito, valor_credito);
+
+            sistema.depositarCrédito(cpf_credito, valor_credito, funcionarioResponsavel_credito->getCpf());
             cout<<"Credito adicionado com sucesso !"<<endl;
+            system("cls");                                                                     // LIMPA A TELA
             break;
             
         case 4:
@@ -280,7 +301,7 @@ int main() {
             // -----------------------------------------------------------------------------------------------------------------
             // -----------------------------------------------------------------------------------------------------------------
             int opcao_info;
-            string cpf_info, usuario_info, senha_info;
+            //string cpf_info, usuario_info, senha_info;
             
             cout << "\n>> Mostrando informações do usuário...\n";
             
@@ -300,8 +321,9 @@ int main() {
             cout << "Digite seu CPF: ";
             cin >> cpf_info;
 
-            Cliente* clienteEncontrado = sistema.buscarClientes(cpf_info);
+            Cliente* clienteEncontrado = sistema.encontrarCliente(cpf_info);
             if (clienteEncontrado != nullptr)
+                cout<<"Foi Encontrado :" << endl;
                 clienteEncontrado->printInfo();
             }
             else{
@@ -310,10 +332,12 @@ int main() {
                 cout << "Digite sua senha: ";
                 cin >> senha_info;
 
-                Funcionario* funcionarioEncontrado = sistema.buscarFuncionario(usuario_info, senha_info);
+                Funcionario* funcionarioEncontrado = sistema.encontrarFuncionario(usuario_info);
                 if (funcionarioEncontrado != nullptr)
+                    cout<<"Foi Encontrado :" << endl;
                     funcionarioEncontrado->printInfo();
             }
+            system("cls");                                                                     // LIMPA A TELA
             break;
             
         case 5:
@@ -324,6 +348,7 @@ int main() {
             // -----------------------------------------------------------------------------------------------------------------
             cout << "\n>> Salvar Dados\n";
             sistema.salvarDados();
+            system("cls");                                                                     // LIMPA A TELA
             break;
             
         case 6:
@@ -334,11 +359,12 @@ int main() {
             // -----------------------------------------------------------------------------------------------------------------
             opcao = 1;
             cout << "\n>> Saindo do sistema. Até logo!\n";
+            system("cls");                                                                     // LIMPA A TELA
             break;
             
         default:
             cout << "\n>> Opção inválida. Tente novamente.\n";
-        
+            system("cls");                                                                     // LIMPA A TELA
 
     }
     } while (opcao != 1);
