@@ -1,22 +1,48 @@
+/**
+ * @file GerenciamentoDeSistema.cpp
+ * @brief Implementação dos métodos da classe GerenciamentoDeSistema, o núcleo do sistema.
+ * @see GerenciamentoDeSistema.hpp
+ */
+
 #include "../include/GerenciamentoDeSistema.hpp"
 #include <fstream>
 #include <sstream>
 #include <typeinfo>
-#include <algorithm> 
+#include <algorithm>
+#include <iostream>
 
+// Definição e inicialização da variável estática
 char GerenciamentoDeSistema::_tipoDeRefeicao = 'a';
 
-void GerenciamentoDeSistema::registrarTransacao(const string& tipo, Cliente* cliente, double valor, Funcionario* funcionario, Cliente* cliente_destino) {
-    ofstream arquivo_transacoes("Transacoes.txt", ios::app);
+// --- Construtor e Destrutor ---
+
+GerenciamentoDeSistema::GerenciamentoDeSistema() {
+    carregarDados();
+    std::cout << "Sistema de Gerenciamento iniciado." << std::endl;
+}
+
+GerenciamentoDeSistema::~GerenciamentoDeSistema() {
+    salvarDados();
+    // Libera a memória alocada dinamicamente para cada objeto
+    for (Cliente* c : _clientes) {
+        delete c;
+    }
+    for (Funcionario* f : _funcionarios) {
+        delete f;
+    }
+    std::cout << "Sistema encerrado e memória liberada." << std::endl;
+}
+
+void GerenciamentoDeSistema::registrarTransacao(const std::string& tipo, Cliente* cliente, double valor, Funcionario* funcionario, Cliente* cliente_destino) {
+    // Abre o arquivo em modo "append" para adicionar ao final
+    std::ofstream arquivo_transacoes("data/Transacoes.txt", std::ios::app);
     if (!arquivo_transacoes.is_open()) {
-        cerr << "ERRO CRITICO: Nao foi possivel abrir Transacoes.txt para registro." << endl;
+        std::cerr << "ERRO CRITICO: Nao foi possivel abrir Transacoes.txt para registro." << std::endl;
         return;
     }
     Data hoje;
-    hoje.definirDataAtual();
-
     arquivo_transacoes << "Data: " << hoje.toString();
-    // Formatação baseada no TIPO de transação
+
     if (tipo == "Refeicao") {
         arquivo_transacoes << " Refeição: " << _tipoDeRefeicao
                            << " Cliente: " << cliente->getCpf()
@@ -30,89 +56,144 @@ void GerenciamentoDeSistema::registrarTransacao(const string& tipo, Cliente* cli
                            << " para: " << cliente_destino->getCpf()
                            << " Valor: " << valor;
     }
-
-    arquivo_transacoes << endl;
+    arquivo_transacoes << std::endl;
     arquivo_transacoes.close();
 }
 
-GerenciamentoDeSistema::GerenciamentoDeSistema(){
-    carregarDados();
-};
-
-GerenciamentoDeSistema::~GerenciamentoDeSistema(){
-    salvarDados();
-    for (Cliente* c : _clientes) delete c;
-    for (Funcionario* f : _funcionarios) delete f;
-}; //Salva os dados nos arquivos e libera a memória alocada dinamicamente.
-    
-void GerenciamentoDeSistema::cadastrarCliente(Cliente* cliente){
-    if(encontrarCliente(cliente->getCpf()) == nullptr){
-        _clientes.push_back(cliente);
-        salvarDados();
-    }else{
-        cout << "Existe outro cliente cadastrado com esse cpf." << endl;
+Cliente* GerenciamentoDeSistema::encontrarCliente(const std::string& cpf) {
+    for (Cliente* cliente : _clientes) {
+        if (cliente->getCpf() == cpf) {
+            return cliente;
+        }
     }
-};
-    
-void GerenciamentoDeSistema::cadastrarFuncionario(Funcionario* funcionario){
-    if(encontrarFuncionario(funcionario->getCpf()) == nullptr){
+    return nullptr;
+}
+
+Funcionario* GerenciamentoDeSistema::encontrarFuncionario(const std::string& usuario) {
+    for (Funcionario* funcionario : _funcionarios) {
+        if (funcionario->getUsuario() == usuario) {
+            return funcionario;
+        }
+    }
+    return nullptr;
+}
+
+
+void GerenciamentoDeSistema::cadastrarCliente(Cliente* cliente) {
+    if (encontrarCliente(cliente->getCpf()) == nullptr) {
+        _clientes.push_back(cliente);
+        salvarDados(); // Salva imediatamente após o cadastro
+        std::cout << "Cliente " << cliente->getNome() << " cadastrado com sucesso." << std::endl;
+    } else {
+        std::cout << "ERRO: Já existe um cliente cadastrado com o CPF " << cliente->getCpf() << "." << std::endl;
+        delete cliente; // Previne vazamento de memória se o cadastro falhar
+    }
+}
+
+void GerenciamentoDeSistema::cadastrarFuncionario(Funcionario* funcionario) {
+    if (encontrarFuncionario(funcionario->getUsuario()) == nullptr) {
         _funcionarios.push_back(funcionario);
         salvarDados();
-    }else{
-        cout << "Existe outro funcionário cadastrado com esse cpf." << endl;
+        std::cout << "Funcionário " << funcionario->getNome() << " cadastrado com sucesso." << std::endl;
+    } else {
+        std::cout << "ERRO: Já existe um funcionário cadastrado com o usuário " << funcionario->getUsuario() << "." << std::endl;
+        delete funcionario; // Previne vazamento de memória
     }
-};
-    
-void GerenciamentoDeSistema::apagarCliente(string cpf_cliente){
-    auto it = find(_clientes.begin(), _clientes.end(), cpf_cliente);
+}
+
+void GerenciamentoDeSistema::apagarCliente(std::string cpf_cliente) {
+    auto it = std::find_if(_clientes.begin(), _clientes.end(),
+                           [&](Cliente* c) { return c->getCpf() == cpf_cliente; });
+
     if (it != _clientes.end()) {
-        _clientes.erase(it);
+        delete *it; // 1. Libera a memória do objeto apontado pelo iterador
+        _clientes.erase(it); // 2. Remove o ponteiro do vetor
+        std::cout << "Cliente com CPF " << cpf_cliente << " removido com sucesso." << std::endl;
+        salvarDados();
     } else {
-        cout << "O cliente do cpf " << cpf_cliente << " nao foi encontrado." << endl;
+        std::cout << "ERRO: Cliente com CPF " << cpf_cliente << " não foi encontrado." << std::endl;
     }
+}
 
-};
-    
-void GerenciamentoDeSistema::apagarFuncionario(string cpf_funcionario){
-    auto it = find(_funcionarios.begin(), _funcionarios.end(), cpf_funcionario);
+void GerenciamentoDeSistema::apagarFuncionario(std::string cpf_funcionario) {
+     auto it = std::find_if(_funcionarios.begin(), _funcionarios.end(),
+                           [&](Funcionario* f) { return f->getCpf() == cpf_funcionario; });
+
     if (it != _funcionarios.end()) {
+        delete *it;
         _funcionarios.erase(it);
+        std::cout << "Funcionário com CPF " << cpf_funcionario << " removido com sucesso." << std::endl;
+        salvarDados();
     } else {
-        cout << "O funcionario do cpf " << cpf_funcionario << " nao foi encontrado." << endl;
+        std::cout << "ERRO: Funcionário com CPF " << cpf_funcionario << " não foi encontrado." << std::endl;
     }
-}; 
+}
 
-bool GerenciamentoDeSistema::verificarLogin(string cpf_funcionario){
-    if(encontrarFuncionario(cpf_funcionario) != nullptr){
-        if(encontrarFuncionario(cpf_funcionario)->_logado==true){
-            return true;
-        }else{
-            cout << "Este funcionário não está logado." << endl;
+bool GerenciamentoDeSistema::verificarLogin(std::string cpf_funcionario) {
+    for (const auto& func : _funcionarios) {
+        if (func->getCpf() == cpf_funcionario) {
+            if (func->_logado) {
+                return true;
+            } else {
+                std::cout << "Funcionário não está logado." << std::endl;
+                return false;
+            }
         }
-        
-    }else{
-        cout << "Funcionário não encontrado." << endl;
     }
+    std::cout << "Funcionário não encontrado." << std::endl;
     return false;
-};
+}
 
-void GerenciamentoDeSistema::depositarCrédito(string cpf_cliente, float valor, string cpf_funcionario){
-    if(verificarLogin(cpf_funcionario)){
-        encontrarCliente(cpf_cliente)->depositar(valor);
+bool GerenciamentoDeSistema::acessarSistema(std::string usuario, std::string senha) {
+    Funcionario* func = encontrarFuncionario(usuario);
+    if (func) {
+        return func->fazerLogin(usuario, senha);
     }
-};
+    std::cout << "ERRO: Usuário '" << usuario << "' não encontrado." << std::endl;
+    return false;
+}
+
+void GerenciamentoDeSistema::depositarCrédito(std::string cpf_cliente, float valor, std::string cpf_funcionario) {
+    if (!verificarLogin(cpf_funcionario)) return;
+
+    Cliente* cliente = encontrarCliente(cpf_cliente);
+    Funcionario* funcionario = nullptr; // Necessário para registrar a transação
+    for(const auto& f : _funcionarios) { if(f->getCpf() == cpf_funcionario) { funcionario = f; break; } }
     
-void GerenciamentoDeSistema::processarRefeicao(string cpf_cliente, string cpf_funcionario){
-    if(verificarLogin(cpf_funcionario)){
-        if(encontrarCliente(cpf_cliente) != nullptr){
-            encontrarFuncionario(cpf_funcionario)->liberarRefeicao(encontrarCliente(cpf_cliente));
+    if (cliente && funcionario) {
+        cliente->depositar(valor);
+        this->registrarTransacao("Deposito", cliente, valor, funcionario);
+        std::cout << "Depósito realizado com sucesso." << std::endl;
+    } else {
+        std::cout << "ERRO: Cliente ou funcionário não encontrado para realizar o depósito." << std::endl;
+    }
+}
+
+void GerenciamentoDeSistema::processarRefeicao(std::string cpf_cliente, std::string cpf_funcionario) {
+    if (!verificarLogin(cpf_funcionario)) return;
+    
+    Cliente* cliente = encontrarCliente(cpf_cliente);
+    Funcionario* funcionario = nullptr;
+    for(const auto& f : _funcionarios) { if(f->getCpf() == cpf_funcionario) { funcionario = f; break; } }
+
+    if (cliente && funcionario) {
+        try {
+            // A lógica de negócio e o 'throw' devem estar dentro de registrarAcesso
+            if (cliente->registrarAcesso(_tipoDeRefeicao)) {
+                this->registrarTransacao("Refeicao", cliente, cliente->getValorRefeicao(), funcionario);
+                std::cout << "Refeição registrada com sucesso." << std::endl;
+            } else {
+                // A mensagem de erro específica (ex: já almoçou) é impressa dentro de registrarAcesso
+                std::cout << "Não foi possível processar a refeição." << std::endl;
+            }
+        } catch (const std::exception& e) {
+            // Captura exceções como ExcecaoSaldoInsuficiente
+            std::cerr << "Falha na transação: " << e.what() << std::endl;
         }
-        this->registrarTransacao("Refeicao", encontrarCliente(cpf_cliente), encontrarCliente(cpf_cliente)->getValorRefeicao(), encontrarFuncionario(cpf_funcionario));
-        cout << "Refeição registrada." << endl;
+    } else {
+        std::cout << "ERRO: Cliente ou funcionário não encontrado para processar a refeição." << std::endl;
     }
-};
-    
-bool GerenciamentoDeSistema::acessarSistema(string usuario, string senha){};
+}
 
 void GerenciamentoDeSistema::salvarDados() {
     //Salvar clientes
@@ -231,32 +312,18 @@ void GerenciamentoDeSistema::carregarDados() {
     }
 }
 
-void GerenciamentoDeSistema::exibirClientes(){
-    for(Cliente* c: _clientes){
+void GerenciamentoDeSistema::exibirClientes() {
+    std::cout << "\n--- LISTA DE CLIENTES ---\n";
+    for (Cliente* c : _clientes) {
         c->printInfo();
+        std::cout << "------------------------\n";
     }
-};
-    
-void GerenciamentoDeSistema::exibirFuncionarios(){
-        for(Funcionario* f: _funcionarios){
-        f->printInfo();
-    }
-};
-
-Cliente* GerenciamentoDeSistema::encontrarCliente(const string& cpf) {
-    for (Cliente* cliente : _clientes) {
-        if (cliente->getCpf() == cpf) {
-            return cliente; // Retorna o ponteiro para o cliente encontrado
-        }
-    }
-    return nullptr; // Se o loop terminar sem encontrar o cliente, retorna um ponteiro nulo
 }
- 
-Funcionario* GerenciamentoDeSistema::encontrarFuncionario(const string& usuario) {
-    for (Funcionario* funcionario : _funcionarios) {
-        if (funcionario->getUsuario() == usuario) {
-            return funcionario; // Retorna o ponteiro para o funcionário encontrado
-        }
+
+void GerenciamentoDeSistema::exibirFuncionarios() {
+    std::cout << "\n--- LISTA DE FUNCIONÁRIOS ---\n";
+    for (Funcionario* f : _funcionarios) {
+        f->printInfo();
+        std::cout << "---------------------------\n";
     }
-    return nullptr; // Se o loop terminar sem encontrar o funcionário, retorna um ponteiro nulo
 }
