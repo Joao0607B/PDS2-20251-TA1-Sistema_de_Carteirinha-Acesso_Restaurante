@@ -1,0 +1,11 @@
+<map id="include/Professor.hpp" name="include/Professor.hpp">
+<area shape="rect" id="node1" title="Definição da classe Professor, uma especialização da classe Cliente." alt="" coords="5,5,167,32"/>
+<area shape="rect" id="node2" href="$Cliente_8hpp.html" title="Definição da classe Cliente, que herda de Pessoa e gerencia dados financeiros e de acesso do cliente." alt="" coords="106,80,202,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="65,229,123,256"/>
+<area shape="rect" id="node3" href="$Pessoa_8hpp.html" title="Definição da classe base Pessoa, que representa um indivíduo no sistema." alt="" coords="131,155,227,181"/>
+<area shape="rect" id="node6" href="$Data_8hpp.html" title="Definição da classe Data para manipulação e validação de datas." alt="" coords="252,155,333,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="147,229,227,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="335,229,397,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="422,229,489,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="251,229,310,256"/>
+</map>

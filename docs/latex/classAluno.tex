@@ -1,0 +1,146 @@
+\hypertarget{classAluno}{}\doxysection{Aluno Class Reference}
+\label{classAluno}\index{Aluno@{Aluno}}
+
+
+Representa um cliente do tipo \mbox{\hyperlink{classAluno}{Aluno}}, que possui um nível FUMP e um curso.  
+
+
+
+
+{\ttfamily \#include $<$Aluno.\+hpp$>$}
+
+
+
+Inheritance diagram for Aluno\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=131pt]{classAluno__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Aluno\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=131pt]{classAluno__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAluno_a4da59272a9e80ce514590b9739b5ad73}{Aluno}} (const std\+::string \&nome, const std\+::string \&cpf, int nivel\+Fump, const std\+::string \&curso)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classAluno}{Aluno}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAluno_ab10129051c5e62e1af3659378d46c762}{get\+Nivel\+Fump}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o nível FUMP do aluno. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAluno_a966f2c94f7dd52e67d57b42d0940956c}{set\+Nivel\+Fump}} (int nivel)
+\begin{DoxyCompactList}\small\item\em Define o nível FUMP do aluno e atualiza o valor da refeição de acordo. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAluno_a4abf64fdbf1ee5550bf3e7fca10455be}{get\+Curso}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o curso do aluno. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAluno_aa7106f00bfd935f51df752408003e874}{print\+Info}} () override
+\begin{DoxyCompactList}\small\item\em Sobrescreve o método print\+Info de \mbox{\hyperlink{classCliente}{Cliente}} para incluir dados específicos do aluno. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa um cliente do tipo \mbox{\hyperlink{classAluno}{Aluno}}, que possui um nível FUMP e um curso. 
+
+
+\begin{DoxyItemize}
+\item Esta classe herda de \mbox{\hyperlink{classCliente}{Cliente}} e ajusta o valor da refeição com base no nível socioeconômico do aluno (nível FUMP). 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAluno_a4da59272a9e80ce514590b9739b5ad73}\label{classAluno_a4da59272a9e80ce514590b9739b5ad73}} 
+\index{Aluno@{Aluno}!Aluno@{Aluno}}
+\index{Aluno@{Aluno}!Aluno@{Aluno}}
+\doxysubsubsection{\texorpdfstring{Aluno()}{Aluno()}}
+{\footnotesize\ttfamily Aluno\+::\+Aluno (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome,  }\item[{const std\+::string \&}]{cpf,  }\item[{int}]{nivel\+Fump,  }\item[{const std\+::string \&}]{curso }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \mbox{\hyperlink{classAluno}{Aluno}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do aluno, passado para o construtor de \mbox{\hyperlink{classCliente}{Cliente}}. \\
+\hline
+{\em cpf} & O CPF do aluno, passado para o construtor de \mbox{\hyperlink{classCliente}{Cliente}}. \\
+\hline
+{\em nivel\+Fump} & O nível FUMP do aluno (0 a 5). \\
+\hline
+{\em curso} & O nome do curso do aluno. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAluno_a4abf64fdbf1ee5550bf3e7fca10455be}\label{classAluno_a4abf64fdbf1ee5550bf3e7fca10455be}} 
+\index{Aluno@{Aluno}!getCurso@{getCurso}}
+\index{getCurso@{getCurso}!Aluno@{Aluno}}
+\doxysubsubsection{\texorpdfstring{getCurso()}{getCurso()}}
+{\footnotesize\ttfamily std\+::string Aluno\+::get\+Curso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtém o curso do aluno. 
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o nome do curso. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAluno_ab10129051c5e62e1af3659378d46c762}\label{classAluno_ab10129051c5e62e1af3659378d46c762}} 
+\index{Aluno@{Aluno}!getNivelFump@{getNivelFump}}
+\index{getNivelFump@{getNivelFump}!Aluno@{Aluno}}
+\doxysubsubsection{\texorpdfstring{getNivelFump()}{getNivelFump()}}
+{\footnotesize\ttfamily int Aluno\+::get\+Nivel\+Fump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtém o nível FUMP do aluno. 
+
+\begin{DoxyReturn}{Returns}
+Um inteiro representando o nível FUMP. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAluno_aa7106f00bfd935f51df752408003e874}\label{classAluno_aa7106f00bfd935f51df752408003e874}} 
+\index{Aluno@{Aluno}!printInfo@{printInfo}}
+\index{printInfo@{printInfo}!Aluno@{Aluno}}
+\doxysubsubsection{\texorpdfstring{printInfo()}{printInfo()}}
+{\footnotesize\ttfamily void Aluno\+::print\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sobrescreve o método print\+Info de \mbox{\hyperlink{classCliente}{Cliente}} para incluir dados específicos do aluno. 
+
+
+\begin{DoxyItemize}
+\item Imprime todas as informações do cliente mais o curso e o nível FUMP. 
+\end{DoxyItemize}
+
+Reimplemented from \mbox{\hyperlink{classPessoa_a8d1d7963f6c5d3602ef5ee6858b72d38}{Pessoa}}.
+
+\mbox{\Hypertarget{classAluno_a966f2c94f7dd52e67d57b42d0940956c}\label{classAluno_a966f2c94f7dd52e67d57b42d0940956c}} 
+\index{Aluno@{Aluno}!setNivelFump@{setNivelFump}}
+\index{setNivelFump@{setNivelFump}!Aluno@{Aluno}}
+\doxysubsubsection{\texorpdfstring{setNivelFump()}{setNivelFump()}}
+{\footnotesize\ttfamily void Aluno\+::set\+Nivel\+Fump (\begin{DoxyParamCaption}\item[{int}]{nivel }\end{DoxyParamCaption})}
+
+
+
+Define o nível FUMP do aluno e atualiza o valor da refeição de acordo. 
+
+
+\begin{DoxyItemize}
+\item O valor da refeição é ajustado com base em uma tabela interna de preços correspondente a cada nível. 
+\begin{DoxyParams}{Parameters}
+{\em nivel} & O novo nível FUMP a ser atribuído. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Aluno_8hpp}{Aluno.\+hpp}}\item 
+src/\mbox{\hyperlink{Aluno_8cpp}{Aluno.\+cpp}}\end{DoxyCompactItemize}

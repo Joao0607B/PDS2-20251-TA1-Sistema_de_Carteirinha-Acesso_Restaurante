@@ -1,0 +1,304 @@
+\hypertarget{classCliente}{}\doxysection{Cliente Class Reference}
+\label{classCliente}\index{Cliente@{Cliente}}
+
+
+Modela um cliente do restaurante, com funcionalidades de saldo, bloqueio e registro de refeições.  
+
+
+
+
+{\ttfamily \#include $<$Cliente.\+hpp$>$}
+
+
+
+Inheritance diagram for Cliente\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{classCliente__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Cliente\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=131pt]{classCliente__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCliente_ace8fd10432884faf710b166afa2f2b35}{Cliente}} (std\+::string nome, std\+::string cpf)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classCliente}{Cliente}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCliente_a3c70844eee7287f4594793c67e159d52}{set\+Saldo}} (float valor)
+\begin{DoxyCompactList}\small\item\em Define o saldo do cliente. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCliente_a91466708aeb9e2dbea75996321ebe94a}{get\+Saldo}} ()
+\begin{DoxyCompactList}\small\item\em Obtém o saldo atual do cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCliente_a949d65c0f2b031a65baf52eea34496f6}{transferir}} (float valor, \mbox{\hyperlink{classCliente}{Cliente}} $\ast$outro\+Cliente)
+\begin{DoxyCompactList}\small\item\em Transfere um valor do saldo deste cliente para outro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCliente_aa45e13615152b29dac7c2f1574b4d063}{depositar}} (float valor)
+\begin{DoxyCompactList}\small\item\em Adiciona um valor ao saldo do cliente. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCliente_abf229b4aac1444c6dd4da54e8ab28c9e}\label{classCliente_abf229b4aac1444c6dd4da54e8ab28c9e}} 
+void \mbox{\hyperlink{classCliente_abf229b4aac1444c6dd4da54e8ab28c9e}{bloquear}} ()
+\begin{DoxyCompactList}\small\item\em Bloqueia o cartão do cliente, impedindo transações. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCliente_a623db18f04c83aeb6e09bcc434f0b134}\label{classCliente_a623db18f04c83aeb6e09bcc434f0b134}} 
+void \mbox{\hyperlink{classCliente_a623db18f04c83aeb6e09bcc434f0b134}{desbloquear}} ()
+\begin{DoxyCompactList}\small\item\em Desbloqueia o cartão do cliente, permitindo transações. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCliente_a6afcad36a47e901f1a1a05dad2589abc}{set\+Ultimo\+Almoco}} (\mbox{\hyperlink{classData}{Data}} data)
+\begin{DoxyCompactList}\small\item\em Define a data do último almoço para a data definida. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCliente_a5c960a815675b3af6c47c06d9d621eff}{set\+Ultimo\+Jantar}} (\mbox{\hyperlink{classData}{Data}} data)
+\begin{DoxyCompactList}\small\item\em Define a data do último jantar para a data definida. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classData}{Data}} \mbox{\hyperlink{classCliente_aabb80db1fbea8b5799f949b22dcf504e}{get\+Ultimo\+Almoco}} ()
+\begin{DoxyCompactList}\small\item\em Obtém a data da última refeição do tipo almoço. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classData}{Data}} \mbox{\hyperlink{classCliente_a99bf1595fd132e78b2b2be8509ff0028}{get\+Ultimo\+Jantar}} ()
+\begin{DoxyCompactList}\small\item\em Obtém a data da última refeição do tipo jantar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCliente_a32eb14acb13830502eee912e2daec353}{print\+Info}} () override
+\begin{DoxyCompactList}\small\item\em Sobrescreve o método print\+Info de \mbox{\hyperlink{classPessoa}{Pessoa}} para incluir dados do cliente. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCliente_a719ea5e0aa203ba2b35a56be62e1581a}{get\+Is\+Bloqueado}} ()
+\begin{DoxyCompactList}\small\item\em Verifica se o cliente está bloqueado. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCliente_a22ef2496b64ae4b5c61ed8c43a560475}{get\+Valor\+Refeicao}} ()
+\begin{DoxyCompactList}\small\item\em Obtém o valor padrão da refeição para este cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCliente_aa676e1dfae2ff28b36a0a81262a7ce92}{set\+Valor\+Refeicao}} (float valor)
+\begin{DoxyCompactList}\small\item\em Define um novo valor para a refeição. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCliente_a5780d18d8d954f79802c5b1d3d43f163}{registrar\+Acesso}} (char tipo\+De\+Refeicao)
+\begin{DoxyCompactList}\small\item\em Registra um acesso (refeição), atualizando a data correspondente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Modela um cliente do restaurante, com funcionalidades de saldo, bloqueio e registro de refeições. 
+
+
+\begin{DoxyItemize}
+\item Esta classe herda de \mbox{\hyperlink{classPessoa}{Pessoa}} e serve como base para tipos de clientes mais específicos, como \mbox{\hyperlink{classAluno}{Aluno}} e \mbox{\hyperlink{classProfessor}{Professor}}. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCliente_ace8fd10432884faf710b166afa2f2b35}\label{classCliente_ace8fd10432884faf710b166afa2f2b35}} 
+\index{Cliente@{Cliente}!Cliente@{Cliente}}
+\index{Cliente@{Cliente}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{Cliente()}{Cliente()}}
+{\footnotesize\ttfamily Cliente\+::\+Cliente (\begin{DoxyParamCaption}\item[{std\+::string}]{nome,  }\item[{std\+::string}]{cpf }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \mbox{\hyperlink{classCliente}{Cliente}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do cliente, passado para o construtor de \mbox{\hyperlink{classPessoa}{Pessoa}}. \\
+\hline
+{\em cpf} & O CPF do cliente, passado para o construtor de \mbox{\hyperlink{classPessoa}{Pessoa}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Inicializa o saldo como 0.\+0, o status de bloqueio como false e o valor da refeição com 17.\+50. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCliente_aa45e13615152b29dac7c2f1574b4d063}\label{classCliente_aa45e13615152b29dac7c2f1574b4d063}} 
+\index{Cliente@{Cliente}!depositar@{depositar}}
+\index{depositar@{depositar}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{depositar()}{depositar()}}
+{\footnotesize\ttfamily void Cliente\+::depositar (\begin{DoxyParamCaption}\item[{float}]{valor }\end{DoxyParamCaption})}
+
+
+
+Adiciona um valor ao saldo do cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & O valor a ser depositado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCliente_a719ea5e0aa203ba2b35a56be62e1581a}\label{classCliente_a719ea5e0aa203ba2b35a56be62e1581a}} 
+\index{Cliente@{Cliente}!getIsBloqueado@{getIsBloqueado}}
+\index{getIsBloqueado@{getIsBloqueado}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{getIsBloqueado()}{getIsBloqueado()}}
+{\footnotesize\ttfamily bool Cliente\+::get\+Is\+Bloqueado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Verifica se o cliente está bloqueado. 
+
+\begin{DoxyReturn}{Returns}
+true se o cliente estiver bloqueado, false caso contrário. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCliente_a91466708aeb9e2dbea75996321ebe94a}\label{classCliente_a91466708aeb9e2dbea75996321ebe94a}} 
+\index{Cliente@{Cliente}!getSaldo@{getSaldo}}
+\index{getSaldo@{getSaldo}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{getSaldo()}{getSaldo()}}
+{\footnotesize\ttfamily float Cliente\+::get\+Saldo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém o saldo atual do cliente. 
+
+\begin{DoxyReturn}{Returns}
+O valor do saldo em ponto flutuante. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCliente_aabb80db1fbea8b5799f949b22dcf504e}\label{classCliente_aabb80db1fbea8b5799f949b22dcf504e}} 
+\index{Cliente@{Cliente}!getUltimoAlmoco@{getUltimoAlmoco}}
+\index{getUltimoAlmoco@{getUltimoAlmoco}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{getUltimoAlmoco()}{getUltimoAlmoco()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classData}{Data}} Cliente\+::get\+Ultimo\+Almoco (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém a data da última refeição do tipo almoço. 
+
+\begin{DoxyReturn}{Returns}
+Um objeto \mbox{\hyperlink{classData}{Data}} correspondente ao último almoço. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCliente_a99bf1595fd132e78b2b2be8509ff0028}\label{classCliente_a99bf1595fd132e78b2b2be8509ff0028}} 
+\index{Cliente@{Cliente}!getUltimoJantar@{getUltimoJantar}}
+\index{getUltimoJantar@{getUltimoJantar}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{getUltimoJantar()}{getUltimoJantar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classData}{Data}} Cliente\+::get\+Ultimo\+Jantar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém a data da última refeição do tipo jantar. 
+
+\begin{DoxyReturn}{Returns}
+Um objeto \mbox{\hyperlink{classData}{Data}} correspondente ao último jantar. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCliente_a22ef2496b64ae4b5c61ed8c43a560475}\label{classCliente_a22ef2496b64ae4b5c61ed8c43a560475}} 
+\index{Cliente@{Cliente}!getValorRefeicao@{getValorRefeicao}}
+\index{getValorRefeicao@{getValorRefeicao}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{getValorRefeicao()}{getValorRefeicao()}}
+{\footnotesize\ttfamily float Cliente\+::get\+Valor\+Refeicao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém o valor padrão da refeição para este cliente. 
+
+\begin{DoxyReturn}{Returns}
+O custo da refeição. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCliente_a32eb14acb13830502eee912e2daec353}\label{classCliente_a32eb14acb13830502eee912e2daec353}} 
+\index{Cliente@{Cliente}!printInfo@{printInfo}}
+\index{printInfo@{printInfo}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{printInfo()}{printInfo()}}
+{\footnotesize\ttfamily void Cliente\+::print\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sobrescreve o método print\+Info de \mbox{\hyperlink{classPessoa}{Pessoa}} para incluir dados do cliente. 
+
+
+\begin{DoxyItemize}
+\item Imprime nome, CPF, saldo, valor da refeição, as datas do último almoço e jantar e o status de bloqueio. 
+\end{DoxyItemize}
+
+Reimplemented from \mbox{\hyperlink{classPessoa_a8d1d7963f6c5d3602ef5ee6858b72d38}{Pessoa}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classProfessor_a961cbd0909424dada18092ebd5941dd1}{Professor}}.
+
+\mbox{\Hypertarget{classCliente_a5780d18d8d954f79802c5b1d3d43f163}\label{classCliente_a5780d18d8d954f79802c5b1d3d43f163}} 
+\index{Cliente@{Cliente}!registrarAcesso@{registrarAcesso}}
+\index{registrarAcesso@{registrarAcesso}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{registrarAcesso()}{registrarAcesso()}}
+{\footnotesize\ttfamily bool Cliente\+::registrar\+Acesso (\begin{DoxyParamCaption}\item[{char}]{tipo\+De\+Refeicao }\end{DoxyParamCaption})}
+
+
+
+Registra um acesso (refeição), atualizando a data correspondente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tipo\+De\+Refeicao} & Um char indicando o tipo de refeição (\textquotesingle{}a\textquotesingle{} para almoço, \textquotesingle{}j\textquotesingle{} para jantar). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna um booleano indicando se a operação foi bem-\/sucedida. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCliente_a3c70844eee7287f4594793c67e159d52}\label{classCliente_a3c70844eee7287f4594793c67e159d52}} 
+\index{Cliente@{Cliente}!setSaldo@{setSaldo}}
+\index{setSaldo@{setSaldo}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{setSaldo()}{setSaldo()}}
+{\footnotesize\ttfamily void Cliente\+::set\+Saldo (\begin{DoxyParamCaption}\item[{float}]{valor }\end{DoxyParamCaption})}
+
+
+
+Define o saldo do cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & O novo valor para o saldo. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCliente_a6afcad36a47e901f1a1a05dad2589abc}\label{classCliente_a6afcad36a47e901f1a1a05dad2589abc}} 
+\index{Cliente@{Cliente}!setUltimoAlmoco@{setUltimoAlmoco}}
+\index{setUltimoAlmoco@{setUltimoAlmoco}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{setUltimoAlmoco()}{setUltimoAlmoco()}}
+{\footnotesize\ttfamily void Cliente\+::set\+Ultimo\+Almoco (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classData}{Data}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Define a data do último almoço para a data definida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A data do último almoço. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCliente_a5c960a815675b3af6c47c06d9d621eff}\label{classCliente_a5c960a815675b3af6c47c06d9d621eff}} 
+\index{Cliente@{Cliente}!setUltimoJantar@{setUltimoJantar}}
+\index{setUltimoJantar@{setUltimoJantar}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{setUltimoJantar()}{setUltimoJantar()}}
+{\footnotesize\ttfamily void Cliente\+::set\+Ultimo\+Jantar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classData}{Data}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Define a data do último jantar para a data definida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A data do último jantar. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCliente_aa676e1dfae2ff28b36a0a81262a7ce92}\label{classCliente_aa676e1dfae2ff28b36a0a81262a7ce92}} 
+\index{Cliente@{Cliente}!setValorRefeicao@{setValorRefeicao}}
+\index{setValorRefeicao@{setValorRefeicao}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{setValorRefeicao()}{setValorRefeicao()}}
+{\footnotesize\ttfamily void Cliente\+::set\+Valor\+Refeicao (\begin{DoxyParamCaption}\item[{float}]{valor }\end{DoxyParamCaption})}
+
+
+
+Define um novo valor para a refeição. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & O novo custo da refeição. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCliente_a949d65c0f2b031a65baf52eea34496f6}\label{classCliente_a949d65c0f2b031a65baf52eea34496f6}} 
+\index{Cliente@{Cliente}!transferir@{transferir}}
+\index{transferir@{transferir}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{transferir()}{transferir()}}
+{\footnotesize\ttfamily void Cliente\+::transferir (\begin{DoxyParamCaption}\item[{float}]{valor,  }\item[{\mbox{\hyperlink{classCliente}{Cliente}} $\ast$}]{outro\+Cliente }\end{DoxyParamCaption})}
+
+
+
+Transfere um valor do saldo deste cliente para outro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & O montante a ser transferido. \\
+\hline
+{\em outro\+Cliente} & Um ponteiro para o cliente que receberá o valor. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Cliente_8hpp}{Cliente.\+hpp}}\item 
+src/\mbox{\hyperlink{Cliente_8cpp}{Cliente.\+cpp}}\end{DoxyCompactItemize}

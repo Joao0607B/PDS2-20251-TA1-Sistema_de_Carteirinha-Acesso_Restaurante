@@ -1,0 +1,12 @@
+<map id="include/Funcionario.hpp" name="include/Funcionario.hpp">
+<area shape="rect" id="node1" title="Definição da classe Funcionario e suas exceções personalizadas." alt="" coords="320,5,496,32"/>
+<area shape="rect" id="node2" href="$Pessoa_8hpp.html" title="Definição da classe base Pessoa, que representa um indivíduo no sistema." alt="" coords="267,155,363,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="371,229,429,256"/>
+<area shape="rect" id="node5" href="$Cliente_8hpp.html" title="Definição da classe Cliente, que herda de Pessoa e gerencia dados financeiros e de acesso do cliente." alt="" coords="317,80,413,107"/>
+<area shape="rect" id="node10" title=" " alt="" coords="489,80,575,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="267,229,347,256"/>
+<area shape="rect" id="node6" href="$Data_8hpp.html" title="Definição da classe Data para manipulação e validação de datas." alt="" coords="161,155,242,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="179,229,242,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="5,229,72,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="96,229,155,256"/>
+</map>

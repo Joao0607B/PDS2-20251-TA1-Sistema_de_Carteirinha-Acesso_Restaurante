@@ -1,0 +1,236 @@
+\hypertarget{classFuncionario}{}\doxysection{Funcionario Class Reference}
+\label{classFuncionario}\index{Funcionario@{Funcionario}}
+
+
+Modela um funcionário do sistema, herdando de \mbox{\hyperlink{classPessoa}{Pessoa}}.  
+
+
+
+
+{\ttfamily \#include $<$Funcionario.\+hpp$>$}
+
+
+
+Inheritance diagram for Funcionario\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classFuncionario__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Funcionario\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classFuncionario__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFuncionario_a6c7c3f5eb6e88cb207b4c1cb7784ba8f}{Funcionario}} (std\+::string nome, std\+::string cpf, std\+::string usuario, std\+::string senha)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classFuncionario}{Funcionario}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classFuncionario_ad7d4f6db524c0db2f6addf9e08a08b47}{get\+Usuario}} ()
+\begin{DoxyCompactList}\small\item\em Obtém o nome de usuário do funcionário. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classFuncionario_ade7e1da70102f26b905e5ae47e545a7c}{get\+Senha}} ()
+\begin{DoxyCompactList}\small\item\em Obtém a senha do funcionário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFuncionario_ad7b7ed7b63be565e86b05fa40985d4ba}{set\+Usuario}} (std\+::string usuario)
+\begin{DoxyCompactList}\small\item\em Define ou atualiza o nome de usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFuncionario_af0758ff80a6bf0401f9cb1e423ca8106}{set\+Senha}} (std\+::string senha)
+\begin{DoxyCompactList}\small\item\em Define ou atualiza a senha. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFuncionario_ada317a41f4302f80adb48452be125f6a}\label{classFuncionario_ada317a41f4302f80adb48452be125f6a}} 
+void \mbox{\hyperlink{classFuncionario_ada317a41f4302f80adb48452be125f6a}{print\+Info}} () override
+\begin{DoxyCompactList}\small\item\em Sobrescreve o método print\+Info de \mbox{\hyperlink{classPessoa}{Pessoa}} para incluir o usuário. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFuncionario_a1e23da8eb8625361bf5b253d13057b10}{fazer\+Login}} (const std\+::string \&usuario\+Digitado, const std\+::string \&senha\+Digitada)
+\begin{DoxyCompactList}\small\item\em Realiza o processo de login do funcionário. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFuncionario_a2a040597168a88da7e58cc3c11ccae2b}\label{classFuncionario_a2a040597168a88da7e58cc3c11ccae2b}} 
+void \mbox{\hyperlink{classFuncionario_a2a040597168a88da7e58cc3c11ccae2b}{fazer\+Logout}} ()
+\begin{DoxyCompactList}\small\item\em Realiza o logout do funcionário, alterando o estado de \+\_\+logado para false. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFuncionario_a5294f6fb27e2a0c301823c44792813ff}{trocar\+Senha}} (std\+::string \&nova\+Senha, std\+::string \&confirmar\+Senha)
+\begin{DoxyCompactList}\small\item\em Permite que o funcionário troque sua própria senha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFuncionario_a0f092f0e110849ca9fa6d5eac622a130}{liberar\+Refeicao}} (\mbox{\hyperlink{classCliente}{Cliente}} $\ast$cliente)
+\begin{DoxyCompactList}\small\item\em Processa a liberação de uma refeição para um cliente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classFuncionario_ab9dfb00651120ad8883704cb5f258a08}{\+\_\+logado}} = false
+\begin{DoxyCompactList}\small\item\em Flag que indica o estado de login do funcionário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Modela um funcionário do sistema, herdando de \mbox{\hyperlink{classPessoa}{Pessoa}}. 
+
+
+\begin{DoxyItemize}
+\item Gerencia a autenticação (login/logout), alteração de senha e a liberação de refeições para os clientes. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFuncionario_a6c7c3f5eb6e88cb207b4c1cb7784ba8f}\label{classFuncionario_a6c7c3f5eb6e88cb207b4c1cb7784ba8f}} 
+\index{Funcionario@{Funcionario}!Funcionario@{Funcionario}}
+\index{Funcionario@{Funcionario}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{Funcionario()}{Funcionario()}}
+{\footnotesize\ttfamily Funcionario\+::\+Funcionario (\begin{DoxyParamCaption}\item[{std\+::string}]{nome,  }\item[{std\+::string}]{cpf,  }\item[{std\+::string}]{usuario,  }\item[{std\+::string}]{senha }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \mbox{\hyperlink{classFuncionario}{Funcionario}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do funcionário, passado para o construtor de \mbox{\hyperlink{classPessoa}{Pessoa}}. \\
+\hline
+{\em cpf} & O CPF do funcionário, passado para o construtor de \mbox{\hyperlink{classPessoa}{Pessoa}}. \\
+\hline
+{\em usuario} & O nome de usuário para login no sistema. \\
+\hline
+{\em senha} & A senha inicial do funcionário. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFuncionario_a1e23da8eb8625361bf5b253d13057b10}\label{classFuncionario_a1e23da8eb8625361bf5b253d13057b10}} 
+\index{Funcionario@{Funcionario}!fazerLogin@{fazerLogin}}
+\index{fazerLogin@{fazerLogin}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{fazerLogin()}{fazerLogin()}}
+{\footnotesize\ttfamily bool Funcionario\+::fazer\+Login (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{usuario\+Digitado,  }\item[{const std\+::string \&}]{senha\+Digitada }\end{DoxyParamCaption})}
+
+
+
+Realiza o processo de login do funcionário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usuario\+Digitado} & O usuário fornecido para a tentativa de login. \\
+\hline
+{\em senha\+Digitada} & A senha fornecida para a tentativa de login. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o login for bem-\/sucedido, false caso contrário. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classErroUsuarioNaoEncontrado}{Erro\+Usuario\+Nao\+Encontrado}}} & se o usuário não corresponder. \\
+\hline
+{\em \mbox{\hyperlink{classErroSenhaIncorreta}{Erro\+Senha\+Incorreta}}} & se a senha não corresponder. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classFuncionario_ade7e1da70102f26b905e5ae47e545a7c}\label{classFuncionario_ade7e1da70102f26b905e5ae47e545a7c}} 
+\index{Funcionario@{Funcionario}!getSenha@{getSenha}}
+\index{getSenha@{getSenha}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{getSenha()}{getSenha()}}
+{\footnotesize\ttfamily std\+::string Funcionario\+::get\+Senha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém a senha do funcionário. 
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo a senha. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFuncionario_ad7d4f6db524c0db2f6addf9e08a08b47}\label{classFuncionario_ad7d4f6db524c0db2f6addf9e08a08b47}} 
+\index{Funcionario@{Funcionario}!getUsuario@{getUsuario}}
+\index{getUsuario@{getUsuario}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{getUsuario()}{getUsuario()}}
+{\footnotesize\ttfamily std\+::string Funcionario\+::get\+Usuario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém o nome de usuário do funcionário. 
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o nome de usuário. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFuncionario_a0f092f0e110849ca9fa6d5eac622a130}\label{classFuncionario_a0f092f0e110849ca9fa6d5eac622a130}} 
+\index{Funcionario@{Funcionario}!liberarRefeicao@{liberarRefeicao}}
+\index{liberarRefeicao@{liberarRefeicao}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{liberarRefeicao()}{liberarRefeicao()}}
+{\footnotesize\ttfamily void Funcionario\+::liberar\+Refeicao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCliente}{Cliente}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+
+
+Processa a liberação de uma refeição para um cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cliente} & Um ponteiro para o objeto \mbox{\hyperlink{classCliente}{Cliente}} que receberá a refeição. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Este método contém a lógica de verificação de saldo, bloqueio e registro de acesso. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classFuncionario_af0758ff80a6bf0401f9cb1e423ca8106}\label{classFuncionario_af0758ff80a6bf0401f9cb1e423ca8106}} 
+\index{Funcionario@{Funcionario}!setSenha@{setSenha}}
+\index{setSenha@{setSenha}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{setSenha()}{setSenha()}}
+{\footnotesize\ttfamily void Funcionario\+::set\+Senha (\begin{DoxyParamCaption}\item[{std\+::string}]{senha }\end{DoxyParamCaption})}
+
+
+
+Define ou atualiza a senha. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em senha} & A nova senha. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFuncionario_ad7b7ed7b63be565e86b05fa40985d4ba}\label{classFuncionario_ad7b7ed7b63be565e86b05fa40985d4ba}} 
+\index{Funcionario@{Funcionario}!setUsuario@{setUsuario}}
+\index{setUsuario@{setUsuario}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{setUsuario()}{setUsuario()}}
+{\footnotesize\ttfamily void Funcionario\+::set\+Usuario (\begin{DoxyParamCaption}\item[{std\+::string}]{usuario }\end{DoxyParamCaption})}
+
+
+
+Define ou atualiza o nome de usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usuario} & O novo nome de usuário. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFuncionario_a5294f6fb27e2a0c301823c44792813ff}\label{classFuncionario_a5294f6fb27e2a0c301823c44792813ff}} 
+\index{Funcionario@{Funcionario}!trocarSenha@{trocarSenha}}
+\index{trocarSenha@{trocarSenha}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{trocarSenha()}{trocarSenha()}}
+{\footnotesize\ttfamily void Funcionario\+::trocar\+Senha (\begin{DoxyParamCaption}\item[{std\+::string \&}]{nova\+Senha,  }\item[{std\+::string \&}]{confirmar\+Senha }\end{DoxyParamCaption})}
+
+
+
+Permite que o funcionário troque sua própria senha. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nova\+Senha} & A nova senha desejada. \\
+\hline
+{\em confirmar\+Senha} & A senha atual, para confirmação. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFuncionario_ab9dfb00651120ad8883704cb5f258a08}\label{classFuncionario_ab9dfb00651120ad8883704cb5f258a08}} 
+\index{Funcionario@{Funcionario}!\_logado@{\_logado}}
+\index{\_logado@{\_logado}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{\_logado}{\_logado}}
+{\footnotesize\ttfamily bool Funcionario\+::\+\_\+logado = false}
+
+
+
+Flag que indica o estado de login do funcionário. 
+
+\begin{DoxyNote}{Note}
+Este membro é público para facilitar a verificação de estado, mas idealmente seria privado com um getter público (ex\+: {\ttfamily is\+Logado()}). 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Funcionario_8hpp}{Funcionario.\+hpp}}\item 
+src/\mbox{\hyperlink{Funcionario_8cpp}{Funcionario.\+cpp}}\end{DoxyCompactItemize}

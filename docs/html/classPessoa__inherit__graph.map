@@ -1,0 +1,8 @@
+<map id="Pessoa" name="Pessoa">
+<area shape="rect" id="node1" title="Superclasse que modela as características comuns a todos os indivíduos." alt="" coords="142,5,210,32"/>
+<area shape="rect" id="node2" href="$classCliente.html" title="Modela um cliente do restaurante, com funcionalidades de saldo, bloqueio e registro de refeições." alt="" coords="89,80,157,107"/>
+<area shape="rect" id="node5" href="$classFuncionario.html" title="Modela um funcionário do sistema, herdando de Pessoa." alt="" coords="181,80,278,107"/>
+<area shape="rect" id="node3" href="$classAluno.html" title="Representa um cliente do tipo Aluno, que possui um nível FUMP e um curso." alt="" coords="5,155,64,181"/>
+<area shape="rect" id="node4" href="$classProfessor.html" title="Representa um cliente do tipo Professor, associado a um departamento." alt="" coords="88,155,171,181"/>
+<area shape="rect" id="node6" href="$classCaixa.html" title="Representa um funcionário do tipo Caixa, responsável pela gestão de um caixa em um restaurante." alt="" coords="200,155,259,181"/>
+</map>

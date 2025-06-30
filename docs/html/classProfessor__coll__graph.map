@@ -1,0 +1,5 @@
+<map id="Professor" name="Professor">
+<area shape="rect" id="node1" title="Representa um cliente do tipo Professor, associado a um departamento." alt="" coords="5,155,88,181"/>
+<area shape="rect" id="node2" href="$classCliente.html" title="Modela um cliente do restaurante, com funcionalidades de saldo, bloqueio e registro de refeições." alt="" coords="13,80,81,107"/>
+<area shape="rect" id="node3" href="$classPessoa.html" title="Superclasse que modela as características comuns a todos os indivíduos." alt="" coords="13,5,81,32"/>
+</map>

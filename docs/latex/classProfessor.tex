@@ -1,0 +1,96 @@
+\hypertarget{classProfessor}{}\doxysection{Professor Class Reference}
+\label{classProfessor}\index{Professor@{Professor}}
+
+
+Representa um cliente do tipo \mbox{\hyperlink{classProfessor}{Professor}}, associado a um departamento.  
+
+
+
+
+{\ttfamily \#include $<$Professor.\+hpp$>$}
+
+
+
+Inheritance diagram for Professor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{classProfessor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Professor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{classProfessor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProfessor_a2513657363aa3d6e66c8f147108690bd}{Professor}} (const std\+::string \&nome, const std\+::string \&cpf, const std\+::string \&departamento)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classProfessor}{Professor}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classProfessor_af347e8cee12ba86946247fd5aa4f5ff8}{get\+Departamento}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o departamento do professor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProfessor_a961cbd0909424dada18092ebd5941dd1}\label{classProfessor_a961cbd0909424dada18092ebd5941dd1}} 
+void \mbox{\hyperlink{classProfessor_a961cbd0909424dada18092ebd5941dd1}{print\+Info}} () override
+\begin{DoxyCompactList}\small\item\em Sobrescreve o método print\+Info de \mbox{\hyperlink{classCliente}{Cliente}} para incluir o departamento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa um cliente do tipo \mbox{\hyperlink{classProfessor}{Professor}}, associado a um departamento. 
+
+
+\begin{DoxyItemize}
+\item Esta classe herda de \mbox{\hyperlink{classCliente}{Cliente}} e define um valor de refeição fixo para professores. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classProfessor_a2513657363aa3d6e66c8f147108690bd}\label{classProfessor_a2513657363aa3d6e66c8f147108690bd}} 
+\index{Professor@{Professor}!Professor@{Professor}}
+\index{Professor@{Professor}!Professor@{Professor}}
+\doxysubsubsection{\texorpdfstring{Professor()}{Professor()}}
+{\footnotesize\ttfamily Professor\+::\+Professor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome,  }\item[{const std\+::string \&}]{cpf,  }\item[{const std\+::string \&}]{departamento }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \mbox{\hyperlink{classProfessor}{Professor}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do professor, passado para o construtor de \mbox{\hyperlink{classCliente}{Cliente}}. \\
+\hline
+{\em cpf} & O CPF do professor, passado para o construtor de \mbox{\hyperlink{classCliente}{Cliente}}. \\
+\hline
+{\em departamento} & O departamento do professor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Define o valor da refeição como 13.\+00 no construtor. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProfessor_af347e8cee12ba86946247fd5aa4f5ff8}\label{classProfessor_af347e8cee12ba86946247fd5aa4f5ff8}} 
+\index{Professor@{Professor}!getDepartamento@{getDepartamento}}
+\index{getDepartamento@{getDepartamento}!Professor@{Professor}}
+\doxysubsubsection{\texorpdfstring{getDepartamento()}{getDepartamento()}}
+{\footnotesize\ttfamily std\+::string Professor\+::get\+Departamento (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtém o departamento do professor. 
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o nome do departamento. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Professor_8hpp}{Professor.\+hpp}}\item 
+src/\mbox{\hyperlink{Professor_8cpp}{Professor.\+cpp}}\end{DoxyCompactItemize}

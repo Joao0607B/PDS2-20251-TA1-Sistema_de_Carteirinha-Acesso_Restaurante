@@ -1,0 +1,146 @@
+\hypertarget{classPessoa}{}\doxysection{Pessoa Class Reference}
+\label{classPessoa}\index{Pessoa@{Pessoa}}
+
+
+Superclasse que modela as características comuns a todos os indivíduos.  
+
+
+
+
+{\ttfamily \#include $<$Pessoa.\+hpp$>$}
+
+
+
+Inheritance diagram for Pessoa\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{classPessoa__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPessoa_a9624ee240841653858708867691990bb}{Pessoa}} (std\+::string nome, std\+::string cpf)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classPessoa}{Pessoa}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPessoa_a26074576a426b510ff59165b05031f57}{set\+Nome}} (std\+::string nome)
+\begin{DoxyCompactList}\small\item\em Define ou atualiza o nome da pessoa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPessoa_a63d922c3aaf98fef19aeaf4353b0c718}{set\+Cpf}} (std\+::string cpf)
+\begin{DoxyCompactList}\small\item\em Define ou atualiza o CPF da pessoa. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPessoa_a5f4f2063d62eaea38673da5fd5283465}{get\+Nome}} ()
+\begin{DoxyCompactList}\small\item\em Obtém o nome da pessoa. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPessoa_aac57d87193996bbe7420804f9ac298fb}{get\+Cpf}} ()
+\begin{DoxyCompactList}\small\item\em Obtém o CPF da pessoa. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classPessoa_a8d1d7963f6c5d3602ef5ee6858b72d38}{print\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Imprime as informações da pessoa no console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Superclasse que modela as características comuns a todos os indivíduos. 
+
+
+\begin{DoxyItemize}
+\item Armazena informações básicas como nome e CPF. Serve como classe base para outras classes mais específicas como \mbox{\hyperlink{classCliente}{Cliente}} e \mbox{\hyperlink{classFuncionario}{Funcionario}}. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPessoa_a9624ee240841653858708867691990bb}\label{classPessoa_a9624ee240841653858708867691990bb}} 
+\index{Pessoa@{Pessoa}!Pessoa@{Pessoa}}
+\index{Pessoa@{Pessoa}!Pessoa@{Pessoa}}
+\doxysubsubsection{\texorpdfstring{Pessoa()}{Pessoa()}}
+{\footnotesize\ttfamily Pessoa\+::\+Pessoa (\begin{DoxyParamCaption}\item[{std\+::string}]{nome,  }\item[{std\+::string}]{cpf }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \mbox{\hyperlink{classPessoa}{Pessoa}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome da pessoa. \\
+\hline
+{\em cpf} & O CPF da pessoa. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPessoa_aac57d87193996bbe7420804f9ac298fb}\label{classPessoa_aac57d87193996bbe7420804f9ac298fb}} 
+\index{Pessoa@{Pessoa}!getCpf@{getCpf}}
+\index{getCpf@{getCpf}!Pessoa@{Pessoa}}
+\doxysubsubsection{\texorpdfstring{getCpf()}{getCpf()}}
+{\footnotesize\ttfamily std\+::string Pessoa\+::get\+Cpf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém o CPF da pessoa. 
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o CPF da pessoa. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPessoa_a5f4f2063d62eaea38673da5fd5283465}\label{classPessoa_a5f4f2063d62eaea38673da5fd5283465}} 
+\index{Pessoa@{Pessoa}!getNome@{getNome}}
+\index{getNome@{getNome}!Pessoa@{Pessoa}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily std\+::string Pessoa\+::get\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém o nome da pessoa. 
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o nome da pessoa. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPessoa_a8d1d7963f6c5d3602ef5ee6858b72d38}\label{classPessoa_a8d1d7963f6c5d3602ef5ee6858b72d38}} 
+\index{Pessoa@{Pessoa}!printInfo@{printInfo}}
+\index{printInfo@{printInfo}!Pessoa@{Pessoa}}
+\doxysubsubsection{\texorpdfstring{printInfo()}{printInfo()}}
+{\footnotesize\ttfamily void Pessoa\+::print\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Imprime as informações da pessoa no console. 
+
+
+\begin{DoxyItemize}
+\item Este método é virtual e pode ser sobrescrito pelas classes derivadas para incluir informações adicionais. 
+\end{DoxyItemize}
+
+Reimplemented in \mbox{\hyperlink{classProfessor_a961cbd0909424dada18092ebd5941dd1}{Professor}}, \mbox{\hyperlink{classFuncionario_ada317a41f4302f80adb48452be125f6a}{Funcionario}}, \mbox{\hyperlink{classCliente_a32eb14acb13830502eee912e2daec353}{Cliente}}, and \mbox{\hyperlink{classAluno_aa7106f00bfd935f51df752408003e874}{Aluno}}.
+
+\mbox{\Hypertarget{classPessoa_a63d922c3aaf98fef19aeaf4353b0c718}\label{classPessoa_a63d922c3aaf98fef19aeaf4353b0c718}} 
+\index{Pessoa@{Pessoa}!setCpf@{setCpf}}
+\index{setCpf@{setCpf}!Pessoa@{Pessoa}}
+\doxysubsubsection{\texorpdfstring{setCpf()}{setCpf()}}
+{\footnotesize\ttfamily void Pessoa\+::set\+Cpf (\begin{DoxyParamCaption}\item[{std\+::string}]{cpf }\end{DoxyParamCaption})}
+
+
+
+Define ou atualiza o CPF da pessoa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpf} & O novo CPF a ser atribuído. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPessoa_a26074576a426b510ff59165b05031f57}\label{classPessoa_a26074576a426b510ff59165b05031f57}} 
+\index{Pessoa@{Pessoa}!setNome@{setNome}}
+\index{setNome@{setNome}!Pessoa@{Pessoa}}
+\doxysubsubsection{\texorpdfstring{setNome()}{setNome()}}
+{\footnotesize\ttfamily void Pessoa\+::set\+Nome (\begin{DoxyParamCaption}\item[{std\+::string}]{nome }\end{DoxyParamCaption})}
+
+
+
+Define ou atualiza o nome da pessoa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O novo nome a ser atribuído. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Pessoa_8hpp}{Pessoa.\+hpp}}\item 
+src/\mbox{\hyperlink{Pessoa_8cpp}{Pessoa.\+cpp}}\end{DoxyCompactItemize}

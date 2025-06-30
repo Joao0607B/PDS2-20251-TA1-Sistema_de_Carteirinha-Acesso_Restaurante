@@ -1,0 +1,276 @@
+\hypertarget{classGerenciamentoDeSistema}{}\doxysection{Gerenciamento\+De\+Sistema Class Reference}
+\label{classGerenciamentoDeSistema}\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+
+
+Orquestra todas as operações do sistema de restaurante.  
+
+
+
+
+{\ttfamily \#include $<$Gerenciamento\+De\+Sistema.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCliente}{Cliente}} $\ast$ \mbox{\hyperlink{classGerenciamentoDeSistema_ad6c08420907995122268aa5fc3d85a7c}{encontrar\+Cliente}} (const std\+::string \&cpf)
+\begin{DoxyCompactList}\small\item\em Busca um cliente no sistema pelo CPF. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFuncionario}{Funcionario}} $\ast$ \mbox{\hyperlink{classGerenciamentoDeSistema_ad61b099dc279d6541103475af03818fa}{encontrar\+Funcionario}} (const std\+::string \&usuario)
+\begin{DoxyCompactList}\small\item\em Busca um funcionário no sistema pelo nome de usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_a7036fab0c8fd76a4e3cba365c2e2c186}{registrar\+Transacao}} (const std\+::string \&tipo, \mbox{\hyperlink{classCliente}{Cliente}} $\ast$cliente, double valor, \mbox{\hyperlink{classFuncionario}{Funcionario}} $\ast$funcionario, \mbox{\hyperlink{classCliente}{Cliente}} $\ast$cliente\+\_\+destino=nullptr)
+\begin{DoxyCompactList}\small\item\em Registra uma transação (refeição, depósito, etc.) no arquivo Transacoes.\+txt. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGerenciamentoDeSistema_aecec6ef0827726fa10e18699c0151a2d}\label{classGerenciamentoDeSistema_aecec6ef0827726fa10e18699c0151a2d}} 
+\mbox{\hyperlink{classGerenciamentoDeSistema_aecec6ef0827726fa10e18699c0151a2d}{Gerenciamento\+De\+Sistema}} ()
+\begin{DoxyCompactList}\small\item\em Construtor. Carrega os dados dos arquivos ao iniciar o sistema. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGerenciamentoDeSistema_aafb18d3f8d06d7f7657357715f183dca}\label{classGerenciamentoDeSistema_aafb18d3f8d06d7f7657357715f183dca}} 
+\mbox{\hyperlink{classGerenciamentoDeSistema_aafb18d3f8d06d7f7657357715f183dca}{$\sim$\+Gerenciamento\+De\+Sistema}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor. Salva os dados e libera a memória alocada para clientes e funcionários. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_a8fd900a1502b78f1d8d2fe190f776e53}{cadastrar\+Cliente}} (\mbox{\hyperlink{classCliente}{Cliente}} $\ast$cliente)
+\begin{DoxyCompactList}\small\item\em Cadastra um novo cliente no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_aad922058ba595a006f013247df57b674}{cadastrar\+Funcionario}} (\mbox{\hyperlink{classFuncionario}{Funcionario}} $\ast$funcionario)
+\begin{DoxyCompactList}\small\item\em Cadastra um novo funcionário no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_a2f78e4a4196d89b201b8186b3fc6ed38}{apagar\+Cliente}} (std\+::string cpf\+\_\+cliente)
+\begin{DoxyCompactList}\small\item\em Remove um cliente do sistema com base no CPF. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_abc1be76488af972f06fa790207f067a5}{apagar\+Funcionario}} (std\+::string cpf\+\_\+funcionario)
+\begin{DoxyCompactList}\small\item\em Remove um funcionário do sistema com base no CPF. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGerenciamentoDeSistema_a2d374e2c06bc17a03da08651b7d55b7f}{verificar\+Login}} (std\+::string cpf\+\_\+funcionario)
+\begin{DoxyCompactList}\small\item\em Verifica se um funcionário está atualmente logado no sistema. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGerenciamentoDeSistema_a21b68bdf0f1fd7df0850d244856963ae}{acessar\+Sistema}} (std\+::string usuario, std\+::string senha)
+\begin{DoxyCompactList}\small\item\em Tenta autenticar um funcionário no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_a6a0b2a215f85fe510ac019efa91f5d09}{depositar\+Crédito}} (std\+::string cpf\+\_\+cliente, float valor, std\+::string cpf\+\_\+funcionario)
+\begin{DoxyCompactList}\small\item\em Adiciona crédito ao saldo de um cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_a924dcfa482dba3f1dcdc8a02be8a8226}{processar\+Refeicao}} (std\+::string cpf\+\_\+cliente, std\+::string cpf\+\_\+funcionario)
+\begin{DoxyCompactList}\small\item\em Processa uma refeição para um cliente, debitando o valor e registrando a transação. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGerenciamentoDeSistema_ae056766a4fa3b18796fa1238f5706e56}\label{classGerenciamentoDeSistema_ae056766a4fa3b18796fa1238f5706e56}} 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_ae056766a4fa3b18796fa1238f5706e56}{salvar\+Dados}} ()
+\begin{DoxyCompactList}\small\item\em Salva o estado atual dos clientes e funcionários nos arquivos .txt. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a6ca09fe66fed8be434e9cebfb0c751f7}\label{classGerenciamentoDeSistema_a6ca09fe66fed8be434e9cebfb0c751f7}} 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_a6ca09fe66fed8be434e9cebfb0c751f7}{carregar\+Dados}} ()
+\begin{DoxyCompactList}\small\item\em Carrega os dados dos clientes e funcionários a partir dos arquivos .txt. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a44810abaad4f17b067e7f4623e6432f3}\label{classGerenciamentoDeSistema_a44810abaad4f17b067e7f4623e6432f3}} 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_a44810abaad4f17b067e7f4623e6432f3}{exibir\+Clientes}} ()
+\begin{DoxyCompactList}\small\item\em Exibe as informações de todos os clientes cadastrados no console. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a0aad4f2e8e6504b7b684334c34e998c4}\label{classGerenciamentoDeSistema_a0aad4f2e8e6504b7b684334c34e998c4}} 
+void \mbox{\hyperlink{classGerenciamentoDeSistema_a0aad4f2e8e6504b7b684334c34e998c4}{exibir\+Funcionarios}} ()
+\begin{DoxyCompactList}\small\item\em Exibe as informações de todos os funcionários cadastrados no console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a0134a75e8e0633b1e55b97f325f56146}\label{classGerenciamentoDeSistema_a0134a75e8e0633b1e55b97f325f56146}} 
+static char \mbox{\hyperlink{classGerenciamentoDeSistema_a0134a75e8e0633b1e55b97f325f56146}{\+\_\+tipo\+Refeicao}}
+\begin{DoxyCompactList}\small\item\em Variável estática que define o tipo de refeição atual do sistema. \textquotesingle{}a\textquotesingle{} para almoço, \textquotesingle{}j\textquotesingle{} para jantar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Orquestra todas as operações do sistema de restaurante. 
+
+
+\begin{DoxyItemize}
+\item Gerencia os vetores de clientes e funcionários, controla o acesso, processa transações e lida com a persistência de dados em arquivos. \begin{DoxyWarning}{Warning}
+O uso de \textquotesingle{}using namespace std;\textquotesingle{} em arquivos de cabeçalho é desaconselhado. Foi removido para seguir as boas práticas. 
+\end{DoxyWarning}
+
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a21b68bdf0f1fd7df0850d244856963ae}\label{classGerenciamentoDeSistema_a21b68bdf0f1fd7df0850d244856963ae}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!acessarSistema@{acessarSistema}}
+\index{acessarSistema@{acessarSistema}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{acessarSistema()}{acessarSistema()}}
+{\footnotesize\ttfamily bool Gerenciamento\+De\+Sistema\+::acessar\+Sistema (\begin{DoxyParamCaption}\item[{std\+::string}]{usuario,  }\item[{std\+::string}]{senha }\end{DoxyParamCaption})}
+
+
+
+Tenta autenticar um funcionário no sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usuario} & O nome de usuário para login. \\
+\hline
+{\em senha} & A senha para login. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o acesso for bem-\/sucedido, false caso contrário. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a2f78e4a4196d89b201b8186b3fc6ed38}\label{classGerenciamentoDeSistema_a2f78e4a4196d89b201b8186b3fc6ed38}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!apagarCliente@{apagarCliente}}
+\index{apagarCliente@{apagarCliente}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{apagarCliente()}{apagarCliente()}}
+{\footnotesize\ttfamily void Gerenciamento\+De\+Sistema\+::apagar\+Cliente (\begin{DoxyParamCaption}\item[{std\+::string}]{cpf\+\_\+cliente }\end{DoxyParamCaption})}
+
+
+
+Remove um cliente do sistema com base no CPF. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpf\+\_\+cliente} & O CPF do cliente a ser removido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_abc1be76488af972f06fa790207f067a5}\label{classGerenciamentoDeSistema_abc1be76488af972f06fa790207f067a5}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!apagarFuncionario@{apagarFuncionario}}
+\index{apagarFuncionario@{apagarFuncionario}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{apagarFuncionario()}{apagarFuncionario()}}
+{\footnotesize\ttfamily void Gerenciamento\+De\+Sistema\+::apagar\+Funcionario (\begin{DoxyParamCaption}\item[{std\+::string}]{cpf\+\_\+funcionario }\end{DoxyParamCaption})}
+
+
+
+Remove um funcionário do sistema com base no CPF. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpf\+\_\+funcionario} & O CPF do funcionário a ser removido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a8fd900a1502b78f1d8d2fe190f776e53}\label{classGerenciamentoDeSistema_a8fd900a1502b78f1d8d2fe190f776e53}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!cadastrarCliente@{cadastrarCliente}}
+\index{cadastrarCliente@{cadastrarCliente}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{cadastrarCliente()}{cadastrarCliente()}}
+{\footnotesize\ttfamily void Gerenciamento\+De\+Sistema\+::cadastrar\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCliente}{Cliente}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+
+
+Cadastra um novo cliente no sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cliente} & Um ponteiro para o objeto \mbox{\hyperlink{classCliente}{Cliente}} a ser adicionado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_aad922058ba595a006f013247df57b674}\label{classGerenciamentoDeSistema_aad922058ba595a006f013247df57b674}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!cadastrarFuncionario@{cadastrarFuncionario}}
+\index{cadastrarFuncionario@{cadastrarFuncionario}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{cadastrarFuncionario()}{cadastrarFuncionario()}}
+{\footnotesize\ttfamily void Gerenciamento\+De\+Sistema\+::cadastrar\+Funcionario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFuncionario}{Funcionario}} $\ast$}]{funcionario }\end{DoxyParamCaption})}
+
+
+
+Cadastra um novo funcionário no sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em funcionario} & Um ponteiro para o objeto \mbox{\hyperlink{classFuncionario}{Funcionario}} a ser adicionado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a6a0b2a215f85fe510ac019efa91f5d09}\label{classGerenciamentoDeSistema_a6a0b2a215f85fe510ac019efa91f5d09}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!depositarCrédito@{depositarCrédito}}
+\index{depositarCrédito@{depositarCrédito}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{depositarCrédito()}{depositarCrédito()}}
+{\footnotesize\ttfamily void Gerenciamento\+De\+Sistema\+::depositar\+Crédito (\begin{DoxyParamCaption}\item[{std\+::string}]{cpf\+\_\+cliente,  }\item[{float}]{valor,  }\item[{std\+::string}]{cpf\+\_\+funcionario }\end{DoxyParamCaption})}
+
+
+
+Adiciona crédito ao saldo de um cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpf\+\_\+cliente} & O CPF do cliente que receberá o crédito. \\
+\hline
+{\em valor} & O montante a ser depositado. \\
+\hline
+{\em cpf\+\_\+funcionario} & O CPF do funcionário que está realizando a operação. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_ad6c08420907995122268aa5fc3d85a7c}\label{classGerenciamentoDeSistema_ad6c08420907995122268aa5fc3d85a7c}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!encontrarCliente@{encontrarCliente}}
+\index{encontrarCliente@{encontrarCliente}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{encontrarCliente()}{encontrarCliente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCliente}{Cliente}} $\ast$ Gerenciamento\+De\+Sistema\+::encontrar\+Cliente (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cpf }\end{DoxyParamCaption})}
+
+
+
+Busca um cliente no sistema pelo CPF. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpf} & O CPF do cliente a ser encontrado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um ponteiro para o objeto \mbox{\hyperlink{classCliente}{Cliente}} se encontrado, senão nullptr. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_ad61b099dc279d6541103475af03818fa}\label{classGerenciamentoDeSistema_ad61b099dc279d6541103475af03818fa}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!encontrarFuncionario@{encontrarFuncionario}}
+\index{encontrarFuncionario@{encontrarFuncionario}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{encontrarFuncionario()}{encontrarFuncionario()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFuncionario}{Funcionario}} $\ast$ Gerenciamento\+De\+Sistema\+::encontrar\+Funcionario (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{usuario }\end{DoxyParamCaption})}
+
+
+
+Busca um funcionário no sistema pelo nome de usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usuario} & O nome de usuário do funcionário. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um ponteiro para o objeto \mbox{\hyperlink{classFuncionario}{Funcionario}} se encontrado, senão nullptr. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a924dcfa482dba3f1dcdc8a02be8a8226}\label{classGerenciamentoDeSistema_a924dcfa482dba3f1dcdc8a02be8a8226}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!processarRefeicao@{processarRefeicao}}
+\index{processarRefeicao@{processarRefeicao}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{processarRefeicao()}{processarRefeicao()}}
+{\footnotesize\ttfamily void Gerenciamento\+De\+Sistema\+::processar\+Refeicao (\begin{DoxyParamCaption}\item[{std\+::string}]{cpf\+\_\+cliente,  }\item[{std\+::string}]{cpf\+\_\+funcionario }\end{DoxyParamCaption})}
+
+
+
+Processa uma refeição para um cliente, debitando o valor e registrando a transação. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpf\+\_\+cliente} & O CPF do cliente que está fazendo a refeição. \\
+\hline
+{\em cpf\+\_\+funcionario} & O CPF do funcionário que está processando a refeição. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a7036fab0c8fd76a4e3cba365c2e2c186}\label{classGerenciamentoDeSistema_a7036fab0c8fd76a4e3cba365c2e2c186}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!registrarTransacao@{registrarTransacao}}
+\index{registrarTransacao@{registrarTransacao}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{registrarTransacao()}{registrarTransacao()}}
+{\footnotesize\ttfamily void Gerenciamento\+De\+Sistema\+::registrar\+Transacao (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tipo,  }\item[{\mbox{\hyperlink{classCliente}{Cliente}} $\ast$}]{cliente,  }\item[{double}]{valor,  }\item[{\mbox{\hyperlink{classFuncionario}{Funcionario}} $\ast$}]{funcionario,  }\item[{\mbox{\hyperlink{classCliente}{Cliente}} $\ast$}]{cliente\+\_\+destino = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Registra uma transação (refeição, depósito, etc.) no arquivo Transacoes.\+txt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tipo} & O tipo da transação (ex\+: \char`\"{}\+Refeicao\char`\"{}, \char`\"{}\+Deposito\char`\"{}). \\
+\hline
+{\em cliente} & O cliente principal envolvido na transação. \\
+\hline
+{\em valor} & O valor monetário da transação. \\
+\hline
+{\em funcionario} & O funcionário que processou a transação (pode ser nullptr). \\
+\hline
+{\em cliente\+\_\+destino} & O cliente de destino, usado para transferências (pode ser nullptr). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGerenciamentoDeSistema_a2d374e2c06bc17a03da08651b7d55b7f}\label{classGerenciamentoDeSistema_a2d374e2c06bc17a03da08651b7d55b7f}} 
+\index{GerenciamentoDeSistema@{GerenciamentoDeSistema}!verificarLogin@{verificarLogin}}
+\index{verificarLogin@{verificarLogin}!GerenciamentoDeSistema@{GerenciamentoDeSistema}}
+\doxysubsubsection{\texorpdfstring{verificarLogin()}{verificarLogin()}}
+{\footnotesize\ttfamily bool Gerenciamento\+De\+Sistema\+::verificar\+Login (\begin{DoxyParamCaption}\item[{std\+::string}]{cpf\+\_\+funcionario }\end{DoxyParamCaption})}
+
+
+
+Verifica se um funcionário está atualmente logado no sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpf\+\_\+funcionario} & O CPF do funcionário a ser verificado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o funcionário estiver logado, false caso contrário. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Esta função parece usar CPF para buscar, mas a busca interna é por usuário. Cuidado com a inconsistência. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{GerenciamentoDeSistema_8hpp}{Gerenciamento\+De\+Sistema.\+hpp}}\item 
+src/\mbox{\hyperlink{GerenciamentoDeSistema_8cpp}{Gerenciamento\+De\+Sistema.\+cpp}}\end{DoxyCompactItemize}

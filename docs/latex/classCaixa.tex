@@ -1,0 +1,146 @@
+\hypertarget{classCaixa}{}\doxysection{Caixa Class Reference}
+\label{classCaixa}\index{Caixa@{Caixa}}
+
+
+Representa um funcionário do tipo \mbox{\hyperlink{classCaixa}{Caixa}}, responsável pela gestão de um caixa em um restaurante.  
+
+
+
+
+{\ttfamily \#include $<$Caixa.\+hpp$>$}
+
+
+
+Inheritance diagram for Caixa\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classCaixa__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Caixa\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classCaixa__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCaixa_a4189949c5583876f8b5d79682f3412ef}{Caixa}} (std\+::string nome, std\+::string cpf, std\+::string usuario, std\+::string senha, std\+::string restaurante, int caixa)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classCaixa}{Caixa}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCaixa_a3d6ab53ef9d81e9097cb203fdae7e26a}{get\+Caixa}} ()
+\begin{DoxyCompactList}\small\item\em Obtém o número do caixa. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCaixa_ad348ddfc791d510129acde21876d8002}{get\+Restaurante}} ()
+\begin{DoxyCompactList}\small\item\em Obtém o nome do restaurante. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCaixa_a598f22dd83a0c3c4ad417de484cb2b43}{set\+Caixa}} (int caixa)
+\begin{DoxyCompactList}\small\item\em Define o número do caixa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCaixa_adca99204b1f7b22d890c49ed1d5f1afb}{set\+Restaurante}} (std\+::string restaurante)
+\begin{DoxyCompactList}\small\item\em Define o nome do restaurante. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Representa um funcionário do tipo \mbox{\hyperlink{classCaixa}{Caixa}}, responsável pela gestão de um caixa em um restaurante. 
+
+
+\begin{DoxyItemize}
+\item Esta classe herda de \mbox{\hyperlink{classFuncionario}{Funcionario}} e adiciona atributos específicos como o número do caixa e o restaurante. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCaixa_a4189949c5583876f8b5d79682f3412ef}\label{classCaixa_a4189949c5583876f8b5d79682f3412ef}} 
+\index{Caixa@{Caixa}!Caixa@{Caixa}}
+\index{Caixa@{Caixa}!Caixa@{Caixa}}
+\doxysubsubsection{\texorpdfstring{Caixa()}{Caixa()}}
+{\footnotesize\ttfamily Caixa\+::\+Caixa (\begin{DoxyParamCaption}\item[{std\+::string}]{nome,  }\item[{std\+::string}]{cpf,  }\item[{std\+::string}]{usuario,  }\item[{std\+::string}]{senha,  }\item[{std\+::string}]{restaurante,  }\item[{int}]{caixa }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \mbox{\hyperlink{classCaixa}{Caixa}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do funcionário, passado para o construtor de \mbox{\hyperlink{classFuncionario}{Funcionario}}. \\
+\hline
+{\em cpf} & O CPF do funcionário, passado para o construtor de \mbox{\hyperlink{classFuncionario}{Funcionario}}. \\
+\hline
+{\em usuario} & O nome de usuário para login no sistema. \\
+\hline
+{\em senha} & A senha de acesso do funcionário. \\
+\hline
+{\em restaurante} & O nome do restaurante onde o caixa opera. \\
+\hline
+{\em caixa} & O número do caixa. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCaixa_a3d6ab53ef9d81e9097cb203fdae7e26a}\label{classCaixa_a3d6ab53ef9d81e9097cb203fdae7e26a}} 
+\index{Caixa@{Caixa}!getCaixa@{getCaixa}}
+\index{getCaixa@{getCaixa}!Caixa@{Caixa}}
+\doxysubsubsection{\texorpdfstring{getCaixa()}{getCaixa()}}
+{\footnotesize\ttfamily int Caixa\+::get\+Caixa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém o número do caixa. 
+
+\begin{DoxyReturn}{Returns}
+Um inteiro representando o número do caixa. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCaixa_ad348ddfc791d510129acde21876d8002}\label{classCaixa_ad348ddfc791d510129acde21876d8002}} 
+\index{Caixa@{Caixa}!getRestaurante@{getRestaurante}}
+\index{getRestaurante@{getRestaurante}!Caixa@{Caixa}}
+\doxysubsubsection{\texorpdfstring{getRestaurante()}{getRestaurante()}}
+{\footnotesize\ttfamily std\+::string Caixa\+::get\+Restaurante (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém o nome do restaurante. 
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o nome do restaurante. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCaixa_a598f22dd83a0c3c4ad417de484cb2b43}\label{classCaixa_a598f22dd83a0c3c4ad417de484cb2b43}} 
+\index{Caixa@{Caixa}!setCaixa@{setCaixa}}
+\index{setCaixa@{setCaixa}!Caixa@{Caixa}}
+\doxysubsubsection{\texorpdfstring{setCaixa()}{setCaixa()}}
+{\footnotesize\ttfamily void Caixa\+::set\+Caixa (\begin{DoxyParamCaption}\item[{int}]{caixa }\end{DoxyParamCaption})}
+
+
+
+Define o número do caixa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em caixa} & O novo número do caixa. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCaixa_adca99204b1f7b22d890c49ed1d5f1afb}\label{classCaixa_adca99204b1f7b22d890c49ed1d5f1afb}} 
+\index{Caixa@{Caixa}!setRestaurante@{setRestaurante}}
+\index{setRestaurante@{setRestaurante}!Caixa@{Caixa}}
+\doxysubsubsection{\texorpdfstring{setRestaurante()}{setRestaurante()}}
+{\footnotesize\ttfamily void Caixa\+::set\+Restaurante (\begin{DoxyParamCaption}\item[{std\+::string}]{restaurante }\end{DoxyParamCaption})}
+
+
+
+Define o nome do restaurante. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em restaurante} & O novo nome do restaurante. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Caixa_8hpp}{Caixa.\+hpp}}\item 
+src/\mbox{\hyperlink{Caixa_8cpp}{Caixa.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,13 @@
+<map id="include/Caixa.hpp" name="include/Caixa.hpp">
+<area shape="rect" id="node1" title="Definição da classe Caixa, uma especialização da classe Funcionario." alt="" coords="360,5,499,32"/>
+<area shape="rect" id="node2" href="$Funcionario_8hpp.html" title="Definição da classe Funcionario e suas exceções personalizadas." alt="" coords="316,80,441,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="371,304,429,331"/>
+<area shape="rect" id="node3" href="$Pessoa_8hpp.html" title="Definição da classe base Pessoa, que representa um indivíduo no sistema." alt="" coords="296,229,392,256"/>
+<area shape="rect" id="node6" href="$Cliente_8hpp.html" title="Definição da classe Cliente, que herda de Pessoa e gerencia dados financeiros e de acesso do cliente." alt="" coords="133,155,229,181"/>
+<area shape="rect" id="node11" title=" " alt="" coords="254,155,341,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="267,304,347,331"/>
+<area shape="rect" id="node7" href="$Data_8hpp.html" title="Definição da classe Data para manipulação e validação de datas." alt="" coords="139,229,221,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="89,304,151,331"/>
+<area shape="rect" id="node9" title=" " alt="" coords="176,304,243,331"/>
+<area shape="rect" id="node10" title=" " alt="" coords="5,304,64,331"/>
+</map>

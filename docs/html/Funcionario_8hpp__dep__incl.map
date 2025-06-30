@@ -1,0 +1,6 @@
+<map id="include/Funcionario.hpp" name="include/Funcionario.hpp">
+<area shape="rect" id="node1" title="Definição da classe Funcionario e suas exceções personalizadas." alt="" coords="73,5,249,32"/>
+<area shape="rect" id="node2" href="$Funcionario_8cpp.html" title="Implementação dos métodos da classe Funcionario." alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="$Caixa_8hpp.html" title="Definição da classe Caixa, uma especialização da classe Funcionario." alt="" coords="176,80,315,107"/>
+<area shape="rect" id="node4" href="$Caixa_8cpp.html" title="Implementação dos métodos da classe Caixa." alt="" coords="191,155,300,181"/>
+</map>

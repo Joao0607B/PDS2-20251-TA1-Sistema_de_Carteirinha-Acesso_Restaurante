@@ -1,0 +1,215 @@
+\hypertarget{classData}{}\doxysection{Data Class Reference}
+\label{classData}\index{Data@{Data}}
+
+
+Modela uma data do calendário, permitindo validação e formatação.  
+
+
+
+
+{\ttfamily \#include $<$Data.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classData_af11f741cb7f587e2e495452a8905a22a}\label{classData_af11f741cb7f587e2e495452a8905a22a}} 
+\mbox{\hyperlink{classData_af11f741cb7f587e2e495452a8905a22a}{Data}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão. Inicializa a data com a data atual do sistema. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classData_ab19ff9142aad6f03e1a8be8284d9e8fa}{Data}} (int d, int m, int a)
+\begin{DoxyCompactList}\small\item\em Construtor com parâmetros. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classData_a341e8531d42262fb73c8956e7f9863f7}{set\+Dia}} (int d)
+\begin{DoxyCompactList}\small\item\em Define o dia do mês. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classData_a6d6c3b08044309c9f393af670494b6cc}{set\+Mes}} (int m)
+\begin{DoxyCompactList}\small\item\em Define o mês do ano. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classData_a7c9f3d851271bdf14177ee82aa88dbf9}{set\+Ano}} (int a)
+\begin{DoxyCompactList}\small\item\em Define o ano. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classData_aa9b7bdc683d9c493d903184e85f1e6b3}{get\+Dia}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o dia. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classData_a1df6f5e1695c7cae56b9ee752a6895e8}{get\+Mes}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o mês. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classData_a986bec10cbca338f08c9096d8e51efb5}{get\+Ano}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o ano. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classData_a41710bc8c45113c5e7da2f763147e913}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Formata a data como uma string no formato \char`\"{}\+DD/\+MM/\+AAAA\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classData_a48f8c26ada1805958574f7b83aa000a0}\label{classData_a48f8c26ada1805958574f7b83aa000a0}} 
+void \mbox{\hyperlink{classData_a48f8c26ada1805958574f7b83aa000a0}{definir\+Data\+Atual}} ()
+\begin{DoxyCompactList}\small\item\em Define a data do objeto para a data atual do sistema. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classData_a990fa2c892262e2d5e858b480441708d}{operator==}} (const \mbox{\hyperlink{classData}{Data}} \&outra\+Data) const
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador de igualdade. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classData_a11caa26dc9e0f26212b5fbdaf3c4f309}{operator!=}} (const \mbox{\hyperlink{classData}{Data}} \&outra\+Data) const
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador de diferença. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Modela uma data do calendário, permitindo validação e formatação. 
+
+
+\begin{DoxyItemize}
+\item A classe armazena dia, mês e ano como inteiros. Ela garante que apenas datas válidas sejam armazenadas e fornece métodos para obter a data atual, formatá-\/la como string e realizar comparações. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classData_ab19ff9142aad6f03e1a8be8284d9e8fa}\label{classData_ab19ff9142aad6f03e1a8be8284d9e8fa}} 
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{Data()}{Data()}}
+{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}\item[{int}]{d,  }\item[{int}]{m,  }\item[{int}]{a }\end{DoxyParamCaption})}
+
+
+
+Construtor com parâmetros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & O dia. \\
+\hline
+{\em m} & O mês. \\
+\hline
+{\em a} & O ano. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Se a data fornecida for inválida, o objeto é inicializado com a data atual. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classData_a986bec10cbca338f08c9096d8e51efb5}\label{classData_a986bec10cbca338f08c9096d8e51efb5}} 
+\index{Data@{Data}!getAno@{getAno}}
+\index{getAno@{getAno}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{getAno()}{getAno()}}
+{\footnotesize\ttfamily int Data\+::get\+Ano (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtém o ano. 
+
+\begin{DoxyReturn}{Returns}
+O ano atual do objeto. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classData_aa9b7bdc683d9c493d903184e85f1e6b3}\label{classData_aa9b7bdc683d9c493d903184e85f1e6b3}} 
+\index{Data@{Data}!getDia@{getDia}}
+\index{getDia@{getDia}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{getDia()}{getDia()}}
+{\footnotesize\ttfamily int Data\+::get\+Dia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtém o dia. 
+
+\begin{DoxyReturn}{Returns}
+O dia atual do objeto. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classData_a1df6f5e1695c7cae56b9ee752a6895e8}\label{classData_a1df6f5e1695c7cae56b9ee752a6895e8}} 
+\index{Data@{Data}!getMes@{getMes}}
+\index{getMes@{getMes}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{getMes()}{getMes()}}
+{\footnotesize\ttfamily int Data\+::get\+Mes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtém o mês. 
+
+\begin{DoxyReturn}{Returns}
+O mês atual do objeto. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classData_a11caa26dc9e0f26212b5fbdaf3c4f309}\label{classData_a11caa26dc9e0f26212b5fbdaf3c4f309}} 
+\index{Data@{Data}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Data\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classData}{Data}} \&}]{outra\+Data }\end{DoxyParamCaption}) const}
+
+
+
+Sobrecarga do operador de diferença. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em outra\+Data} & O objeto \mbox{\hyperlink{classData}{Data}} a ser comparado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se as duas datas forem diferentes, false caso contrário. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classData_a990fa2c892262e2d5e858b480441708d}\label{classData_a990fa2c892262e2d5e858b480441708d}} 
+\index{Data@{Data}!operator==@{operator==}}
+\index{operator==@{operator==}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Data\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classData}{Data}} \&}]{outra\+Data }\end{DoxyParamCaption}) const}
+
+
+
+Sobrecarga do operador de igualdade. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em outra\+Data} & O objeto \mbox{\hyperlink{classData}{Data}} a ser comparado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se as duas datas forem idênticas, false caso contrário. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classData_a7c9f3d851271bdf14177ee82aa88dbf9}\label{classData_a7c9f3d851271bdf14177ee82aa88dbf9}} 
+\index{Data@{Data}!setAno@{setAno}}
+\index{setAno@{setAno}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{setAno()}{setAno()}}
+{\footnotesize\ttfamily void Data\+::set\+Ano (\begin{DoxyParamCaption}\item[{int}]{a }\end{DoxyParamCaption})}
+
+
+
+Define o ano. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & O novo ano. A alteração só ocorre se a nova data for válida. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classData_a341e8531d42262fb73c8956e7f9863f7}\label{classData_a341e8531d42262fb73c8956e7f9863f7}} 
+\index{Data@{Data}!setDia@{setDia}}
+\index{setDia@{setDia}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{setDia()}{setDia()}}
+{\footnotesize\ttfamily void Data\+::set\+Dia (\begin{DoxyParamCaption}\item[{int}]{d }\end{DoxyParamCaption})}
+
+
+
+Define o dia do mês. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & O novo dia. A alteração só ocorre se a nova data for válida. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classData_a6d6c3b08044309c9f393af670494b6cc}\label{classData_a6d6c3b08044309c9f393af670494b6cc}} 
+\index{Data@{Data}!setMes@{setMes}}
+\index{setMes@{setMes}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{setMes()}{setMes()}}
+{\footnotesize\ttfamily void Data\+::set\+Mes (\begin{DoxyParamCaption}\item[{int}]{m }\end{DoxyParamCaption})}
+
+
+
+Define o mês do ano. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & O novo mês. A alteração só ocorre se a nova data for válida. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classData_a41710bc8c45113c5e7da2f763147e913}\label{classData_a41710bc8c45113c5e7da2f763147e913}} 
+\index{Data@{Data}!toString@{toString}}
+\index{toString@{toString}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Data\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Formata a data como uma string no formato \char`\"{}\+DD/\+MM/\+AAAA\char`\"{}. 
+
+\begin{DoxyReturn}{Returns}
+Uma string representando a data. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Data_8hpp}{Data.\+hpp}}\item 
+src/\mbox{\hyperlink{Data_8cpp}{Data.\+cpp}}\end{DoxyCompactItemize}

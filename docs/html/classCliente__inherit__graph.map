@@ -1,0 +1,6 @@
+<map id="Cliente" name="Cliente">
+<area shape="rect" id="node1" title="Modela um cliente do restaurante, com funcionalidades de saldo, bloqueio e registro de refeições." alt="" coords="47,80,115,107"/>
+<area shape="rect" id="node3" href="$classAluno.html" title="Representa um cliente do tipo Aluno, que possui um nível FUMP e um curso." alt="" coords="5,155,64,181"/>
+<area shape="rect" id="node4" href="$classProfessor.html" title="Representa um cliente do tipo Professor, associado a um departamento." alt="" coords="88,155,171,181"/>
+<area shape="rect" id="node2" href="$classPessoa.html" title="Superclasse que modela as características comuns a todos os indivíduos." alt="" coords="47,5,115,32"/>
+</map>

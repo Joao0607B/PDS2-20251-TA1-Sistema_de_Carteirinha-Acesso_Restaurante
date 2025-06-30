@@ -1,0 +1,4 @@
+<map id="ExcecaoSaldoInsuficiente" name="ExcecaoSaldoInsuficiente">
+<area shape="rect" id="node1" title="Exceção lançada quando um cliente não tem saldo suficiente para uma refeição." alt="" coords="5,80,192,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="41,5,156,32"/>
+</map>

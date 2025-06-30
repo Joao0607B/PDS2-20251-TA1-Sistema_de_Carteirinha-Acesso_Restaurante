@@ -1,0 +1,5 @@
+<map id="Caixa" name="Caixa">
+<area shape="rect" id="node1" title="Representa um funcionário do tipo Caixa, responsável pela gestão de um caixa em um restaurante." alt="" coords="25,155,83,181"/>
+<area shape="rect" id="node2" href="$classFuncionario.html" title="Modela um funcionário do sistema, herdando de Pessoa." alt="" coords="5,80,103,107"/>
+<area shape="rect" id="node3" href="$classPessoa.html" title="Superclasse que modela as características comuns a todos os indivíduos." alt="" coords="20,5,88,32"/>
+</map>
