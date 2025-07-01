@@ -42,7 +42,9 @@ int main() {
         cout << "----------------------------------------" << endl;
         cout << "Opção: ";
         cin >> opcao;
-        system("cls");
+        cout <<"\n"<<endl;
+        cout <<"\n"<<endl;
+       
 
         switch (opcao) {
             case 1: {
@@ -56,7 +58,9 @@ int main() {
                 cout << "----------------------------------------\n";
                 cout << "Tipo: ";
                 cin >> opcao_cadastro;
-                system("cls");
+                cout <<"\n"<<endl;
+                cout <<"\n"<<endl;
+                
 
                 cin.ignore();  // limpar buffer
 
@@ -203,6 +207,8 @@ int main() {
                 cout << " [1] Aluno\n [2] Professor\n [3] Visitante\n [4] Funcionário/Caixa/Fump\n";
                 cout << "Tipo: ";
                 cin >> tipo;
+                cout <<"\n"<<endl;
+                cout <<"\n"<<endl;
 
                 if (tipo >= 1 && tipo <= 3) {
                     cout << "Digite seu CPF: ";
@@ -233,7 +239,7 @@ int main() {
                 break;
         }
 
-        system("cls");
+       
     } while (opcao != 4);  // sair apenas quando a opção for "Sair"
 
     return 0;
