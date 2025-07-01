@@ -10,13 +10,11 @@
 #include <vector>
 #include <string>
 
-// Forward declarations para otimizar compilação
-class Cliente;
-class Funcionario;
-class Caixa;
-class Professor;
-class Aluno;
-class Data;
+#include "Cliente.hpp"
+#include "Funcionario.hpp"
+#include "Caixa.hpp"
+#include "Professor.hpp"
+#include "Aluno.hpp"
 
 /**
  * @class GerenciamentoDeSistema
@@ -59,7 +57,7 @@ public:
      * @brief Variável estática que define o tipo de refeição atual do sistema.
      * 'a' para almoço, 'j' para jantar.
      */
-    static char _tipoRefeicao;
+    static char _tipoDeRefeicao;
 
     /**
      * @brief Construtor. Carrega os dados dos arquivos ao iniciar o sistema.
