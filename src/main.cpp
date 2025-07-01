@@ -33,8 +33,10 @@ int main() {
     cout << "Escolha uma opção:" << endl;
     cout << " [1] Cadastrar" << endl;
     cout << " [2] Entrar no Restaurante" << endl;
-    cout << " [3] Verificar Informação" << endl;
-    cout << " [4] Sair" << endl;
+    cout << " [3] Adicionar Credito" << endl;
+    cout << " [4] Verificar Informação" << endl;
+    cout << " [5] Salvar Dados" << endl;
+    cout << " [6] Sair" << endl;
     cout << "----------------------------------------" << endl;
     cout << "Opção: ";
     cin >> opcao;
@@ -228,11 +230,6 @@ int main() {
                 cout << "\n>> Tipo de cadastro ainda não implementado.\n";
             }
             system("cls");                                                                     // LIMPA A TELA
-            // -----------------------------------------------------------------------------------------------------------------
-            // -----------------------------------------------------------------------------------------------------------------
-            //                                              CADASTROS FINALIZADOS
-            // -----------------------------------------------------------------------------------------------------------------
-            // -----------------------------------------------------------------------------------------------------------------
             break;
             
 
