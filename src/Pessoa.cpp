@@ -4,7 +4,7 @@
  * @see Pessoa.hpp
  */
 
-#include "Pessoa.hpp"
+#include "../include/Pessoa.hpp"
 #include <iostream>
 
 // Usando a lista de inicialização do construtor, que é mais eficiente.
