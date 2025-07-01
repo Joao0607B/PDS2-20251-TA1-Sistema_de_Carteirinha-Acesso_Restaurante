@@ -1,4 +1,5 @@
 # Sistema Carteirinha e Acesso Restaurante Universitário
+**Turma TA1**  
 **Membros:**  
 Ana Laura Soares Mello,  
 Larissa Roncali Faria,   
@@ -57,9 +58,6 @@ Usa três arquivos de texto simples para armazenar os dados:
 - Transacoes.txt
 
 Estes arquivos são lidos e atualizados pelo sistema via métodos da classe Gerenciamento.
-Abaixo está anexado o diagrama de classes com as responsabilidades resumidas:
-
-![Diagrama de Classes](https://github.com/user-attachments/assets/6765f222-0fb3-481a-8bbc-8f579394cea8)
 
 ## Visão Geral do Fluxo de Funcionamento do Programa
 
