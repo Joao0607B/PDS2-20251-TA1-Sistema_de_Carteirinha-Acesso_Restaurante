@@ -11,6 +11,8 @@
 #include <algorithm>
 #include <iostream>
 
+using namespace std;
+
 // Definição e inicialização da variável estática
 char GerenciamentoDeSistema::_tipoDeRefeicao = 'a';
 
