@@ -73,7 +73,7 @@ Após autenticação, podem realizar ações como liberar refeições, adicionar
 
 **3. Processamento de Refeições**
 
-O funcionário, já autenticado, pode liberar as refeições(liberarRefeição(Cliente* cliente)) e processar a refeição no sistema. Para liberar a refeição o método verifica se o cliente não está bloqueado, valida se o cliente já realizou uma refeição no mesmo turno e verfica se o cliente possui saldo suficiente para realizar a refeição. Caso tudo esteja correto, desconta o valor da refeição do saldo, libera o acesso e registra o acesso naquele turno.
+O funcionário, já autenticado, pode liberar as refeições(liberarRefeição(Cliente* cliente)) e processar a refeição no sistema. Para liberar a refeição o método verifica se o cliente não está bloqueado, valida se o cliente já realizou uma refeição no mesmo turno e verifica se o cliente possui saldo suficiente para realizar a refeição. Caso tudo esteja correto, desconta o valor da refeição do saldo, libera o acesso e registra o acesso naquele turno.
 
 **4. Gerenciamento de Saldo**
 
