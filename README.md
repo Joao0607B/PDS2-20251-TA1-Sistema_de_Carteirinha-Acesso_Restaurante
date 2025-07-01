@@ -99,7 +99,42 @@ Uma das principais dificuldades encontradas no projeto foi a integração entre 
 
 # Extras implementados
 
-O extra do nosso trabalho é a implementação do banco de dados composto pelos arquivos: Clientes.txt, Funcionarios.txt e Transações.txt. 
+Como diferencial do nosso projeto, foi implementado um banco de dados simples utilizando arquivos .txt. Essa estrutura garante o arquivamento e atualização dos dados, permitindo que as informações sejam mantidas mesmo após o encerramento do programa.
+
+**O sistema armazena os dados em três arquivos principais:**
+
+**Clientes.txt**
+Contém o cadastro de todos os clientes, incluindo:
+
+- Tipo do cliente (Aluno, Professor ou Visitante)
+
+- Nome e CPF
+
+- Saldo atual
+
+- Dados específicos, como curso e nível FUMP (para alunos) ou departamento (para professores)
+
+**Funcionarios.txt**
+Armazena as informações dos funcionários cadastrados, tais como:
+
+- Nome e CPF
+
+- Nome de usuário (login)
+
+- Senha para autenticação
+
+**Transacoes.txt**
+- Registra todas as transações realizadas no sistema:
+
+- Refeições processadas (com tipo, valor e cliente)
+
+- Depósitos realizados por funcionários para clientes
+
+- Transferências de saldo entre clientes
+
+Ademais, cada entrada é gravada com a data da transação, facilitando o rastreamento posterior.
+
+Essa implementação proporciona um banco de dados funcional e leve, dispensando o uso de sistemas externos, mantendo a simplicidade do projeto.
 
 
 
