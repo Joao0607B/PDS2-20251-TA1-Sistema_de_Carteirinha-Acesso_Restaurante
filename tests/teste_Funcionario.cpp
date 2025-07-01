@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
-#include "Funcionario.hpp"
+#include "../include/Funcionario.hpp"
 
 TEST_CASE("Teste de getters e setters de Funcionario") {
     Funcionario f("Funcionario1", "123.456.789-00", "funcionario123", "senha123");
