@@ -137,7 +137,7 @@ bool GerenciamentoDeSistema::verificarLogin(std::string cpf_funcionario) {
             if (func->_logado) {
                 return true;
             } else {
-                std::cout << "Funcionário não está logado." << std::endl;
+                //std::cout << "Funcionário não está logado." << std::endl;
                 return false;
             }
         }
@@ -232,7 +232,7 @@ void GerenciamentoDeSistema::salvarDados() {
 
 
     //Salvar funcionários
-    ofstream arquivo_funcionarios("Funcionarios.txt");
+    ofstream arquivo_funcionarios("data/Funcionarios.txt");
     if (!arquivo_funcionarios.is_open()) {
         cerr << "Erro ao abrir o arquivo Funcionarios.txt para escrita." << endl;
         return;
@@ -255,7 +255,7 @@ void GerenciamentoDeSistema::carregarDados() {
     for (Funcionario* f : _funcionarios) delete f;
     _funcionarios.clear();
 
-    ifstream arquivo_clientes("Clientes.txt");
+    ifstream arquivo_clientes("data/Clientes.txt");
     if (!arquivo_clientes.is_open()) {
         cerr << "Arquivo Clientes.txt nao encontrado. Nenhum cliente carregado." << endl;
     } else {
@@ -293,7 +293,7 @@ void GerenciamentoDeSistema::carregarDados() {
         cout << _clientes.size() << " clientes carregados de Clientes.txt" << endl;
     }
 
-    ifstream arquivo_funcionarios("Funcionarios.txt");
+    ifstream arquivo_funcionarios("data/Funcionarios.txt");
     if (!arquivo_funcionarios.is_open()) {
         cerr << "Arquivo Funcionarios.txt nao encontrado. Nenhum funcionario carregado." << endl;
     } else {
