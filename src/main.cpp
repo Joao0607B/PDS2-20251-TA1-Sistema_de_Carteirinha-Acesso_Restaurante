@@ -1,11 +1,11 @@
-#include "Aluno.hpp"
-#include "Cliente.hpp"
-#include "Funcionario.hpp"
-#include "Pessoa.hpp"
-#include "Caixa.hpp"
-#include "Professor.hpp"
-#include "Data.hpp"
-#include "GerenciamentoDeSistema.hpp"
+#include "../include/Aluno.hpp"
+#include "../include/Cliente.hpp"
+#include "../include/Funcionario.hpp"
+#include "../include/Pessoa.hpp"
+#include "../include/Caixa.hpp"
+#include "../include/Professor.hpp"
+#include "../include/Data.hpp"
+#include "../include/GerenciamentoDeSistema.hpp"
 
 #include <iostream>
 #include <string>
@@ -14,17 +14,19 @@
 using namespace std;
 
 int main() {
-  GerenciamentoDeSistema sistema;  // Instância do sistema
-  int opcao_cadastro, nivelFump_Aluno, caixa_Caixa;
-  string nome_Aluno, cpf_Aluno, curso_Aluno, nome_Professor, cpf_Professor, departamento_Professor, nome_visitante, cpf_visitante, 
-  nome_Funcionario, cpf_Funcionario, usuario_Funcionario, senha_Funcionario, nome_Caixa, cpf_Caixa, usuario_Caixa, senha_Caixa, restaurante_Caixa,
-  nome_admfump, cpf_admfump, usuario_admfump, senha_admfump,cpf_restaurante, usuario_restaurante, senha_restaurante,
-  cpf_credito,usuario_credito, senha_credito, cpf_info, usuario_info, senha_info;
-  char tipoRefeicao;
-  float valor_credito;
+    GerenciamentoDeSistema sistema;
+    int opcao_cadastro, nivelFump_Aluno, caixa_Caixa;
+    string nome_Aluno, cpf_Aluno, curso_Aluno, nome_Professor, cpf_Professor, departamento_Professor;
+    string nome_visitante, cpf_visitante, nome_Funcionario, cpf_Funcionario, usuario_Funcionario, senha_Funcionario;
+    string nome_Caixa, cpf_Caixa, usuario_Caixa, senha_Caixa, restaurante_Caixa;
+    string nome_admfump, cpf_admfump, usuario_admfump, senha_admfump;
+    string cpf_restaurante, usuario_restaurante, senha_restaurante;
+    string cpf_credito, usuario_credito, senha_credito;
+    string cpf_info, usuario_info, senha_info;
+    char tipoRefeicao;
+    float valor_credito;
 
-  int opcao = 0;
-
+    int opcao = 0;
 
   do {
     cout << "\n========================================" << endl;
@@ -33,10 +35,8 @@ int main() {
     cout << "Escolha uma opção:" << endl;
     cout << " [1] Cadastrar" << endl;
     cout << " [2] Entrar no Restaurante" << endl;
-    cout << " [3] Adicionar Credito" << endl;
-    cout << " [4] Verificar Informação" << endl;
-    cout << " [5] Salvar Dados" << endl;
-    cout << " [6] Sair" << endl;
+    cout << " [3] Verificar Informação" << endl;
+    cout << " [4] Sair" << endl;
     cout << "----------------------------------------" << endl;
     cout << "Opção: ";
     cin >> opcao;
@@ -230,6 +230,11 @@ int main() {
                 cout << "\n>> Tipo de cadastro ainda não implementado.\n";
             }
             system("cls");                                                                     // LIMPA A TELA
+            // -----------------------------------------------------------------------------------------------------------------
+            // -----------------------------------------------------------------------------------------------------------------
+            //                                              CADASTROS FINALIZADOS
+            // -----------------------------------------------------------------------------------------------------------------
+            // -----------------------------------------------------------------------------------------------------------------
             break;
             
 
@@ -366,5 +371,5 @@ int main() {
     }
     } while (opcao != 1);
 
-  return 0;
+    return 0;
 }
