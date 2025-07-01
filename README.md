@@ -97,5 +97,9 @@ Faça download do repositório, abra a pasta docs, abra a pasta html e abra o ar
 
 Uma das principais dificuldades encontradas no projeto foi a integração entre os códigos desenvolvidos por diferentes membros do grupo. Com o desenvolvimento acontecendo de forma simultânea, surgiram desafios relacionados à padronização dos nomes, métodos e estrutura das classes. Reforçar a comunicação entre os membros foi uma atitude que ajudou muito a vencer esse desafio e fazer com que as partes do cpodigo se unissem para um único objetivo.
 
+# Extras implementados
+
+O extra do nosso trabalho é a implementação do banco de dados composto pelos arquivos: Clientes.txt, Funcionarios.txt e Transações.txt. 
+
 
 
