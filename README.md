@@ -23,7 +23,7 @@ Nosso sistema é orientado a objetos e organizado em três responsabilidades pri
 
 *Cliente (herda de Pessoa):* representa quem consome as refeições (alunos, professores e visitantes). Possui saldo, estado de bloqueio e histórico de acessos/refeições.
 
-*Aluno (herda de Cliente):* possui informações adicionais como curso e nível Fump(o nível da fump é responsável ´pr influ~enciar o valor da refeição).
+*Aluno (herda de Cliente):* possui informações adicionais como curso e nível Fump(o nível da fump é responsável por influenciar o valor da refeição).
 
 *Professor (herda de Cliente):* possui o atributo adicional “departamento”.
 
