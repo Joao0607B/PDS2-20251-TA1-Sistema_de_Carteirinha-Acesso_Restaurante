@@ -104,6 +104,7 @@ Como diferencial do nosso projeto, foi implementado um banco de dados simples ut
 **O sistema armazena os dados em três arquivos principais:**
 
 **Clientes.txt**
+
 Contém o cadastro de todos os clientes, incluindo:
 
 - Tipo do cliente (Aluno, Professor ou Visitante)
@@ -115,6 +116,7 @@ Contém o cadastro de todos os clientes, incluindo:
 - Dados específicos, como curso e nível FUMP (para alunos) ou departamento (para professores)
 
 **Funcionarios.txt**
+
 Armazena as informações dos funcionários cadastrados, tais como:
 
 - Nome e CPF
@@ -124,6 +126,7 @@ Armazena as informações dos funcionários cadastrados, tais como:
 - Senha para autenticação
 
 **Transacoes.txt**
+
 - Registra todas as transações realizadas no sistema:
 
 - Refeições processadas (com tipo, valor e cliente)
