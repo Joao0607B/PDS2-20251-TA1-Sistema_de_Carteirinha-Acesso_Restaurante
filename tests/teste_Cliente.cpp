@@ -50,10 +50,33 @@ TEST_CASE("Teste de transferência entre clientes") {
     CHECK(c2.getSaldo() == doctest::Approx(30.0f));
   //Nesse teste criamos dois clientes, setamos um saldo para o primeiro cliente, depois chamamos a função transferir para o segundo cliente e checamos se o saldo do primeiro cliente é o saldo inicial subtraido do saldo transferido, como também se o saldo do segundo cliente é o saldo transferido pelo primeiro.
 }
+TEST_CASE("Transferência com saldo insuficiente") {
+    Cliente c1("Cliente6", "44455566677");
+    Cliente c2("Cliente7", "88899900011");
 
+    c1.setSaldo(10.0f);
+    c1.transferir(20.0f, &c2); // não deve transferir
+
+    CHECK(c1.getSaldo() == doctest::Approx(10.0f));
+    CHECK(c2.getSaldo() == doctest::Approx(0.0f));
+    //Nesse teste checamos se o cliente não consegue transferir se não tiver saldo suficiente.
+}
+
+TEST_CASE("Transferência com cliente bloqueado") {
+    Cliente c1("Cliente8", "33322211100");
+    Cliente c2("Cliente9", "00011122233");
+
+    c1.setSaldo(100.0f);
+    c1.bloquear();
+    c1.transferir(50.0f, &c2); // bloqueado não transfere
+
+    CHECK(c1.getSaldo() == doctest::Approx(100.0f));
+    CHECK(c2.getSaldo() == doctest::Approx(0.0f));
+    //Nesse teste checamos se o cliente não consegue transferir se estiver bloqueado.
+}
 
 TEST_CASE("Setters e Getters de Data") {
-    Cliente c("Cliente2", "12121212121");
+    Cliente c("Cliente10", "12121212121");
     DataMock almoco(1, 7, 2025);
     DataMock jantar(2, 7, 2025);
 
@@ -64,13 +87,14 @@ TEST_CASE("Setters e Getters de Data") {
     CHECK(c.getUltimoJantar() == jantar);
 }
 TEST_CASE("Registro de acesso com cartão bloqueado") {
-    Cliente c("Cliente3", "20202020200");
+    Cliente c("Cliente11", "20202020200");
     c.setSaldo(50.0f);
     c.bloquear();
 
     CHECK_FALSE(c.registrarAcesso('a'));
   //O teste verifica se após um cliente for criado e após o depósito de um valor suficiente para fazer a refeição, se o cliente decide bloquear o seu acesso, ele não consegue fazer sua refeição. Logo o teste se propoe a isso. 
 }
+
 
 
 
