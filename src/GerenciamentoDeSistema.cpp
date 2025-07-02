@@ -35,8 +35,9 @@ GerenciamentoDeSistema::~GerenciamentoDeSistema() {
     std::cout << "Sistema encerrado e memória liberada." << std::endl;
 }
 
+// --- Métodos Privados ---
+
 void GerenciamentoDeSistema::registrarTransacao(const std::string& tipo, Cliente* cliente, double valor, Funcionario* funcionario, Cliente* cliente_destino) {
-    // Abre o arquivo em modo "append" para adicionar ao final
     std::ofstream arquivo_transacoes("data/Transacoes.txt", std::ios::app);
     if (!arquivo_transacoes.is_open()) {
         std::cerr << "ERRO CRITICO: Nao foi possivel abrir Transacoes.txt para registro." << std::endl;
@@ -80,15 +81,16 @@ Funcionario* GerenciamentoDeSistema::encontrarFuncionario(const std::string& usu
     return nullptr;
 }
 
+// --- Métodos Públicos ---
 
 void GerenciamentoDeSistema::cadastrarCliente(Cliente* cliente) {
     if (encontrarCliente(cliente->getCpf()) == nullptr) {
         _clientes.push_back(cliente);
-        salvarDados(); // Salva imediatamente após o cadastro
+        salvarDados();
         std::cout << "Cliente " << cliente->getNome() << " cadastrado com sucesso." << std::endl;
     } else {
         std::cout << "ERRO: Já existe um cliente cadastrado com o CPF " << cliente->getCpf() << "." << std::endl;
-        delete cliente; // Previne vazamento de memória se o cadastro falhar
+        delete cliente;
     }
 }
 
@@ -99,7 +101,7 @@ void GerenciamentoDeSistema::cadastrarFuncionario(Funcionario* funcionario) {
         std::cout << "Funcionário " << funcionario->getNome() << " cadastrado com sucesso." << std::endl;
     } else {
         std::cout << "ERRO: Já existe um funcionário cadastrado com o usuário " << funcionario->getUsuario() << "." << std::endl;
-        delete funcionario; // Previne vazamento de memória
+        delete funcionario;
     }
 }
 
@@ -108,8 +110,8 @@ void GerenciamentoDeSistema::apagarCliente(std::string cpf_cliente) {
                            [&](Cliente* c) { return c->getCpf() == cpf_cliente; });
 
     if (it != _clientes.end()) {
-        delete *it; // 1. Libera a memória do objeto apontado pelo iterador
-        _clientes.erase(it); // 2. Remove o ponteiro do vetor
+        delete *it;
+        _clientes.erase(it);
         std::cout << "Cliente com CPF " << cpf_cliente << " removido com sucesso." << std::endl;
         salvarDados();
     } else {
@@ -137,7 +139,6 @@ bool GerenciamentoDeSistema::verificarLogin(std::string cpf_funcionario) {
             if (func->_logado) {
                 return true;
             } else {
-                //std::cout << "Funcionário não está logado." << std::endl;
                 return false;
             }
         }
@@ -159,7 +160,7 @@ void GerenciamentoDeSistema::depositarCrédito(std::string cpf_cliente, float va
     if (!verificarLogin(cpf_funcionario)) return;
 
     Cliente* cliente = encontrarCliente(cpf_cliente);
-    Funcionario* funcionario = nullptr; // Necessário para registrar a transação
+    Funcionario* funcionario = nullptr;
     for(const auto& f : _funcionarios) { if(f->getCpf() == cpf_funcionario) { funcionario = f; break; } }
     
     if (cliente && funcionario) {
@@ -180,16 +181,13 @@ void GerenciamentoDeSistema::processarRefeicao(std::string cpf_cliente, std::str
 
     if (cliente && funcionario) {
         try {
-            // A lógica de negócio e o 'throw' devem estar dentro de registrarAcesso
             if (cliente->registrarAcesso(_tipoDeRefeicao)) {
                 this->registrarTransacao("Refeicao", cliente, cliente->getValorRefeicao(), funcionario);
                 std::cout << "Refeição registrada com sucesso." << std::endl;
             } else {
-                // A mensagem de erro específica (ex: já almoçou) é impressa dentro de registrarAcesso
                 std::cout << "Não foi possível processar a refeição." << std::endl;
             }
         } catch (const std::exception& e) {
-            // Captura exceções como ExcecaoSaldoInsuficiente
             std::cerr << "Falha na transação: " << e.what() << std::endl;
         }
     } else {
@@ -198,7 +196,6 @@ void GerenciamentoDeSistema::processarRefeicao(std::string cpf_cliente, std::str
 }
 
 void GerenciamentoDeSistema::salvarDados() {
-    //Salvar clientes
     ofstream arquivo_clientes("data/Clientes.txt");
     if (!arquivo_clientes.is_open()) {
         cerr << "Erro ao abrir o arquivo Clientes.txt para escrita." << endl;
@@ -206,32 +203,25 @@ void GerenciamentoDeSistema::salvarDados() {
     }
 
     for (Cliente* cliente : _clientes) {
+        std::string dados_base = "," + cliente->getNome() + "," + cliente->getCpf() + "," +
+                                 to_string(cliente->getSaldo()) + "," +
+                                 cliente->getUltimoAlmoco().toString() + "," +
+                                 cliente->getUltimoJantar().toString();
+
         if (Aluno* aluno = dynamic_cast<Aluno*>(cliente)) {
-            arquivo_clientes << "A," // 'A' para Aluno
-                             << aluno->getNome() << ","
-                             << aluno->getCpf() << ","
-                             << aluno->getSaldo() << ","
+            arquivo_clientes << "A" << dados_base << ","
                              << aluno->getNivelFump() << ","
                              << aluno->getCurso() << endl;
         } else if (Professor* professor = dynamic_cast<Professor*>(cliente)) {
-            arquivo_clientes << "P," // 'P' para Professor
-                             << professor->getNome() << ","
-                             << professor->getCpf() << ","
-                             << professor->getSaldo() << ","
+            arquivo_clientes << "P" << dados_base << ","
                              << professor->getDepartamento() << endl;
         } else {
-            // Cliente Visitante
-            arquivo_clientes << "C," // 'C' para Cliente
-                             << cliente->getNome() << ","
-                             << cliente->getCpf() << ","
-                             << cliente->getSaldo() << endl;
+            arquivo_clientes << "C" << dados_base << endl;
         }
     }
     arquivo_clientes.close();
     cout << "Dados dos clientes salvos em Clientes.txt" << endl;
 
-
-    //Salvar funcionários
     ofstream arquivo_funcionarios("data/Funcionarios.txt");
     if (!arquivo_funcionarios.is_open()) {
         cerr << "Erro ao abrir o arquivo Funcionarios.txt para escrita." << endl;
@@ -251,7 +241,6 @@ void GerenciamentoDeSistema::salvarDados() {
 void GerenciamentoDeSistema::carregarDados() {
     for (Cliente* c : _clientes) delete c;
     _clientes.clear();
-
     for (Funcionario* f : _funcionarios) delete f;
     _funcionarios.clear();
 
@@ -261,31 +250,49 @@ void GerenciamentoDeSistema::carregarDados() {
     } else {
         string linha;
         while (getline(arquivo_clientes, linha)) {
+            if (linha.empty()) continue;
+            
             stringstream ss(linha);
-            string tipo_str, nome, cpf, saldo_str, dado1, dado2;
+            string tipo_str, nome, cpf, saldo_str, almoco_str, jantar_str, dado_extra1, dado_extra2;
             
             getline(ss, tipo_str, ',');
             getline(ss, nome, ',');
             getline(ss, cpf, ',');
             getline(ss, saldo_str, ',');
+            getline(ss, almoco_str, ',');
+            getline(ss, jantar_str, ',');
             
-            float saldo = stof(saldo_str);
-            char tipo = tipo_str[0];
+            float saldo = 0.0f;
+            if (!saldo_str.empty()) {
+                try { saldo = stof(saldo_str); }
+                catch (const std::exception& e) { /* Ignora erro */ }
+            }
 
+            char tipo = tipo_str[0];
             Cliente* novo_cliente = nullptr;
-            if (tipo == 'A') { // É um Aluno
-                getline(ss, dado1, ','); // Nivel Fump
-                getline(ss, dado2);      // Curso
-                novo_cliente = new Aluno(nome, cpf, stoi(dado1), dado2);
-            } else if (tipo == 'P') { // É um Professor
-                getline(ss, dado1);      // Departamento
-                novo_cliente = new Professor(nome, cpf, dado1);
-            } else { // É um Cliente genérico
+
+            if (tipo == 'A') {
+                getline(ss, dado_extra1, ',');
+                getline(ss, dado_extra2);
+                novo_cliente = new Aluno(nome, cpf, stoi(dado_extra1), dado_extra2);
+            } else if (tipo == 'P') {
+                getline(ss, dado_extra1);
+                novo_cliente = new Professor(nome, cpf, dado_extra1);
+            } else {
                 novo_cliente = new Cliente(nome, cpf);
             }
             
             if (novo_cliente) {
                 novo_cliente->setSaldo(saldo);
+
+                int dia, mes, ano;
+                if (sscanf(almoco_str.c_str(), "%d/%d/%d", &dia, &mes, &ano) == 3) {
+                    novo_cliente->setUltimoAlmoco(Data(dia, mes, ano));
+                }
+                if (sscanf(jantar_str.c_str(), "%d/%d/%d", &dia, &mes, &ano) == 3) {
+                    novo_cliente->setUltimoJantar(Data(dia, mes, ano));
+                }
+                
                 _clientes.push_back(novo_cliente);
             }
         }
@@ -299,6 +306,8 @@ void GerenciamentoDeSistema::carregarDados() {
     } else {
         string linha;
         while (getline(arquivo_funcionarios, linha)) {
+             if (linha.empty()) continue;
+             
             stringstream ss(linha);
             string nome, cpf, usuario, senha;
 
@@ -316,6 +325,9 @@ void GerenciamentoDeSistema::carregarDados() {
 
 void GerenciamentoDeSistema::exibirClientes() {
     std::cout << "\n--- LISTA DE CLIENTES ---\n";
+    if (_clientes.empty()) {
+        std::cout << "Nenhum cliente cadastrado.\n";
+    }
     for (Cliente* c : _clientes) {
         c->printInfo();
         std::cout << "------------------------\n";
@@ -324,6 +336,9 @@ void GerenciamentoDeSistema::exibirClientes() {
 
 void GerenciamentoDeSistema::exibirFuncionarios() {
     std::cout << "\n--- LISTA DE FUNCIONÁRIOS ---\n";
+    if (_funcionarios.empty()) {
+        std::cout << "Nenhum funcionário cadastrado.\n";
+    }
     for (Funcionario* f : _funcionarios) {
         f->printInfo();
         std::cout << "---------------------------\n";

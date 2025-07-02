@@ -1,4 +1,7 @@
 <map id="include/Professor.hpp" name="include/Professor.hpp">
-<area shape="rect" id="node1" title="Definição da classe Professor, uma especialização da classe Cliente." alt="" coords="5,5,167,32"/>
-<area shape="rect" id="node2" href="$Professor_8cpp.html" title="Implementação dos métodos da classe Professor." alt="" coords="20,80,152,107"/>
+<area shape="rect" id="node1" title="Definição da classe Professor, uma especialização da classe Cliente." alt="" coords="221,5,382,32"/>
+<area shape="rect" id="node2" href="$GerenciamentoDeSistema_8hpp.html" title="Definição da classe GerenciamentoDeSistema, o núcleo do sistema de restaurante." alt="" coords="52,80,324,107"/>
+<area shape="rect" id="node5" href="$Professor_8cpp.html" title="Implementação dos métodos da classe Professor." alt="" coords="349,80,481,107"/>
+<area shape="rect" id="node3" href="$Funcionario_8cpp.html" title="Implementação dos métodos da classe Funcionario." alt="" coords="5,155,152,181"/>
+<area shape="rect" id="node4" href="$GerenciamentoDeSistema_8cpp.html" title="Implementação dos métodos da classe GerenciamentoDeSistema, o núcleo do sistema." alt="" coords="176,155,419,181"/>
 </map>

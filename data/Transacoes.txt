@@ -1,0 +1,2 @@
+Data: 01/07/2025 Deposito Cliente: 123 Valor: 20 Funcionario: user
+Data: 01/07/2025 Refeição: a Cliente: 123 Valor pago: 13

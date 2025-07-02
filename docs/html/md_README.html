@@ -65,7 +65,8 @@ $(function() {
 <div class="title">Sistema Carteirinha e Acesso Restaurante Universitário </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><b>Membros:</b> <br  />
+<div class="textblock"><p><b>Turma TA1</b> <br  />
+ <b>Membros:</b> <br  />
  Ana Laura Soares Mello, <br  />
  Larissa Roncali Faria, <br  />
  João Pedro Braga da Silva, <br  />
@@ -84,7 +85,7 @@ Visão Geral da Aquitetura</h2>
 <p><em><a class="el" href="classPessoa.html" title="Superclasse que modela as características comuns a todos os indivíduos.">Pessoa</a> (classe base):</em> contém os atributos e métodos comuns a todas as pessoas (nome e CPF).</p>
 <p><em><a class="el" href="classFuncionario.html" title="Modela um funcionário do sistema, herdando de Pessoa.">Funcionario</a> (herda de <a class="el" href="classPessoa.html" title="Superclasse que modela as características comuns a todos os indivíduos.">Pessoa</a>):</em> representa os usuários com permissões administrativas. Pode fazer login, trocar senha, deslogar e principalmente é responsável por liberar as refeições para os clientes.</p>
 <p><em><a class="el" href="classCliente.html" title="Modela um cliente do restaurante, com funcionalidades de saldo, bloqueio e registro de refeições.">Cliente</a> (herda de <a class="el" href="classPessoa.html" title="Superclasse que modela as características comuns a todos os indivíduos.">Pessoa</a>):</em> representa quem consome as refeições (alunos, professores e visitantes). Possui saldo, estado de bloqueio e histórico de acessos/refeições.</p>
-<p><em><a class="el" href="classAluno.html" title="Representa um cliente do tipo Aluno, que possui um nível FUMP e um curso.">Aluno</a> (herda de <a class="el" href="classCliente.html" title="Modela um cliente do restaurante, com funcionalidades de saldo, bloqueio e registro de refeições.">Cliente</a>):</em> possui informações adicionais como curso e nível Fump(o nível da fump é responsável ´pr influ~enciar o valor da refeição).</p>
+<p><em><a class="el" href="classAluno.html" title="Representa um cliente do tipo Aluno, que possui um nível FUMP e um curso.">Aluno</a> (herda de <a class="el" href="classCliente.html" title="Modela um cliente do restaurante, com funcionalidades de saldo, bloqueio e registro de refeições.">Cliente</a>):</em> possui informações adicionais como curso e nível Fump(o nível da fump é responsável por influenciar o valor da refeição).</p>
 <p><em><a class="el" href="classProfessor.html" title="Representa um cliente do tipo Professor, associado a um departamento.">Professor</a> (herda de <a class="el" href="classCliente.html" title="Modela um cliente do restaurante, com funcionalidades de saldo, bloqueio e registro de refeições.">Cliente</a>):</em> possui o atributo adicional “departamento”.</p>
 <p><em><a class="el" href="classCaixa.html" title="Representa um funcionário do tipo Caixa, responsável pela gestão de um caixa em um restaurante.">Caixa</a> (herda de <a class="el" href="classFuncionario.html" title="Modela um funcionário do sistema, herdando de Pessoa.">Funcionario</a>):</em> funcionários responsáveis pela gestão do restaurante e movimentações financeiras.</p>
 <p><b>2. Responsabilidade do controle do sistema e armazenamento de dados</b></p>
@@ -105,8 +106,7 @@ Visão Geral da Aquitetura</h2>
 <li>Funcionarios.txt</li>
 <li>Transacoes.txt</li>
 </ul>
-<p>Estes arquivos são lidos e atualizados pelo sistema via métodos da classe Gerenciamento. Abaixo está anexado o diagrama de classes com as responsabilidades resumidas:</p>
-<p><img src="https://github.com/user-attachments/assets/6765f222-0fb3-481a-8bbc-8f579394cea8" alt="Diagrama de Classes" class="inline"/></p>
+<p>Estes arquivos são lidos e atualizados pelo sistema via métodos da classe Gerenciamento.</p>
 <h2><a class="anchor" id="autotoc_md4"></a>
 Visão Geral do Fluxo de Funcionamento do Programa</h2>
 <p><b>1. Cadastro de Usuários</b></p>
@@ -114,7 +114,7 @@ Visão Geral do Fluxo de Funcionamento do Programa</h2>
 <p><b>2. Login e Autenticação</b></p>
 <p>Funcionários devem fazer login usando fazerLogin(usuario, senha) para acessar as funcionalidades administrativas. Após autenticação, podem realizar ações como liberar refeições, adicionar créditos e processar as refeições realizadas, que automaticamente registram o acesso. Após ações ele pode deslogar do sistema.</p>
 <p><b>3. Processamento de Refeições</b></p>
-<p>O funcionário, já autenticado, pode liberar as refeições(liberarRefeição(Cliente* cliente)) e processar a refeição no sistema. Para liberar a refeição o método verifica se o cliente não está bloqueado, valida se o cliente já realizou uma refeição no mesmo turno e verfica se o cliente possui saldo suficiente para realizar a refeição. Caso tudo esteja correto, desconta o valor da refeição do saldo, libera o acesso e registra o acesso naquele turno.</p>
+<p>O funcionário, já autenticado, pode liberar as refeições(liberarRefeição(Cliente* cliente)) e processar a refeição no sistema. Para liberar a refeição o método verifica se o cliente não está bloqueado, valida se o cliente já realizou uma refeição no mesmo turno e verifica se o cliente possui saldo suficiente para realizar a refeição. Caso tudo esteja correto, desconta o valor da refeição do saldo, libera o acesso e registra o acesso naquele turno.</p>
 <p><b>4. Gerenciamento de Saldo</b></p>
 <p>O método depositar() adiciona um valor ao saldo do cliente, utilizando o funcionário responsável.Também há suporte para transferência de saldo entre clientes (transferir()), depósitos (depositar()), bloqueio e desbloqueio.</p>
 <p><b>5. Controle de Acesso</b></p>
@@ -122,11 +122,39 @@ Visão Geral do Fluxo de Funcionamento do Programa</h2>
 <p><b>6. Armazenamento de Dados</b></p>
 <p>Ao fim das operações, o sistema pode chamar salvarDados() para registrar clientes e funcionários nos arquivos .txt.</p>
 <p><b>Documentação do Código</b></p>
-<p>Abaixo está disponível o link de acesso para a documentação do código, via Doxygen.</p>
-<p><a href="https://github.com/Joao0607B/PDS2-20251-TA1-Sistema_de_Carteirinha-Acesso_Restaurante/blob/main/docs/">//link da documentação via Doxygen</a> Faça download e abra o arquivo index.html</p>
+<p>O acesso a documentação do código, via Doxygen, está no proprio repositório.</p>
+<p>Faça download do repositório, abra a pasta docs, abra a pasta html e abra o arquivo index.html</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Principais dificuldades encontradas</h1>
-<p>Uma das principais dificuldades encontradas no projeto foi a integração entre os códigos desenvolvidos por diferentes membros do grupo. Com o desenvolvimento acontecendo de forma simultânea, surgiram desafios relacionados à padronização dos nomes, métodos e estrutura das classes. Reforçar a comunicação entre os membros foi uma atitude que ajudou muito a vencer esse desafio e fazer com que as partes do cpodigo se unissem para um único objetivo. </p>
+<p>Uma das principais dificuldades encontradas no projeto foi a integração entre os códigos desenvolvidos por diferentes membros do grupo. Com o desenvolvimento acontecendo de forma simultânea, surgiram desafios relacionados à padronização dos nomes, métodos e estrutura das classes. Reforçar a comunicação entre os membros foi uma atitude que ajudou muito a vencer esse desafio e fazer com que as partes do cpodigo se unissem para um único objetivo.</p>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Extras implementados</h1>
+<p>Como diferencial do nosso projeto, foi implementado um banco de dados simples utilizando arquivos .txt. Essa estrutura garante o arquivamento e atualização dos dados, permitindo que as informações sejam mantidas mesmo após o encerramento do programa.</p>
+<p><b>O sistema armazena os dados em três arquivos principais:</b></p>
+<p><b>Clientes.txt</b></p>
+<p>Contém o cadastro de todos os clientes, incluindo:</p>
+<ul>
+<li>Tipo do cliente (<a class="el" href="classAluno.html" title="Representa um cliente do tipo Aluno, que possui um nível FUMP e um curso.">Aluno</a>, <a class="el" href="classProfessor.html" title="Representa um cliente do tipo Professor, associado a um departamento.">Professor</a> ou Visitante)</li>
+<li>Nome e CPF</li>
+<li>Saldo atual</li>
+<li>Dados específicos, como curso e nível FUMP (para alunos) ou departamento (para professores)</li>
+</ul>
+<p><b>Funcionarios.txt</b></p>
+<p>Armazena as informações dos funcionários cadastrados, tais como:</p>
+<ul>
+<li>Nome e CPF</li>
+<li>Nome de usuário (login)</li>
+<li>Senha para autenticação</li>
+</ul>
+<p><b>Transacoes.txt</b></p>
+<ul>
+<li>Registra todas as transações realizadas no sistema:</li>
+<li>Refeições processadas (com tipo, valor e cliente)</li>
+<li>Depósitos realizados por funcionários para clientes</li>
+<li>Transferências de saldo entre clientes</li>
+</ul>
+<p>Ademais, cada entrada é gravada com a data da transação, facilitando o rastreamento posterior.</p>
+<p>Essa implementação proporciona um banco de dados funcional e leve, dispensando o uso de sistemas externos, mantendo a simplicidade do projeto. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

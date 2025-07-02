@@ -1,4 +1,5 @@
-{\bfseries{Membros\+:}} ~\newline
+{\bfseries{Turma TA1}} ~\newline
+ {\bfseries{Membros\+:}} ~\newline
  Ana Laura Soares Mello, ~\newline
  Larissa Roncali Faria, ~\newline
  João Pedro Braga da Silva, ~\newline
@@ -18,7 +19,7 @@ Nosso sistema é orientado a objetos e organizado em três responsabilidades pri
 
 {\itshape \mbox{\hyperlink{classCliente}{Cliente}} (herda de \mbox{\hyperlink{classPessoa}{Pessoa}})\+:} representa quem consome as refeições (alunos, professores e visitantes). Possui saldo, estado de bloqueio e histórico de acessos/refeições.
 
-{\itshape \mbox{\hyperlink{classAluno}{Aluno}} (herda de \mbox{\hyperlink{classCliente}{Cliente}})\+:} possui informações adicionais como curso e nível Fump(o nível da fump é responsável ´pr influ$\sim$enciar o valor da refeição).
+{\itshape \mbox{\hyperlink{classAluno}{Aluno}} (herda de \mbox{\hyperlink{classCliente}{Cliente}})\+:} possui informações adicionais como curso e nível Fump(o nível da fump é responsável por influenciar o valor da refeição).
 
 {\itshape \mbox{\hyperlink{classProfessor}{Professor}} (herda de \mbox{\hyperlink{classCliente}{Cliente}})\+:} possui o atributo adicional “departamento”.
 
@@ -50,9 +51,7 @@ Usa três arquivos de texto simples para armazenar os dados\+:
 \item Transacoes.\+txt
 \end{DoxyItemize}
 
-Estes arquivos são lidos e atualizados pelo sistema via métodos da classe Gerenciamento. Abaixo está anexado o diagrama de classes com as responsabilidades resumidas\+:
-
-\hypertarget{md_README_autotoc_md4}{}\doxysubsection{Visão Geral do Fluxo de Funcionamento do Programa}\label{md_README_autotoc_md4}
+Estes arquivos são lidos e atualizados pelo sistema via métodos da classe Gerenciamento.\hypertarget{md_README_autotoc_md4}{}\doxysubsection{Visão Geral do Fluxo de Funcionamento do Programa}\label{md_README_autotoc_md4}
 {\bfseries{1. Cadastro de Usuários}}
 
 Um funcionário autorizado usa cadastrar\+Funcionario() ou cadastrar\+Cliente() para incluir novos usuários no sistema. Clientes podem ser \mbox{\hyperlink{classAluno}{Aluno}} ou \mbox{\hyperlink{classProfessor}{Professor}}, definidos conforme os dados fornecidos.
@@ -63,7 +62,7 @@ Funcionários devem fazer login usando fazer\+Login(usuario, senha) para acessar
 
 {\bfseries{3. Processamento de Refeições}}
 
-O funcionário, já autenticado, pode liberar as refeições(liberar\+Refeição(\+Cliente$\ast$ cliente)) e processar a refeição no sistema. Para liberar a refeição o método verifica se o cliente não está bloqueado, valida se o cliente já realizou uma refeição no mesmo turno e verfica se o cliente possui saldo suficiente para realizar a refeição. Caso tudo esteja correto, desconta o valor da refeição do saldo, libera o acesso e registra o acesso naquele turno.
+O funcionário, já autenticado, pode liberar as refeições(liberar\+Refeição(\+Cliente$\ast$ cliente)) e processar a refeição no sistema. Para liberar a refeição o método verifica se o cliente não está bloqueado, valida se o cliente já realizou uma refeição no mesmo turno e verifica se o cliente possui saldo suficiente para realizar a refeição. Caso tudo esteja correto, desconta o valor da refeição do saldo, libera o acesso e registra o acesso naquele turno.
 
 {\bfseries{4. Gerenciamento de Saldo}}
 
@@ -79,7 +78,47 @@ Ao fim das operações, o sistema pode chamar salvar\+Dados() para registrar cli
 
 {\bfseries{Documentação do Código}}
 
-Abaixo está disponível o link de acesso para a documentação do código, via Doxygen.
+O acesso a documentação do código, via Doxygen, está no proprio repositório.
 
-\href{https://github.com/Joao0607B/PDS2-20251-TA1-Sistema_de_Carteirinha-Acesso_Restaurante/blob/main/docs/}{\texttt{ //link da documentação via Doxygen}} Faça download e abra o arquivo index.\+html\hypertarget{md_README_autotoc_md5}{}\doxysection{Principais dificuldades encontradas}\label{md_README_autotoc_md5}
-Uma das principais dificuldades encontradas no projeto foi a integração entre os códigos desenvolvidos por diferentes membros do grupo. Com o desenvolvimento acontecendo de forma simultânea, surgiram desafios relacionados à padronização dos nomes, métodos e estrutura das classes. Reforçar a comunicação entre os membros foi uma atitude que ajudou muito a vencer esse desafio e fazer com que as partes do cpodigo se unissem para um único objetivo. 
+Faça download do repositório, abra a pasta docs, abra a pasta html e abra o arquivo index.\+html\hypertarget{md_README_autotoc_md5}{}\doxysection{Principais dificuldades encontradas}\label{md_README_autotoc_md5}
+Uma das principais dificuldades encontradas no projeto foi a integração entre os códigos desenvolvidos por diferentes membros do grupo. Com o desenvolvimento acontecendo de forma simultânea, surgiram desafios relacionados à padronização dos nomes, métodos e estrutura das classes. Reforçar a comunicação entre os membros foi uma atitude que ajudou muito a vencer esse desafio e fazer com que as partes do cpodigo se unissem para um único objetivo.\hypertarget{md_README_autotoc_md6}{}\doxysection{Extras implementados}\label{md_README_autotoc_md6}
+Como diferencial do nosso projeto, foi implementado um banco de dados simples utilizando arquivos .txt. Essa estrutura garante o arquivamento e atualização dos dados, permitindo que as informações sejam mantidas mesmo após o encerramento do programa.
+
+{\bfseries{O sistema armazena os dados em três arquivos principais\+:}}
+
+{\bfseries{Clientes.\+txt}}
+
+Contém o cadastro de todos os clientes, incluindo\+:
+
+
+\begin{DoxyItemize}
+\item Tipo do cliente (\mbox{\hyperlink{classAluno}{Aluno}}, \mbox{\hyperlink{classProfessor}{Professor}} ou Visitante)
+\item Nome e CPF
+\item Saldo atual
+\item Dados específicos, como curso e nível FUMP (para alunos) ou departamento (para professores)
+\end{DoxyItemize}
+
+{\bfseries{Funcionarios.\+txt}}
+
+Armazena as informações dos funcionários cadastrados, tais como\+:
+
+
+\begin{DoxyItemize}
+\item Nome e CPF
+\item Nome de usuário (login)
+\item Senha para autenticação
+\end{DoxyItemize}
+
+{\bfseries{Transacoes.\+txt}}
+
+
+\begin{DoxyItemize}
+\item Registra todas as transações realizadas no sistema\+:
+\item Refeições processadas (com tipo, valor e cliente)
+\item Depósitos realizados por funcionários para clientes
+\item Transferências de saldo entre clientes
+\end{DoxyItemize}
+
+Ademais, cada entrada é gravada com a data da transação, facilitando o rastreamento posterior.
+
+Essa implementação proporciona um banco de dados funcional e leve, dispensando o uso de sistemas externos, mantendo a simplicidade do projeto. 

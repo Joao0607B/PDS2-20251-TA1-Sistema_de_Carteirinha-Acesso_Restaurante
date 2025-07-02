@@ -34,11 +34,12 @@ int main() {
         cout << "========================================" << endl;
         cout << "Escolha uma opção:" << endl;
         cout << " [1] Cadastrar" << endl;
-        cout << " [2] Entrar no Restaurante" << endl;
+        cout << " [2] Fazer Login (funcionário)" << endl;
         cout << " [3] Adicionar Crédito" << endl;
         cout << " [4] Sair" << endl;
         cout << " [5] Salvar Dados" << endl;
         cout << " [6] Verificar Informação" << endl;
+        cout << " [7] Liberar Refeção" << endl;
         cout << "----------------------------------------" << endl;
         cout << "Opção: ";
         cin >> opcao;
@@ -150,20 +151,16 @@ int main() {
 
             case 2: {
                 cout << "\n>> Verificando entrada no restaurante...\n";
-                cout << "Digite seu CPF: ";
-                cin >> cpf_restaurante;
                 cout << "Digite o tipo de refeição (A para almoço, J para jantar): ";
                 cin >> tipoRefeicao;
                 cout << "Digite o usuário do funcionário: ";
                 cin >> usuario_restaurante;
                 cout << "Digite a senha do funcionário: ";
                 cin >> senha_restaurante;
+                GerenciamentoDeSistema::_tipoDeRefeicao = tipoRefeicao;
                 Funcionario* f = sistema.encontrarFuncionario(usuario_restaurante);
                 if (f != nullptr) {
-                    cout << "Funcionário encontrado.\n";
-                    sistema.processarRefeicao(cpf_restaurante, f->getCpf());
-                } else {
-                    cout << "Funcionário não encontrado.\n";
+                    sistema.acessarSistema(usuario_restaurante, senha_restaurante);
                 }
                 break;
             }
@@ -176,8 +173,17 @@ int main() {
                 cin >> valor_credito;
                 cout << "Digite o usuário do funcionário: ";
                 cin >> usuario_credito;
-                cout << "Digite a senha do funcionário: ";
-                cin >> senha_credito;
+                Funcionario* fun = sistema.encontrarFuncionario(usuario_credito);
+                if(sistema.encontrarFuncionario(usuario_credito)->_logado == false){
+                    cout << "Digite a senha do funcionário: ";
+                    cin >> senha_credito;
+                    if (fun != nullptr) {
+                        sistema.acessarSistema(usuario_credito, senha_credito);
+                    }
+
+                }
+                //cout << "Digite a senha do funcionário: ";
+                //cin >> senha_credito;
                 Funcionario* f = sistema.encontrarFuncionario(usuario_credito);
                 if (f != nullptr) {
                     cout << "Funcionário encontrado.\n";
@@ -233,7 +239,23 @@ int main() {
                 }
                 break;
             }
+            case 7: {// Liberar Refeção
+                cout << "Digite seu usuário: ";
+                cin >> usuario_info;
+                Funcionario* f = sistema.encontrarFuncionario(usuario_info);
+                if(sistema.encontrarFuncionario(usuario_info)->_logado == false){
+                    cout << "Digite sua senha: ";
+                    cin >> senha_info;
+                    if (f != nullptr) {
+                        sistema.acessarSistema(usuario_info, senha_info);
+                    }
 
+                }
+                cout << "Digite o CPF do cliente: ";
+                cin >> cpf_info;
+                sistema.processarRefeicao(cpf_info, f->getCpf());
+                break;
+            }
             default:
                 cout << "\n>> Opção inválida. Tente novamente.\n";
                 break;

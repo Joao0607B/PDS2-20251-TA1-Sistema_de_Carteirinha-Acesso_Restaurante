@@ -1,6 +1,8 @@
 <map id="include/Funcionario.hpp" name="include/Funcionario.hpp">
-<area shape="rect" id="node1" title="Definição da classe Funcionario e suas exceções personalizadas." alt="" coords="69,5,245,32"/>
-<area shape="rect" id="node2" href="$Caixa_8hpp.html" title="Definição da classe Caixa, uma especialização da classe Funcionario." alt="" coords="5,80,144,107"/>
-<area shape="rect" id="node4" href="$Funcionario_8cpp.html" title="Implementação dos métodos da classe Funcionario." alt="" coords="168,80,315,107"/>
-<area shape="rect" id="node3" href="$Caixa_8cpp.html" title="Implementação dos métodos da classe Caixa." alt="" coords="20,155,129,181"/>
+<area shape="rect" id="node1" title="Definição da classe Funcionario e suas exceções personalizadas." alt="" coords="231,5,407,32"/>
+<area shape="rect" id="node2" href="$Caixa_8hpp.html" title="Definição da classe Caixa, uma especialização da classe Funcionario." alt="" coords="249,80,388,107"/>
+<area shape="rect" id="node3" href="$GerenciamentoDeSistema_8hpp.html" title="Definição da classe GerenciamentoDeSistema, o núcleo do sistema de restaurante." alt="" coords="5,155,277,181"/>
+<area shape="rect" id="node4" href="$Funcionario_8cpp.html" title="Implementação dos métodos da classe Funcionario." alt="" coords="331,229,477,256"/>
+<area shape="rect" id="node6" href="$Caixa_8cpp.html" title="Implementação dos métodos da classe Caixa." alt="" coords="301,155,411,181"/>
+<area shape="rect" id="node5" href="$GerenciamentoDeSistema_8cpp.html" title="Implementação dos métodos da classe GerenciamentoDeSistema, o núcleo do sistema." alt="" coords="20,229,263,256"/>
 </map>
